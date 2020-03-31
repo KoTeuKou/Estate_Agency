@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\IAward.DAL\\IAward.DAL.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\Entities\\Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\Entities\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\Entities\\Entities.csproj"
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\IAward.DAL\\IAward.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\IAward.DAL\\IAward.DAL.csproj",
+        "projectName": "IAward.DAL",
+        "projectPath": "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\IAward.DAL\\IAward.DAL.csproj",
+        "packagesPath": "C:\\Users\\Koteuko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\IAward.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Koteuko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Koteuko\\RiderProjects\\Epam_Lapushkin\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

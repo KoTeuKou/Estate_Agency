@@ -1,0 +1,9 @@
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\bin\Debug\IAward.BLL.dll
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\bin\Debug\IAward.BLL.pdb
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\obj\Debug\IAward.BLL.csprojAssemblyReference.cache
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\obj\Debug\IAward.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\obj\Debug\IAward.BLL.csproj.CopyComplete
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\obj\Debug\IAward.BLL.dll
+C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAward.BLL\obj\Debug\IAward.BLL.pdb
