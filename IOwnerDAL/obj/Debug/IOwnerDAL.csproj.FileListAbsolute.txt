@@ -1,0 +1,7 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerDAL\bin\Debug\IOwnerDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerDAL\bin\Debug\IOwnerDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerDAL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerDAL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerDAL\obj\Debug\IOwnerDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerDAL\obj\Debug\IOwnerDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerDAL\obj\Debug\IOwnerDAL.csprojResolveAssemblyReference.cache

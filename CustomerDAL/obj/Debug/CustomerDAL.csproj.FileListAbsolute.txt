@@ -1,0 +1,9 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\bin\Debug\CustomerDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\bin\Debug\CustomerDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\bin\Debug\ICustomerDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\bin\Debug\ICustomerDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\obj\Debug\CustomerDAL.csprojResolveAssemblyReference.cache
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\obj\Debug\CustomerDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerDAL\obj\Debug\CustomerDAL.pdb

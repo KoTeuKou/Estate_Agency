@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Koteuko\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Koteuko\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Estate_Agency.373056725.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Koteuko\RiderProjects\Estate_Agency" t="IncludeFlat">
+      <e p="BLL" t="Include" />
+      <e p="CityBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CityBLL.csproj" t="IncludeRecursive" />
+        <e p="CityLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="CityDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CityDAL.csproj" t="IncludeRecursive" />
+        <e p="CityDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="CottageBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CottageBLL.csproj" t="IncludeRecursive" />
+        <e p="CottageLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="CottageDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CottageDAL.csproj" t="IncludeRecursive" />
+        <e p="CottageDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="CustomerBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CustomerBLL.csproj" t="IncludeRecursive" />
+        <e p="CustomerLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="CustomerDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CustomerDAL.csproj" t="IncludeRecursive" />
+        <e p="CustomerDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="DAL" t="Include" />
+      <e p="Entities" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="City.cs" t="Include" />
+        <e p="Content" t="Include">
+          <e p="bootstrap-1.1.0.css" t="Include" />
+          <e p="bootstrap-1.1.0.min.css" t="Include" />
+          <e p="bootstrap-datetimepicker.min.css" t="Include" />
+          <e p="bootstrap-grid.css" t="Include" />
+          <e p="bootstrap-grid.css.map" t="Include" />
+          <e p="bootstrap-grid.min.css" t="Include" />
+          <e p="bootstrap-grid.min.css.map" t="Include" />
+          <e p="bootstrap-reboot.css" t="Include" />
+          <e p="bootstrap-reboot.css.map" t="Include" />
+          <e p="bootstrap-reboot.min.css" t="Include" />
+          <e p="bootstrap-reboot.min.css.map" t="Include" />
+          <e p="bootstrap.css" t="Include" />
+          <e p="bootstrap.css.map" t="Include" />
+          <e p="bootstrap.min.css" t="Include" />
+          <e p="bootstrap.min.css.map" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="bootstrap-hover-dropdown.js" t="Include" />
+            <e p="bootstrap-hover-dropdown.min.js" t="Include" />
+          </e>
+        </e>
+        <e p="Cottage.cs" t="Include" />
+        <e p="Customer.cs" t="Include" />
+        <e p="Entities.csproj" t="IncludeRecursive" />
+        <e p="Flat.cs" t="Include" />
+        <e p="House.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Owner.cs" t="Include" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Realtor.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="bootstrap-datetimepicker.min.js" t="Include" />
+          <e p="bootstrap.bundle.js" t="Include" />
+          <e p="bootstrap.bundle.js.map" t="Include" />
+          <e p="bootstrap.bundle.min.js" t="Include" />
+          <e p="bootstrap.bundle.min.js.map" t="Include" />
+          <e p="bootstrap.js" t="Include" />
+          <e p="bootstrap.js.map" t="Include" />
+          <e p="bootstrap.min.js" t="Include" />
+          <e p="bootstrap.min.js.map" t="Include" />
+          <e p="esm" t="Include">
+            <e p="popper-utils.js" t="Include" />
+            <e p="popper-utils.js.map" t="Include" />
+            <e p="popper-utils.min.js" t="Include" />
+            <e p="popper-utils.min.js.map" t="Include" />
+            <e p="popper.js" t="Include" />
+            <e p="popper.js.map" t="Include" />
+            <e p="popper.min.js" t="Include" />
+            <e p="popper.min.js.map" t="Include" />
+          </e>
+          <e p="index.d.ts" t="Include" />
+          <e p="index.js.flow" t="Include" />
+          <e p="jquery-3.4.1-vsdoc.js" t="Include" />
+          <e p="jquery-3.4.1.js" t="Include" />
+          <e p="jquery-3.4.1.min.js" t="Include" />
+          <e p="jquery-3.4.1.min.map" t="Include" />
+          <e p="jquery-3.4.1.slim.js" t="Include" />
+          <e p="jquery-3.4.1.slim.min.js" t="Include" />
+          <e p="jquery-3.4.1.slim.min.map" t="Include" />
+          <e p="moment-with-locales.js" t="Include" />
+          <e p="moment-with-locales.min.js" t="Include" />
+          <e p="moment.js" t="Include" />
+          <e p="moment.min.js" t="Include" />
+          <e p="popper-utils.js" t="Include" />
+          <e p="popper-utils.js.map" t="Include" />
+          <e p="popper-utils.min.js" t="Include" />
+          <e p="popper-utils.min.js.map" t="Include" />
+          <e p="popper.js" t="Include" />
+          <e p="popper.js.map" t="Include" />
+          <e p="popper.min.js" t="Include" />
+          <e p="popper.min.js.map" t="Include" />
+          <e p="README.md" t="Include" />
+          <e p="src" t="Include">
+            <e p="index.js" t="Include" />
+            <e p="methods" t="Include">
+              <e p="defaults.js" t="Include" />
+              <e p="destroy.js" t="Include" />
+              <e p="disableEventListeners.js" t="Include" />
+              <e p="enableEventListeners.js" t="Include" />
+              <e p="placements.js" t="Include" />
+              <e p="update.js" t="Include" />
+            </e>
+            <e p="modifiers" t="Include">
+              <e p="applyStyle.js" t="Include" />
+              <e p="arrow.js" t="Include" />
+              <e p="computeStyle.js" t="Include" />
+              <e p="flip.js" t="Include" />
+              <e p="hide.js" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="inner.js" t="Include" />
+              <e p="keepTogether.js" t="Include" />
+              <e p="offset.js" t="Include" />
+              <e p="preventOverflow.js" t="Include" />
+              <e p="shift.js" t="Include" />
+            </e>
+            <e p="utils" t="Include">
+              <e p="clockwise.js" t="Include" />
+              <e p="computeAutoPlacement.js" t="Include" />
+              <e p="debounce.js" t="Include" />
+              <e p="find.js" t="Include" />
+              <e p="findCommonOffsetParent.js" t="Include" />
+              <e p="findIndex.js" t="Include" />
+              <e p="getBordersSize.js" t="Include" />
+              <e p="getBoundaries.js" t="Include" />
+              <e p="getBoundingClientRect.js" t="Include" />
+              <e p="getClientRect.js" t="Include" />
+              <e p="getFixedPositionOffsetParent.js" t="Include" />
+              <e p="getOffsetParent.js" t="Include" />
+              <e p="getOffsetRect.js" t="Include" />
+              <e p="getOffsetRectRelativeToArbitraryNode.js" t="Include" />
+              <e p="getOppositePlacement.js" t="Include" />
+              <e p="getOppositeVariation.js" t="Include" />
+              <e p="getOuterSizes.js" t="Include" />
+              <e p="getParentNode.js" t="Include" />
+              <e p="getPopperOffsets.js" t="Include" />
+              <e p="getReferenceNode.js" t="Include" />
+              <e p="getReferenceOffsets.js" t="Include" />
+              <e p="getRoot.js" t="Include" />
+              <e p="getRoundedOffsets.js" t="Include" />
+              <e p="getScroll.js" t="Include" />
+              <e p="getScrollParent.js" t="Include" />
+              <e p="getStyleComputedProperty.js" t="Include" />
+              <e p="getSupportedPropertyName.js" t="Include" />
+              <e p="getViewportOffsetRectRelativeToArtbitraryNode.js" t="Include" />
+              <e p="getWindow.js" t="Include" />
+              <e p="getWindowSizes.js" t="Include" />
+              <e p="includeScroll.js" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="isBrowser.js" t="Include" />
+              <e p="isFixed.js" t="Include" />
+              <e p="isFunction.js" t="Include" />
+              <e p="isIE.js" t="Include" />
+              <e p="isModifierEnabled.js" t="Include" />
+              <e p="isModifierRequired.js" t="Include" />
+              <e p="isNumeric.js" t="Include" />
+              <e p="isOffsetContainer.js" t="Include" />
+              <e p="removeEventListeners.js" t="Include" />
+              <e p="runModifiers.js" t="Include" />
+              <e p="setAttributes.js" t="Include" />
+              <e p="setStyles.js" t="Include" />
+              <e p="setupEventListeners.js" t="Include" />
+            </e>
+          </e>
+          <e p="umd" t="Include">
+            <e p="popper-utils.js" t="Include" />
+            <e p="popper-utils.js.map" t="Include" />
+            <e p="popper-utils.min.js" t="Include" />
+            <e p="popper-utils.min.js.map" t="Include" />
+            <e p="popper.js" t="Include" />
+            <e p="popper.js.flow" t="Include" />
+            <e p="popper.js.map" t="Include" />
+            <e p="popper.min.js" t="Include" />
+            <e p="popper.min.js.map" t="Include" />
+          </e>
+        </e>
+        <e p="Street.cs" t="Include" />
+      </e>
+      <e p="Estate_Agency.sln" t="IncludeFlat" />
+      <e p="FlatBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="FlatBLL.csproj" t="IncludeRecursive" />
+        <e p="FlatLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="FlatDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="FlatDAL.csproj" t="IncludeRecursive" />
+        <e p="FlatDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="HouseBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="HouseBLL.csproj" t="IncludeRecursive" />
+        <e p="HouseLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="HouseDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="HouseDAL.csproj" t="IncludeRecursive" />
+        <e p="HouseDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ICityBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ICityBLL.csproj" t="IncludeRecursive" />
+        <e p="ICityLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ICityDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ICityDAL.csproj" t="IncludeRecursive" />
+        <e p="ICityDAO.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ICottageBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ICottageBLL.csproj" t="IncludeRecursive" />
+        <e p="ICottageLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ICottageDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ICottageDAL.csproj" t="IncludeRecursive" />
+        <e p="ICottageDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ICustomerBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ICustomerBLL.csproj" t="IncludeRecursive" />
+        <e p="ICustomerLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ICustomerDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ICustomerDAL.csproj" t="IncludeRecursive" />
+        <e p="ICustomerDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IFlat.BLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IFlat.BLL.csproj" t="IncludeRecursive" />
+        <e p="IFlatLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IFlatDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IFlatDAL.csproj" t="IncludeRecursive" />
+        <e p="IFlatDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IHouseBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IHouseBLL.csproj" t="IncludeRecursive" />
+        <e p="IHouseLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IHouseDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IHouseDAL.csproj" t="IncludeRecursive" />
+        <e p="IHouseDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IOwnerBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IOwnerBLL.csproj" t="IncludeRecursive" />
+        <e p="IOwnerLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IOwnerDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IOwnerDAL.csproj" t="IncludeRecursive" />
+        <e p="IOwnerDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IRealtorBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IRealtorBLL.csproj" t="IncludeRecursive" />
+        <e p="IRealtorLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IRealtorDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IRealtorDAL.csproj" t="IncludeRecursive" />
+        <e p="IRealtorDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IStreetBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IStreetBLL.csproj" t="IncludeRecursive" />
+        <e p="IStreetLogic.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="IStreetDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IStreetDAL.csproj" t="IncludeRecursive" />
+        <e p="IStreetDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="OwnerBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="OwnerBLL.csproj" t="IncludeRecursive" />
+        <e p="OwnerLogic.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="OwnerDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="OwnerDAL.csproj" t="IncludeRecursive" />
+        <e p="OwnerDao.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="PL" t="Include" />
+      <e p="RealtorBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="RealtorBLL.csproj" t="IncludeRecursive" />
+        <e p="RealtorLogic.cs" t="Include" />
+      </e>
+      <e p="RealtorDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="RealtorDAL.csproj" t="IncludeRecursive" />
+        <e p="RealtorDao.cs" t="Include" />
+      </e>
+      <e p="StreetBLL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="StreetBLL.csproj" t="IncludeRecursive" />
+        <e p="StreetLogic.cs" t="Include" />
+      </e>
+      <e p="StreetDAL" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="StreetDAL.csproj" t="IncludeRecursive" />
+        <e p="StreetDao.cs" t="Include" />
+      </e>
+      <e p="WebApp" t="IncludeRecursive">
+        <e p="App_Data" t="Include" />
+        <e p="App_Start" t="Include">
+          <e p="BundleConfig.cs" t="Include" />
+          <e p="FilterConfig.cs" t="Include" />
+          <e p="RouteConfig.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Content" t="Include">
+          <e p="bootstrap-1.1.0.css" t="Include" />
+          <e p="bootstrap-1.1.0.min.css" t="Include" />
+          <e p="bootstrap-datetimepicker.min.css" t="Include" />
+          <e p="bootstrap-dialog.css" t="Include" />
+          <e p="bootstrap-dialog.less" t="Include" />
+          <e p="bootstrap-grid.css" t="Include" />
+          <e p="bootstrap-grid.css.map" t="Include" />
+          <e p="bootstrap-grid.min.css" t="Include" />
+          <e p="bootstrap-grid.min.css.map" t="Include" />
+          <e p="bootstrap-reboot.css" t="Include" />
+          <e p="bootstrap-reboot.css.map" t="Include" />
+          <e p="bootstrap-reboot.min.css" t="Include" />
+          <e p="bootstrap-reboot.min.css.map" t="Include" />
+          <e p="bootstrap.css" t="Include" />
+          <e p="bootstrap.css.map" t="Include" />
+          <e p="bootstrap.min.css" t="Include" />
+          <e p="bootstrap.min.css.map" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="bootstrap-hover-dropdown.js" t="Include" />
+            <e p="bootstrap-hover-dropdown.min.js" t="Include" />
+          </e>
+          <e p="Site.css" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="CottageController.cs" t="Include" />
+          <e p="CustomerController.cs" t="Include" />
+          <e p="FlatController.cs" t="Include" />
+          <e p="HomeController.cs" t="Include" />
+          <e p="RealtorController.cs" t="Include" />
+        </e>
+        <e p="css" t="Include">
+          <e p="bootstrap-slider.min.css" t="Include" />
+        </e>
+        <e p="favicon.ico" t="Include" />
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="Models" t="Include">
+          <e p="CottageModel.cs" t="Include" />
+          <e p="CustomerModelcs.cs" t="Include" />
+          <e p="FlatModel.cs" t="Include" />
+          <e p="RealtorModel.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="bootstrap-datetimepicker.min.js" t="Include" />
+          <e p="bootstrap-dialog.js" t="Include" />
+          <e p="bootstrap-slider.min.js" t="Include" />
+          <e p="bootstrap.bundle.js" t="Include" />
+          <e p="bootstrap.bundle.js.map" t="Include" />
+          <e p="bootstrap.bundle.min.js" t="Include" />
+          <e p="bootstrap.bundle.min.js.map" t="Include" />
+          <e p="bootstrap.js" t="Include" />
+          <e p="bootstrap.js.map" t="Include" />
+          <e p="bootstrap.min.js" t="Include" />
+          <e p="bootstrap.min.js.map" t="Include" />
+          <e p="esm" t="Include">
+            <e p="popper-utils.js" t="Include" />
+            <e p="popper-utils.js.map" t="Include" />
+            <e p="popper-utils.min.js" t="Include" />
+            <e p="popper-utils.min.js.map" t="Include" />
+            <e p="popper.js" t="Include" />
+            <e p="popper.js.map" t="Include" />
+            <e p="popper.min.js" t="Include" />
+            <e p="popper.min.js.map" t="Include" />
+          </e>
+          <e p="index.d.ts" t="Include" />
+          <e p="index.js.flow" t="Include" />
+          <e p="jquery-3.3.1.intellisense.js" t="Include" />
+          <e p="jquery-3.3.1.js" t="Include" />
+          <e p="jquery-3.3.1.min.js" t="Include" />
+          <e p="jquery-3.3.1.min.map" t="Include" />
+          <e p="jquery-3.3.1.slim.js" t="Include" />
+          <e p="jquery-3.3.1.slim.min.js" t="Include" />
+          <e p="jquery-3.3.1.slim.min.map" t="Include" />
+          <e p="jquery.validate-vsdoc.js" t="Include" />
+          <e p="jquery.validate.js" t="Include" />
+          <e p="jquery.validate.min.js" t="Include" />
+          <e p="jquery.validate.unobtrusive.js" t="Include" />
+          <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+          <e p="modernizr-2.8.3.js" t="Include" />
+          <e p="moment-with-locales.js" t="Include" />
+          <e p="moment-with-locales.min.js" t="Include" />
+          <e p="moment.js" t="Include" />
+          <e p="moment.min.js" t="Include" />
+          <e p="popper-utils.js" t="Include" />
+          <e p="popper-utils.js.map" t="Include" />
+          <e p="popper-utils.min.js" t="Include" />
+          <e p="popper-utils.min.js.map" t="Include" />
+          <e p="popper.js" t="Include" />
+          <e p="popper.js.map" t="Include" />
+          <e p="popper.min.js" t="Include" />
+          <e p="popper.min.js.map" t="Include" />
+          <e p="README.md" t="Include" />
+          <e p="src" t="Include">
+            <e p="index.js" t="Include" />
+            <e p="methods" t="Include">
+              <e p="defaults.js" t="Include" />
+              <e p="destroy.js" t="Include" />
+              <e p="disableEventListeners.js" t="Include" />
+              <e p="enableEventListeners.js" t="Include" />
+              <e p="placements.js" t="Include" />
+              <e p="update.js" t="Include" />
+            </e>
+            <e p="modifiers" t="Include">
+              <e p="applyStyle.js" t="Include" />
+              <e p="arrow.js" t="Include" />
+              <e p="computeStyle.js" t="Include" />
+              <e p="flip.js" t="Include" />
+              <e p="hide.js" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="inner.js" t="Include" />
+              <e p="keepTogether.js" t="Include" />
+              <e p="offset.js" t="Include" />
+              <e p="preventOverflow.js" t="Include" />
+              <e p="shift.js" t="Include" />
+            </e>
+            <e p="utils" t="Include">
+              <e p="clockwise.js" t="Include" />
+              <e p="computeAutoPlacement.js" t="Include" />
+              <e p="debounce.js" t="Include" />
+              <e p="find.js" t="Include" />
+              <e p="findCommonOffsetParent.js" t="Include" />
+              <e p="findIndex.js" t="Include" />
+              <e p="getBordersSize.js" t="Include" />
+              <e p="getBoundaries.js" t="Include" />
+              <e p="getBoundingClientRect.js" t="Include" />
+              <e p="getClientRect.js" t="Include" />
+              <e p="getFixedPositionOffsetParent.js" t="Include" />
+              <e p="getOffsetParent.js" t="Include" />
+              <e p="getOffsetRect.js" t="Include" />
+              <e p="getOffsetRectRelativeToArbitraryNode.js" t="Include" />
+              <e p="getOppositePlacement.js" t="Include" />
+              <e p="getOppositeVariation.js" t="Include" />
+              <e p="getOuterSizes.js" t="Include" />
+              <e p="getParentNode.js" t="Include" />
+              <e p="getPopperOffsets.js" t="Include" />
+              <e p="getReferenceNode.js" t="Include" />
+              <e p="getReferenceOffsets.js" t="Include" />
+              <e p="getRoot.js" t="Include" />
+              <e p="getRoundedOffsets.js" t="Include" />
+              <e p="getScroll.js" t="Include" />
+              <e p="getScrollParent.js" t="Include" />
+              <e p="getStyleComputedProperty.js" t="Include" />
+              <e p="getSupportedPropertyName.js" t="Include" />
+              <e p="getViewportOffsetRectRelativeToArtbitraryNode.js" t="Include" />
+              <e p="getWindow.js" t="Include" />
+              <e p="getWindowSizes.js" t="Include" />
+              <e p="includeScroll.js" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="isBrowser.js" t="Include" />
+              <e p="isFixed.js" t="Include" />
+              <e p="isFunction.js" t="Include" />
+              <e p="isIE.js" t="Include" />
+              <e p="isModifierEnabled.js" t="Include" />
+              <e p="isModifierRequired.js" t="Include" />
+              <e p="isNumeric.js" t="Include" />
+              <e p="isOffsetContainer.js" t="Include" />
+              <e p="removeEventListeners.js" t="Include" />
+              <e p="runModifiers.js" t="Include" />
+              <e p="setAttributes.js" t="Include" />
+              <e p="setStyles.js" t="Include" />
+              <e p="setupEventListeners.js" t="Include" />
+            </e>
+          </e>
+          <e p="umd" t="Include">
+            <e p="popper-utils.js" t="Include" />
+            <e p="popper-utils.js.map" t="Include" />
+            <e p="popper-utils.min.js" t="Include" />
+            <e p="popper-utils.min.js.map" t="Include" />
+            <e p="popper.js" t="Include" />
+            <e p="popper.js.flow" t="Include" />
+            <e p="popper.js.map" t="Include" />
+            <e p="popper.min.js" t="Include" />
+            <e p="popper.min.js.map" t="Include" />
+          </e>
+        </e>
+        <e p="Views" t="Include">
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="AdministratorPanel" t="Include">
+            <e p="AdministratorPanel.cshtml" t="Include" />
+          </e>
+          <e p="Cottage" t="Include">
+            <e p="Cottages.cshtml" t="Include" />
+          </e>
+          <e p="Customer" t="Include">
+            <e p="RegistrationForm.cshtml" t="Include" />
+          </e>
+          <e p="Flat" t="Include">
+            <e p="Flats.cshtml" t="Include" />
+          </e>
+          <e p="Home" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Realtor" t="Include">
+            <e p="Realtors.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+          </e>
+          <e p="Web.config" t="Include" />
+        </e>
+        <e p="Web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
+        <e p="WebApp.csproj" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

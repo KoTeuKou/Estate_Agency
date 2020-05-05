@@ -1,0 +1,293 @@
+﻿@using Entities
+@using WebApp.Models
+@model FlatModel
+
+
+<div class="bg-info clearfix">
+    <h1 class="h1 bottom-left">Квартиры</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    Добавление квартиры
+                </button>
+                <div class="collapse" id="collapse1">
+                    <div class="card card-body">
+                        <form class="menu" action="/Flat/Add" method="post">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="flatNumber">Номер квартиры</label>
+                                    <input required type="number" class="form-control" id="flatNumber" name="flatNumber" placeholder="Введите номер квартиры" min="1" max="10000">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="floorNumber">Номер этажа</label>
+                                    <input required type="number" class="form-control" id="floorNumber" name="floorNumber" placeholder="Введите номер этажа" min="1" max="100">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="squareOfFlat">Площадь</label>
+                                    <input required type="number" class="form-control" id="squareOfFlat" name="squareOfFlat" placeholder="Введите площадь" min="1" max="10000" step="any">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="numOfRooms">Количество комнат</label>
+                                    <input required type="number" class="form-control" id="numOfRooms" name="numOfRooms" placeholder="Введите количество комнат" min="1" max="50">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="price">Цена</label>
+                                    <input required type="number" class="form-control" id="price" name="price" placeholder="Введите цену" min="100000" max="999999999999" step="1000">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="owner">Владелец</label>
+                                    <select class="form-control" id="owner" name="owner">
+                                        @foreach (var owner in (IEnumerable<Owner>) @ViewData["Owners"])
+                                        {
+                                            <option selected>@owner.OwnerName</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="idHouse">Id дома</label>
+                                    <select class="form-control" id="idHouse" name="idHouse">
+                                        @foreach (var house in (IEnumerable<House>) @ViewData["Houses"])
+                                        {
+                                            <option selected>@house.IdHouse</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Добавить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form action="/Flat/GetFlatsByFilters" method="post">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">
+                <h3>Номер этажа</h3>
+                <div class="form-group row width-class" >
+                    <label for="flNumMin" class="col-2 col-form-label">Минимальный</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" value="" id="flNumMin" name="flNumMin" min="1" max="10000">
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label for="flNumMax" class="col-2 col-form-label">Максимальный</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" value="" id="flNumMax" name="flNumMax" min="1" max="10000">
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <h3>Площадь</h3>
+                <div class="form-group row width-class">
+                    <label for="sqMin" class="col-2 col-form-label">Минимальная</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" value="" id="sqMin" name="sqMin" min="1" max="1000" step="any">
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label for="sqMax" class="col-2 col-form-label">Максимальная</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" value="" id="sqMax" name="sqMax" min="1" max="1000" step="any">
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <h3>Кол-во комнат</h3>
+                <div class="form-group row width-class">
+                    <label for="numOfRmsMin" class="col-2 col-form-label">Минимальное</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" value="" id="numOfRmsMin" name="numOfRmsMin" min="1" max="50">
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label for="numOfRmsMax" class="col-2 col-form-label">Максимальное</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" value="" id="numOfRmsMax" name="numOfRmsMax" min="1" max="50">
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <h3>Цена</h3>
+                <div class="form-group row width-class">
+                    <label for="priceMin" class="col-2 col-form-label">Минимальная</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" value="" id="priceMin" name="priceMin" min="100000" max="99999999999" step="1000">
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label for="priceMax" class="col-2 col-form-label">Максимальная</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" value="" id="priceMax" name="priceMax" min="100000" max="99999999" step="1000">
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <h3>Адрес</h3>
+                <div class="form-group row width-class">
+                    <label for="citySelection" class="col-2 col-form-label">Город</label>
+                    <select class="form-control" id="citySelection" name="citySelection" onchange = "this.form.streetSelection.style.visibility = this.selectedIndex ? 'visible' : 'hidden'">
+                        <option selected></option>
+                        @foreach (var city in (IEnumerable<City>) @ViewData["Cities"])
+                        {
+                            <option>@city.CityName</option>
+                        }
+                        
+                    </select>
+                    <div style="padding-top: 5px">
+                    <label for="streetSelection" class="col-2 col-form-label">Улица</label>
+                        <select id="streetSelection" name="streetSelection" style="visibility: hidden" onchange = "this.form.houseNumSelection.style.visibility = this.selectedIndex ? 'visible' : 'hidden'">
+                            <option selected></option>
+                            @foreach (var street in (IEnumerable<Street>) @ViewData["Streets"])
+                            {
+                                if (street.IdCity == 1)
+                                {
+                                    <option>@street.StreetName</option>
+                                }
+                            }
+                        </select>
+                        </div>
+                    <div style="padding-top: 5px">
+                    <label for="houseNumSelection" class="col-2 col-form-label">№ дома</label>
+                        <select id="houseNumSelection" name="houseNumSelection" style="visibility: hidden">
+                            <option selected></option>
+                            @foreach (var house in (IEnumerable<House>) @ViewData["Houses"])
+                            {
+                                if (house.IdStreet == 5)
+                                {
+                                    <option>@house.HouseNum</option>
+                                }
+                            }
+                        </select>
+                        </div>
+                </div>
+            </th>
+        </tr>
+        <tr> <h2>Поиск по фильтрам</h2></tr>
+        </thead>
+    </table>
+    <div align="center" style="margin: 10px;padding: 10px"><button type="submit" class="btn btn-primary btn">Искать🔎</button></div>
+</form>
+<form action="/Flat/Reload" method="post">
+    <div align="center" style="margin: 10px;padding: 10px"><button type="submit" class="btn btn-primary btn">Сбросить фильтры</button></div>
+</form>
+<table class="table">
+    <tbody>
+    <thead>
+    <tr>
+        <th scope="col">
+            <div>
+                <form action="/Flat/SortByFlatNumber" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm">№ квартиры</button>
+                </form>
+            </div>
+        </th>
+        <th scope="col">
+            <div>
+                <form action="/Flat/SortByFloorNumber" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm">№ этажа</button>
+                </form>
+            </div>
+        </th>
+        <th scope="col">
+            <div>
+                <form action="/Flat/SortBySquare" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm">Площадь</button>
+                </form>
+            </div>
+        </th>
+        <th scope="col">
+            <div>
+                <form action="/Flat/SortByNumOfRooms" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm">Кол-во комнат</button>
+                </form>
+            </div>
+        </th>
+        <th scope="col">
+            <div>
+                <form action="/Flat/SortByPrice" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm">Цена</button>
+                </form>
+            </div>
+        </th>
+        <th scope="col">
+            № дома
+        </th>
+        <th scope="col">
+            Улица
+        </th>
+        <th scope="col">
+            Город
+        </th>
+        <th scope="col">
+            Actions
+        </th>
+    </tr>
+    </thead>
+   
+    @foreach (var flat in (IEnumerable<Flat>) @ViewData["Flats"])
+    {
+        <tr>
+            <td>@flat.FlatNumber</td>
+            <td>@flat.FloorNumber</td>
+            <td>@flat.SquareOfFlat кв.м.</td>
+            <td>@flat.NumOfRooms</td>
+            <td>@flat.Price руб.</td>
+            <td>@flat.House</td>
+            <td>@flat.Street</td>
+            <td>@flat.City</td>
+            <td>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_@flat.IdFlat" aria-expanded="false" aria-controls="collapse_@flat.IdFlat">
+                            Рассмотреть договор
+                        </button>
+                        <div class="collapse" id="collapse_@flat.IdFlat">
+                            <div class="card card-body">
+                                <form action="/Flat/MakeContract" method="post">
+                                    <input type="hidden" id="id_building" name="id_building" value="@flat.IdFlat">
+                                    <label for="realtor">Выбор риэлтора</label>
+                                    <div class="form-row">
+                                        <select id="realtorName" name="realtorName">
+                                            @foreach (var realtor in (IEnumerable<Realtor>) @ViewData["Realtors"])
+                                            {
+                                                <option selected>@realtor.RealtorName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-row">
+                                        <label for="saleOrRent">Тип договора</label>
+                                        <select id="saleOrRent" name="saleOrRent">
+                                            <option>Покупка</option>
+                                            <option>Аренда</option>
+                                        </select>
+                                    </div>
+                                    <input type="hidden" id="id_customer" name="id_customer" value="1">
+                                    <div style="padding-top: 5px">
+                                        <button class="btn btn-danger" type="submit">Заключить</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<style>
+.width-class{
+width: 150px;
+}
+</style>

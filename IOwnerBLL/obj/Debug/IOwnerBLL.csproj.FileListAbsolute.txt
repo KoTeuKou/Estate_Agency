@@ -1,0 +1,7 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerBLL\bin\Debug\IOwnerBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerBLL\bin\Debug\IOwnerBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerBLL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerBLL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerBLL\obj\Debug\IOwnerBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerBLL\obj\Debug\IOwnerBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IOwnerBLL\obj\Debug\IOwnerBLL.csprojResolveAssemblyReference.cache

@@ -1,0 +1,7 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IStreetBLL\bin\Debug\IStreetBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IStreetBLL\bin\Debug\IStreetBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IStreetBLL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IStreetBLL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IStreetBLL\obj\Debug\IStreetBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IStreetBLL\obj\Debug\IStreetBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\IStreetBLL\obj\Debug\IStreetBLL.csprojResolveAssemblyReference.cache

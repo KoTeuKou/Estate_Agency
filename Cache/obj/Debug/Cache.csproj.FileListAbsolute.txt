@@ -1,9 +1,0 @@
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\bin\Debug\Cache.dll
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\bin\Debug\Cache.pdb
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\bin\Debug\Entities.dll
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\bin\Debug\Entities.pdb
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\obj\Debug\Cache.csprojAssemblyReference.cache
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\obj\Debug\Cache.csproj.CoreCompileInputs.cache
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\obj\Debug\Cache.csproj.CopyComplete
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\obj\Debug\Cache.dll
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\Cache\obj\Debug\Cache.pdb

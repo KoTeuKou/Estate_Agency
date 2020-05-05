@@ -1,0 +1,9 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\bin\Debug\StreetDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\bin\Debug\StreetDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\bin\Debug\IStreetDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\bin\Debug\IStreetDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\obj\Debug\StreetDAL.csprojResolveAssemblyReference.cache
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\obj\Debug\StreetDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetDAL\obj\Debug\StreetDAL.pdb

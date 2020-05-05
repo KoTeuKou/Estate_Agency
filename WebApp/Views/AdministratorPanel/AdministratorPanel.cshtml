@@ -1,0 +1,61 @@
+﻿@using Entities
+@using WebApp.Models
+@model RealtorModel
+
+
+<div class="bg-info clearfix">
+    <h1 class="h1 bottom-left">Риэлторы</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    Добавление риэлтора
+                </button>
+                <div class="collapse" id="collapse1">
+                    <div class="card card-body">
+                        <form class="menu" action="/Realtor/Add" method="post">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="realtorName">Имя риэлтора</label>
+                                    <input required type="text" class="form-control" id="realtorName" name="realtorName" placeholder="Введите имя риэлтора">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Добавить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tbody>
+    <thead>
+    <tr>
+        <th scope="col">
+            <div>
+                <form action="/Realtor/SortByRealtorName" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm">Имя риэлтора</button>
+                </form>
+            </div>
+        </th>
+        <th scope="col">
+            <div>
+                <form action="/Realtor/SortByExperience" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm">Количество проведенных сделок</button>
+                </form>
+            </div>
+        </th>
+    </tr>
+    </thead>
+   
+    @foreach (var realtor in (IEnumerable<Realtor>) @ViewData["Realtors"])
+    {
+        <tr>
+            <td>@realtor.RealtorName</td>
+            <td>@realtor.NumOfContracts</td>
+        </tr>
+    }
+    </tbody>
+</table>

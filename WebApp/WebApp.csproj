@@ -162,20 +162,26 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AwardController.cs" />
+    <Compile Include="Controllers\CottageController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\FlatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\RealtorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AwardModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\CottageModel.cs" />
+    <Compile Include="Models\CustomerModelcs.cs" />
+    <Compile Include="Models\FlatModel.cs" />
+    <Compile Include="Models\RealtorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-1.1.0.css" />
     <Content Include="Content\bootstrap-1.1.0.min.css" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="content\bootstrap-dialog.css" />
+    <Content Include="content\bootstrap-dialog.less" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -184,10 +190,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Scripts\bootstrap-hover-dropdown.js" />
     <Content Include="Content\Scripts\bootstrap-hover-dropdown.min.js" />
+    <Content Include="css\bootstrap-slider.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="scripts\bootstrap-dialog.js" />
+    <Content Include="scripts\bootstrap-slider.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -298,8 +307,11 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Views\Award\Awards.cshtml" />
-    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\AdministratorPanel\AdministratorPanel.cshtml" />
+    <Content Include="Views\Cottage\Cottages.cshtml" />
+    <Content Include="Views\Flat\Flats.cshtml" />
+    <Content Include="Views\Realtor\Realtors.cshtml" />
+    <Content Include="Views\Customer\RegistrationForm.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -333,25 +345,41 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AwardBLL\AwardBLL.csproj">
-      <Project>{bada6914-e769-468e-8c44-93445060d0a7}</Project>
-      <Name>AwardBLL</Name>
+    <ProjectReference Include="..\CityBLL\CityBLL.csproj">
+      <Project>{9a622130-f485-4957-8fa8-30b76341b458}</Project>
+      <Name>CityBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CottageBLL\CottageBLL.csproj">
+      <Project>{8f7ddf81-8949-43e6-8d8d-2d6646b3b7b6}</Project>
+      <Name>CottageBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomerBLL\CustomerBLL.csproj">
+      <Project>{3409daa8-dfa4-4e9a-8e95-67e15eba3617}</Project>
+      <Name>CustomerBLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{50049B72-AEB0-413B-9383-D251EB7CD916}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IUser.BLL\IUser.BLL.csproj">
-      <Project>{4F2A0204-F852-4531-893A-326034613076}</Project>
-      <Name>IUser.BLL</Name>
+    <ProjectReference Include="..\FlatBLL\FlatBLL.csproj">
+      <Project>{bada6914-e769-468e-8c44-93445060d0a7}</Project>
+      <Name>FlatBLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UserBLL\UserBLL.csproj">
-      <Project>{074FAB3B-1A29-42BA-9FEF-765F6D54DD53}</Project>
-      <Name>UserBLL</Name>
+    <ProjectReference Include="..\HouseBLL\HouseBLL.csproj">
+      <Project>{2c805545-aab1-49b2-ae53-71e2556d834e}</Project>
+      <Name>HouseBLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UserDLL\UserDAL.csproj">
-      <Project>{98811F0C-61C2-4624-B1FD-13042C235116}</Project>
-      <Name>UserDAL</Name>
+    <ProjectReference Include="..\OwnerBLL\OwnerBLL.csproj">
+      <Project>{30a5c83a-0f77-46b6-929f-d1fa3f70a6c7}</Project>
+      <Name>OwnerBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealtorBLL\RealtorBLL.csproj">
+      <Project>{49159399-b5c1-42bd-b994-27294abb4483}</Project>
+      <Name>RealtorBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StreetBLL\StreetBLL.csproj">
+      <Project>{6ed76420-25ec-44e8-9af0-c0b72573b9e7}</Project>
+      <Name>StreetBLL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

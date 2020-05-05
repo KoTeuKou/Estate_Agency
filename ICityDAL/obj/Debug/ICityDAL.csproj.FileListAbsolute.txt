@@ -1,0 +1,7 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\ICityDAL\bin\Debug\ICityDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\ICityDAL\bin\Debug\ICityDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\ICityDAL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\ICityDAL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\ICityDAL\obj\Debug\ICityDAL.csprojResolveAssemblyReference.cache
+C:\Users\Koteuko\RiderProjects\Estate_Agency\ICityDAL\obj\Debug\ICityDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\ICityDAL\obj\Debug\ICityDAL.pdb

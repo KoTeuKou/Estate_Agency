@@ -1,0 +1,13 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\StreetBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\StreetBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\IStreetBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\IStreetDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\StreetDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\IStreetBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\IStreetDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\bin\Debug\StreetDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\obj\Debug\StreetBLL.csprojResolveAssemblyReference.cache
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\obj\Debug\StreetBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\StreetBLL\obj\Debug\StreetBLL.pdb

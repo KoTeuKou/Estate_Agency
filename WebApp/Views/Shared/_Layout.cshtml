@@ -19,15 +19,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("HomePage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Главная", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Users", "List", "User")</li>
+                <li>@Html.ActionLink("Квартиры", "Flats", "Flat")</li>
             </ul>
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Awards", "Awards", "Award")</li>
+                <li>@Html.ActionLink("Коттеджы", "Cottages", "Cottage")</li>
             </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Риэлторы", "Realtors", "Realtor")</li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Для администратора", "Flats", "Flat")</li>
+            </ul>
+            
         </div>
     </div>
 </div>

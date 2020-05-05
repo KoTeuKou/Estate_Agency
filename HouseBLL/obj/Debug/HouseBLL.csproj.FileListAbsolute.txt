@@ -1,0 +1,13 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\HouseBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\HouseBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\HouseDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\IHouseBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\IHouseDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\HouseDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\IHouseBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\bin\Debug\IHouseDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\obj\Debug\HouseBLL.csprojResolveAssemblyReference.cache
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\obj\Debug\HouseBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\HouseBLL\obj\Debug\HouseBLL.pdb

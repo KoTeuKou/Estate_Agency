@@ -1,0 +1,13 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\CustomerBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\CustomerBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\CustomerDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\ICustomerBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\ICustomerDAL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\CustomerDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\ICustomerBLL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\bin\Debug\ICustomerDAL.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\obj\Debug\CustomerBLL.csprojResolveAssemblyReference.cache
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\obj\Debug\CustomerBLL.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\CustomerBLL\obj\Debug\CustomerBLL.pdb

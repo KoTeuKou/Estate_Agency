@@ -45,9 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Award.cs" />
+    <Compile Include="Cottage.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="House.cs" />
+    <Compile Include="Owner.cs" />
+    <Compile Include="Realtor.cs" />
+    <Compile Include="Street.cs" />
+    <Compile Include="City.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Flat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap-grid.css.map" />
