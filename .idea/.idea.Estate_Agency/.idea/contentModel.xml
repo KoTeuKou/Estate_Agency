@@ -63,27 +63,7 @@
       <e p="Entities" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="City.cs" t="Include" />
-        <e p="Content" t="Include">
-          <e p="bootstrap-1.1.0.css" t="Include" />
-          <e p="bootstrap-1.1.0.min.css" t="Include" />
-          <e p="bootstrap-datetimepicker.min.css" t="Include" />
-          <e p="bootstrap-grid.css" t="Include" />
-          <e p="bootstrap-grid.css.map" t="Include" />
-          <e p="bootstrap-grid.min.css" t="Include" />
-          <e p="bootstrap-grid.min.css.map" t="Include" />
-          <e p="bootstrap-reboot.css" t="Include" />
-          <e p="bootstrap-reboot.css.map" t="Include" />
-          <e p="bootstrap-reboot.min.css" t="Include" />
-          <e p="bootstrap-reboot.min.css.map" t="Include" />
-          <e p="bootstrap.css" t="Include" />
-          <e p="bootstrap.css.map" t="Include" />
-          <e p="bootstrap.min.css" t="Include" />
-          <e p="bootstrap.min.css.map" t="Include" />
-          <e p="Scripts" t="Include">
-            <e p="bootstrap-hover-dropdown.js" t="Include" />
-            <e p="bootstrap-hover-dropdown.min.js" t="Include" />
-          </e>
-        </e>
+        <e p="Content" t="Include" />
         <e p="Cottage.cs" t="Include" />
         <e p="Customer.cs" t="Include" />
         <e p="Entities.csproj" t="IncludeRecursive" />
@@ -96,131 +76,6 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="Realtor.cs" t="Include" />
-        <e p="Scripts" t="Include">
-          <e p="bootstrap-datetimepicker.min.js" t="Include" />
-          <e p="bootstrap.bundle.js" t="Include" />
-          <e p="bootstrap.bundle.js.map" t="Include" />
-          <e p="bootstrap.bundle.min.js" t="Include" />
-          <e p="bootstrap.bundle.min.js.map" t="Include" />
-          <e p="bootstrap.js" t="Include" />
-          <e p="bootstrap.js.map" t="Include" />
-          <e p="bootstrap.min.js" t="Include" />
-          <e p="bootstrap.min.js.map" t="Include" />
-          <e p="esm" t="Include">
-            <e p="popper-utils.js" t="Include" />
-            <e p="popper-utils.js.map" t="Include" />
-            <e p="popper-utils.min.js" t="Include" />
-            <e p="popper-utils.min.js.map" t="Include" />
-            <e p="popper.js" t="Include" />
-            <e p="popper.js.map" t="Include" />
-            <e p="popper.min.js" t="Include" />
-            <e p="popper.min.js.map" t="Include" />
-          </e>
-          <e p="index.d.ts" t="Include" />
-          <e p="index.js.flow" t="Include" />
-          <e p="jquery-3.4.1-vsdoc.js" t="Include" />
-          <e p="jquery-3.4.1.js" t="Include" />
-          <e p="jquery-3.4.1.min.js" t="Include" />
-          <e p="jquery-3.4.1.min.map" t="Include" />
-          <e p="jquery-3.4.1.slim.js" t="Include" />
-          <e p="jquery-3.4.1.slim.min.js" t="Include" />
-          <e p="jquery-3.4.1.slim.min.map" t="Include" />
-          <e p="moment-with-locales.js" t="Include" />
-          <e p="moment-with-locales.min.js" t="Include" />
-          <e p="moment.js" t="Include" />
-          <e p="moment.min.js" t="Include" />
-          <e p="popper-utils.js" t="Include" />
-          <e p="popper-utils.js.map" t="Include" />
-          <e p="popper-utils.min.js" t="Include" />
-          <e p="popper-utils.min.js.map" t="Include" />
-          <e p="popper.js" t="Include" />
-          <e p="popper.js.map" t="Include" />
-          <e p="popper.min.js" t="Include" />
-          <e p="popper.min.js.map" t="Include" />
-          <e p="README.md" t="Include" />
-          <e p="src" t="Include">
-            <e p="index.js" t="Include" />
-            <e p="methods" t="Include">
-              <e p="defaults.js" t="Include" />
-              <e p="destroy.js" t="Include" />
-              <e p="disableEventListeners.js" t="Include" />
-              <e p="enableEventListeners.js" t="Include" />
-              <e p="placements.js" t="Include" />
-              <e p="update.js" t="Include" />
-            </e>
-            <e p="modifiers" t="Include">
-              <e p="applyStyle.js" t="Include" />
-              <e p="arrow.js" t="Include" />
-              <e p="computeStyle.js" t="Include" />
-              <e p="flip.js" t="Include" />
-              <e p="hide.js" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="inner.js" t="Include" />
-              <e p="keepTogether.js" t="Include" />
-              <e p="offset.js" t="Include" />
-              <e p="preventOverflow.js" t="Include" />
-              <e p="shift.js" t="Include" />
-            </e>
-            <e p="utils" t="Include">
-              <e p="clockwise.js" t="Include" />
-              <e p="computeAutoPlacement.js" t="Include" />
-              <e p="debounce.js" t="Include" />
-              <e p="find.js" t="Include" />
-              <e p="findCommonOffsetParent.js" t="Include" />
-              <e p="findIndex.js" t="Include" />
-              <e p="getBordersSize.js" t="Include" />
-              <e p="getBoundaries.js" t="Include" />
-              <e p="getBoundingClientRect.js" t="Include" />
-              <e p="getClientRect.js" t="Include" />
-              <e p="getFixedPositionOffsetParent.js" t="Include" />
-              <e p="getOffsetParent.js" t="Include" />
-              <e p="getOffsetRect.js" t="Include" />
-              <e p="getOffsetRectRelativeToArbitraryNode.js" t="Include" />
-              <e p="getOppositePlacement.js" t="Include" />
-              <e p="getOppositeVariation.js" t="Include" />
-              <e p="getOuterSizes.js" t="Include" />
-              <e p="getParentNode.js" t="Include" />
-              <e p="getPopperOffsets.js" t="Include" />
-              <e p="getReferenceNode.js" t="Include" />
-              <e p="getReferenceOffsets.js" t="Include" />
-              <e p="getRoot.js" t="Include" />
-              <e p="getRoundedOffsets.js" t="Include" />
-              <e p="getScroll.js" t="Include" />
-              <e p="getScrollParent.js" t="Include" />
-              <e p="getStyleComputedProperty.js" t="Include" />
-              <e p="getSupportedPropertyName.js" t="Include" />
-              <e p="getViewportOffsetRectRelativeToArtbitraryNode.js" t="Include" />
-              <e p="getWindow.js" t="Include" />
-              <e p="getWindowSizes.js" t="Include" />
-              <e p="includeScroll.js" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="isBrowser.js" t="Include" />
-              <e p="isFixed.js" t="Include" />
-              <e p="isFunction.js" t="Include" />
-              <e p="isIE.js" t="Include" />
-              <e p="isModifierEnabled.js" t="Include" />
-              <e p="isModifierRequired.js" t="Include" />
-              <e p="isNumeric.js" t="Include" />
-              <e p="isOffsetContainer.js" t="Include" />
-              <e p="removeEventListeners.js" t="Include" />
-              <e p="runModifiers.js" t="Include" />
-              <e p="setAttributes.js" t="Include" />
-              <e p="setStyles.js" t="Include" />
-              <e p="setupEventListeners.js" t="Include" />
-            </e>
-          </e>
-          <e p="umd" t="Include">
-            <e p="popper-utils.js" t="Include" />
-            <e p="popper-utils.js.map" t="Include" />
-            <e p="popper-utils.min.js" t="Include" />
-            <e p="popper-utils.min.js.map" t="Include" />
-            <e p="popper.js" t="Include" />
-            <e p="popper.js.flow" t="Include" />
-            <e p="popper.js.map" t="Include" />
-            <e p="popper.min.js" t="Include" />
-            <e p="popper.min.js.map" t="Include" />
-          </e>
-        </e>
         <e p="Street.cs" t="Include" />
       </e>
       <e p="Estate_Agency.sln" t="IncludeFlat" />
@@ -494,6 +349,8 @@
           <e p="Site.css" t="Include" />
         </e>
         <e p="Controllers" t="Include">
+          <e p="AdministrationPanelController.cs" t="Include" />
+          <e p="Authorization.cs" t="Include" />
           <e p="CottageController.cs" t="Include" />
           <e p="CustomerController.cs" t="Include" />
           <e p="FlatController.cs" t="Include" />
@@ -652,8 +509,12 @@
         </e>
         <e p="Views" t="Include">
           <e p="_ViewStart.cshtml" t="Include" />
-          <e p="AdministratorPanel" t="Include">
-            <e p="AdministratorPanel.cshtml" t="Include" />
+          <e p="AdministrationPanel" t="Include">
+            <e p="AdministrationPanel.cshtml" t="Include" />
+          </e>
+          <e p="Authorization" t="Include">
+            <e p="Login.cshtml" t="Include" />
+            <e p="Logout.cshtml" t="Include" />
           </e>
           <e p="Cottage" t="Include">
             <e p="Cottages.cshtml" t="Include" />
@@ -666,12 +527,15 @@
           </e>
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
+            <e p="IndexLogged.cshtml" t="Include" />
+            <e p="SignUp.cshtml" t="Include" />
           </e>
           <e p="Realtor" t="Include">
             <e p="Realtors.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
+            <e p="_LayoutLogged.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
           </e>
           <e p="Web.config" t="Include" />

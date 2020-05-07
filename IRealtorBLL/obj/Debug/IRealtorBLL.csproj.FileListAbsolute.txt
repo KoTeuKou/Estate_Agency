@@ -1,7 +1,0 @@
-C:\Users\Koteuko\RiderProjects\Estate_Agency\IRealtorBLL\bin\Debug\IRealtorBLL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\IRealtorBLL\bin\Debug\IRealtorBLL.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\IRealtorBLL\bin\Debug\Entities.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\IRealtorBLL\bin\Debug\Entities.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\IRealtorBLL\obj\Debug\IRealtorBLL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\IRealtorBLL\obj\Debug\IRealtorBLL.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\IRealtorBLL\obj\Debug\IRealtorBLL.csprojResolveAssemblyReference.cache

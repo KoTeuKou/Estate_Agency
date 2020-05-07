@@ -5,6 +5,7 @@ using CityBLL;
 using Entities;
 using CottageBLL;
 using HouseBLL;
+using Microsoft.Ajax.Utilities;
 using OwnerBLL;
 using RealtorBLL;
 using StreetBLL;
@@ -66,19 +67,16 @@ namespace WebApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Add(int cottageNumber, int floorNumber, double squareOfCottage, int numOfRooms, int price, string owner, string street)
+        public ActionResult Add(int cottageNumber, int floorNumber, double squareOfCottage, int numOfRooms, int price, string owner, string citySelection, string addStreetSelection)
         {
             ViewBag.Title = "Cottages";
-            Owner own = _ownersList.Find(owner1 => owner1.OwnerName == owner);
-            int idOwner = own.IdOwner;
-            Street street_ = _streetsList.Find(street1 => street1.StreetName == street);
-            int idStreet = street_.IdStreet;
+            int idOwner = _ownersList.Find(x => x.OwnerName == owner).IdOwner;
+            int idStreet = _streetsList.Find(x => x.StreetName == addStreetSelection && x.CityName == citySelection).IdStreet;
             if(ModelState.IsValid)
             {
                 var  cottage = new Cottage(cottageNumber, floorNumber, squareOfCottage, numOfRooms, price, idOwner, idStreet);
                 var cottageFromDb = _cottageLogic.Create(cottage);
                 _cottagesList.Add(cottageFromDb);
-                return RedirectToAction("Cottages");
             }
             return RedirectToAction("Cottages");
         }
@@ -93,7 +91,7 @@ namespace WebApp.Controllers
         }
         public ActionResult GetCottagesByFilters(string flNumMin, string flNumMax, string sqMin, string sqMax, 
             string numOfRmsMin, string numOfRmsMax, string priceMin, string priceMax,
-            string city, string street, string houseNum)
+            string citySelection, string streetSelection, string houseNumSelection)
         {
             ViewBag.Title = "Cottages";
             if (flNumMin.Equals(""))
@@ -128,26 +126,26 @@ namespace WebApp.Controllers
             {
                 priceMax = "9999000";
             }
-            if (city == null)
+            if (citySelection.IsNullOrWhiteSpace())
             {
-                city = "";
+                citySelection = "";
             }
-            if (street == null)
+            if (streetSelection.IsNullOrWhiteSpace())
             {
-                street = "";
+                streetSelection = "";
             }
             int numOfHouseMin = 0;
             int numOfHouseMax = 100000;
-            if (houseNum != null)
+            if (!houseNumSelection.IsNullOrWhiteSpace())
             {
-                numOfHouseMin = int.Parse(houseNum);
-                numOfHouseMax = int.Parse(houseNum);
+                numOfHouseMin = int.Parse(houseNumSelection);
+                numOfHouseMax = int.Parse(houseNumSelection);
             }
             _cottagesList = _cottageLogic.GetCottagesByFilters(int.Parse(flNumMin), int.Parse(flNumMax), 
                 double.Parse(sqMin), double.Parse(sqMax), int.Parse(numOfRmsMin),
                 int.Parse(numOfRmsMax), int.Parse(priceMin), int.Parse(priceMax),
                 numOfHouseMin, numOfHouseMax,
-                city, street);
+                citySelection, streetSelection);
             return RedirectToAction("Cottages");
         }
         public ActionResult SortByCottageNumber()

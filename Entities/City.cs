@@ -11,6 +11,12 @@ namespace Entities
             IdCity = idCity;
             CityName = cityName;
         }
+
+        public City(string cityName)
+        {
+            CityName = cityName;
+        }
+
         public int IdCity { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Invalid tittle length")]

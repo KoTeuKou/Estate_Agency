@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using CityBLL;
 using Entities;
 using RealtorBLL;
 using HouseBLL;
 using OwnerBLL;
-using RealtorBLL;
 using StreetBLL;
 
 namespace WebApp.Controllers
@@ -59,29 +57,7 @@ namespace WebApp.Controllers
             ViewData["Owners"] = _ownersList;
             return View();
         }
-        [HttpPost]
-        public ActionResult Add(string realtorName)
-        {
-            ViewBag.Title = "Realtors";
-            if(ModelState.IsValid)
-            {
-                var  realtor = new Realtor(realtorName);
-                var realtorFromDb = _realtorLogic.Create(realtor);
-                _realtorsList.Add(realtorFromDb);
-                return RedirectToAction("Realtors");
-            }
-            return RedirectToAction("Realtors");
-        }
         
-        [HttpPost]
-        public ActionResult Delete(int idRealtor)
-        {
-            ViewBag.Title = "Realtors";
-            _realtorsList.Remove(_realtorsList.First(id => id.IdRealtor == idRealtor));
-            _answer = _realtorLogic.Delete(idRealtor);
-            return RedirectToAction("Realtors");
-        }
-       
         public ActionResult SortByRealtorName()
         {
             ViewBag.Title = "Realtors";

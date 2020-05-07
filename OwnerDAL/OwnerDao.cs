@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using Entities;
@@ -35,12 +36,54 @@ namespace OwnerDAL
 
         public Owner Create(Owner owner)
         {
-            throw new System.NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    const string sql = "INSERT INTO Owner Values (@owner_name); Select * FROM Owner o WHERE o.id_owner = SCOPE_IDENTITY()";
+                    var cmd = new SqlCommand(sql, connection);
+                    cmd.Parameters.AddWithValue("@owner_name", owner.OwnerName);
+
+                    var reader = cmd.ExecuteReader();
+                    Owner o = null;
+                    if (reader.Read())
+                    {
+                        o = new Owner()
+                        {
+                            IdOwner = (int) reader["id_owner"],
+                            OwnerName = (string) reader["owner_name"],
+                        };
+                    }
+                    return o;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.StackTrace);
+                    return new Owner();
+                }
+            }
         }
 
         public string Delete(int idOwner)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    const string sql = "DELETE * FROM Owner WHERE id_owner = @id";
+                    var cmd = new SqlCommand(sql, connection);
+                    cmd.Parameters.AddWithValue("@id", idOwner);
+                    cmd.ExecuteNonQuery();
+                    return $"Владелец успешно удален.";
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return $"Ошибка:  {e}";
+            }
         }
     }
 }

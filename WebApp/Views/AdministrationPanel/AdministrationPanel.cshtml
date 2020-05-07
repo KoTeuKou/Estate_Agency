@@ -1,0 +1,757 @@
+﻿@using System.Collections
+@using Entities
+@using WebApp.Models
+@model RealtorModel
+<h3> Внимание! Удаление какой-либо из записей в одной таблице, приведёт к удалению зависимых записей в других таблицах.</h3>
+<div class="card" style="margin: auto;padding-top: 30px" >
+<label for="tableName">Выберите таблицу, с которой хотите работать</label>
+<select class="form-control" id="tableName" name="tableName" onChange="Selected(this)">
+    <option selected>...</option>
+    @foreach (var name in new ArrayList() {"City", "Street", "House", "Cottage", "Flat", "Customer", "Owner", "Realtor"})
+    {
+        <option>@name</option>
+    }
+</select>
+<div id="Realtor" style="display: none">
+    <div class="bg-info clearfix" >
+        <h1 class="h1 bottom-left">Риэлторы</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                        Добавление риэлтора
+                    </button>
+                    <div class="collapse" id="collapse1">
+                        <div class="card card-body">
+                            <form class="menu" action="/AdministrationPanel/AddRealtor" method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Имя риэлтора</label>
+                                        <input required type="text" class="form-control" name="realtorName" placeholder="Введите имя риэлтора">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Добавить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+            <th scope="col">
+                Имя риэлтора
+            </th>
+            <th scope="col">
+                Количество проведенных сделок
+            </th>
+            <th scope="col">
+                
+            </th>
+        </tr>
+        </thead>
+
+        @foreach (var realtor in (IEnumerable<Realtor>) @ViewData["Realtors"])
+        {
+            <tr>
+                <td>@realtor.RealtorName</td>
+                <td>@realtor.NumOfContracts</td>
+                <td>
+                    <form action="/AdministrationPanel/DeleteRealtor" method="post">
+                        <input hidden name="idRealtor" value="@realtor.IdRealtor"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+    
+    
+    
+<div id="Cottage" style="display: none">
+    <div class="bg-info clearfix">
+        <h1 class="h1 bottom-left">Коттеджы</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        Добавление коттеджа
+                    </button>
+                    <div class="collapse" id="collapse2">
+                        <div class="card card-body">
+                            <form class="menu" action="/Cottage/Add" method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="CottageNumber">Номер коттеджа</label>
+                                        <input required type="number" class="form-control" id="CottageNumber" name="CottageNumber" placeholder="Введите номер коттеджа" min="1" max="10000">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="floorNumber">Количество этажей</label>
+                                        <input required type="number" class="form-control" id="floorNumber" name="floorNumber" placeholder="Введите количество этажей" min="1" max="5">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="squareOfCottage">Площадь</label>
+                                        <input required type="number" class="form-control" id="squareOfCottage" name="squareOfCottage" placeholder="Введите площадь" min="1" max="10000" step="any">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="numOfRooms">Количество комнат</label>
+                                        <input required type="number" class="form-control" id="numOfRooms" name="numOfRooms" placeholder="Введите количество комнат" min="1" max="50">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="price">Цена</label>
+                                        <input required type="number" class="form-control" id="price" name="price" placeholder="Введите цену" min="100000" max="999999999999" step="1000">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="owner">Владелец</label>
+                                        <select class="form-control" id="owner" name="owner">
+                                            @foreach (var owner in (IEnumerable<Owner>) @ViewData["Owners"])
+                                            {
+                                                <option selected>@owner.OwnerName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group row width-class">
+                                        <label class="col-2 col-form-label">Город</label>
+                                        <select class="form-control" name="citySelection" onchange = "visualizeOrHide(this.value, 'addStreetSelection')">
+                                            <option selected></option>
+                                            @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
+                                            {
+                                                <option>@city.CityName</option>
+                                            }
+                                                                                               
+                                        </select>
+                                        @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
+                                        {
+                                            <div id="addStreetSelection_@city.CityName" style="display:none;padding-top: 5px">
+                                                <label class="col-2 col-form-label">Улица</label>
+                                                <select name="addStreetSelection"  id="daddStreetSelection_@city.CityName">
+                                                    <option selected></option>
+                                                                                                                       
+                                                    @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
+                                                    {
+                                                        if (street.IdCity == city.IdCity)
+                                                        {
+                                                            <option>@street.StreetName</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Добавить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+            <th scope="col">
+                № коттеджа
+            </th>
+            <th scope="col">
+                Кол-во этажей
+            </th>
+            <th scope="col">
+                Площадь
+            </th>
+            <th scope="col">
+                Кол-во комнат
+            </th>
+            <th scope="col">
+                Цена
+            </th>
+            <th scope="col">
+                Улица
+            </th>
+            <th scope="col">
+                Город
+            </th>
+            <th scope="col">
+                
+            </th>
+        </tr>
+        </thead>
+           
+        @foreach (var cottage in (IEnumerable<Cottage>) @ViewData["Cottages"])
+        {
+            <tr>
+                <td>@cottage.CottageNumber</td>
+                <td>@cottage.NumOfFloors</td>
+                <td>@cottage.SquareOfCottage кв.м.</td>
+                <td>@cottage.NumOfRooms</td>
+                <td>@cottage.Price руб.</td>
+                <td>@cottage.Street</td>
+                <td>@cottage.City</td>
+                <td>
+                    <form action="/AdministrationPanel/DeleteCottage" method="post">
+                        <input hidden name="idRealtor" value="@cottage.IdCottage"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+    
+    
+<div id="Flat" style="display: none">
+    <h1 class="h1 bottom-left">Квартиры</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                    Добавление квартиру
+                </button>
+                <div class="collapse" id="collapse3">
+                    <div class="card card-body">
+                        <form class="menu" action="/Flat/Add" method="post">
+                            <div class="form-group col-md-12">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label >Номер квартиры</label>
+                                        <input required type="number" class="form-control"  name="flatNumber" placeholder="Введите номер квартиры" min="1" max="10000">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="floorNumber">Номер этажа</label>
+                                        <input required type="number" class="form-control"  name="floorNumber" placeholder="Введите номер этажа" min="1" max="100">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Площадь</label>
+                                        <input required type="number" class="form-control" name="squareOfFlat" placeholder="Введите площадь" min="1" max="10000" step="any">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="numOfRooms">Количество комнат</label>
+                                        <input required type="number" class="form-control" name="numOfRooms" placeholder="Введите количество комнат" min="1" max="50">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="price">Цена</label>
+                                        <input required type="number" class="form-control" name="price" placeholder="Введите цену" min="100000" max="999999999999" step="1000">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label >Владелец</label>
+                                        <select class="form-control" name="owner">
+                                            @foreach (var owner in (IEnumerable<Owner>) @ViewData["Owners"])
+                                            {
+                                                <option selected>@owner.OwnerName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                       
+                                    <h3>Адрес</h3>
+                                    <div class="form-group row width-class">
+                                        <label class="col-2 col-form-label">Город</label>
+                                        <select class="form-control" name="citySelection" onchange = "visualizeOrHide(this.value, 'addStreetSelection')">
+                                            <option selected></option>
+                                            @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
+                                            {
+                                                <option>@city.CityName</option>
+                                            }
+                                                                                               
+                                        </select>
+                                        @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
+                                        {
+                                            <div id="addStreetSelection_@city.CityName" style="display:none;padding-top: 5px">
+                                                <label class="col-2 col-form-label">Улица</label>
+                                                <select name="addStreetSelection"  id="daddStreetSelection_@city.CityName" onchange = "visualizeOrHide(this.value, 'addHouseNumSelection')">
+                                                    <option selected></option>
+                                                    @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
+                                                    {
+                                                        if (street.IdCity == city.IdCity)
+                                                        {
+                                                            <option>@street.StreetName</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        }
+                                        @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
+                                        {
+                                            <div id="addHouseNumSelection_@street.StreetName" style="display:none;padding-top: 5px">
+                                                <label class="col-2 col-form-label">№ дома</label>
+                                                <select name="addHouseNumSelection" id="daddHouseNumSelection_@street.StreetName">
+                                                    <option selected></option>
+                                                    @foreach (var house in (IEnumerable<House>) ViewData["Houses"])
+                                                    {
+                                                        if (house.StreetName == street.StreetName)
+                                                        {
+                                                            <option>@house.HouseNum</option>
+                                                        }
+                                                    }
+                                                                                     
+                                                </select>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Добавить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+            <th scope="col">
+                № квартиры
+            </th>
+            <th scope="col">
+                № этажа
+            </th>
+            <th scope="col">
+                Площадь
+            </th>
+            <th scope="col">
+                Кол-во комнат
+            </th>
+            <th scope="col">
+                Цена
+            </th>
+            <th scope="col">
+                № дома
+            </th>
+            <th scope="col">
+                Улица
+            </th>
+            <th scope="col">
+                Город
+            </th>
+            <th scope="col">
+                
+            </th>
+        </tr>
+        </thead>
+           
+        @foreach (var flat in (IEnumerable<Flat>) @ViewData["Flats"])
+        {
+            <tr>
+                <td>@flat.FlatNumber</td>
+                <td>@flat.FloorNumber</td>
+                <td>@flat.SquareOfFlat кв.м.</td>
+                <td>@flat.NumOfRooms</td>
+                <td>@flat.Price руб.</td>
+                <td>@flat.House</td>
+                <td>@flat.Street</td>
+                <td>@flat.City</td>
+                <td>
+                    <form action="/AdministrationPanel/DeleteFlat" method="post">
+                        <input hidden name="idRealtor" value="@flat.IdFlat"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+<div id="City" style="display: none">
+    <div class="bg-info clearfix" >
+        <h1 class="h1 bottom-left">Города</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        Добавление города
+                    </button>
+                    <div class="collapse" id="collapse4">
+                        <div class="card card-body">
+                            <form class="menu" action="/AdministrationPanel/AddCity" method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Название города</label>
+                                        <input required type="text" class="form-control" name="cityName" placeholder="Введите название города">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Добавить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+            <th scope="col">
+                Название города
+            </th>
+            <th scope="col">
+                
+            </th>
+        </tr>
+        </thead>
+
+        @foreach (var city in (IEnumerable<City>) @ViewData["Cities"])
+        {
+            <tr>
+                <td>@city.CityName</td>
+                <td>
+                    <form action="/AdministrationPanel/DeleteCity" method="post">
+                        <input hidden name="idCity" value="@city.IdCity"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div id="Street" style="display: none">
+    <div class="bg-info clearfix" >
+        <h1 class="h1 bottom-left">Улицы</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        Добавление улицы
+                    </button>
+                    <div class="collapse" id="collapse5">
+                        <div class="card card-body">
+                            <form class="menu" action="/AdministrationPanel/AddStreet" method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Название улицы</label>
+                                        <input required type="text" class="form-control" name="streetName" placeholder="Введите название улицы">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Город</label>
+                                        <select class="form-control" name="cityName">
+                                            @foreach (var city in (IEnumerable<City>) @ViewData["Cities"])
+                                            {
+                                                <option selected>@city.CityName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Добавить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+            <th scope="col">
+                Название Улицы
+            </th>
+            <th scope="col">
+                Название города
+            </th>
+            <th scope="col">
+                
+            </th>
+        </tr>
+        </thead>
+
+        @foreach (var street in (IEnumerable<Street>) @ViewData["Streets"])
+        {
+            <tr>
+                <td>@street.StreetName</td>
+                <td>@street.CityName</td>
+                <td>
+                    <form action="/AdministrationPanel/DeleteStreet" method="post">
+                        <input hidden name="idStreet" value="@street.IdStreet"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+<div id="House" style="display: none">
+    <div class="bg-info clearfix" >
+        <h1 class="h1 bottom-left">Дома</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                        Добавление дома
+                    </button>
+                    <div class="collapse" id="collapse6">
+                        <div class="card card-body">
+                            <form class="menu" action="/AdministrationPanel/AddHouse" method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>№ дома </label>
+                                        <input required type="number" class="form-control" name="numOfHouse" placeholder="Введите номер дома">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Кол-во этажей</label>
+                                        <input required type="number" class="form-control" name="numOfFloors" placeholder="Введите число этажей">
+                                    </div>
+                                    <div class="form-group row width-class">
+                                        <label class="col-2 col-form-label">Город</label>
+                                        <select class="form-control" name="citySelectionHouse" onchange = "visualizeOrHide(this.value, 'addStreetSelectionHouse')">
+                                            <option selected></option>
+                                            @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
+                                            {
+                                                <option>@city.CityName</option>
+                                            }
+                                                                                                                               
+                                        </select>
+                                        @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
+                                        {
+                                            <div id="addStreetSelectionHouse_@city.CityName" style="display:none;padding-top: 5px">
+                                                <label class="col-2 col-form-label">Улица</label>
+                                                <select name="addStreetSelectionHouse"  id="daddStreetSelectionHouse_@city.CityName">
+                                                    <option selected></option>
+                                                                                                                                                       
+                                                    @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
+                                                    {
+                                                        if (street.IdCity == city.IdCity)
+                                                        {
+                                                            <option>@street.StreetName</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Добавить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+            <th scope="col">
+                № дома
+            </th>
+            <th scope="col">
+                кол-во этажей
+            </th>
+            <th scope="col">
+                Название Улицы
+            </th>
+            <th scope="col">
+                Название города
+            </th>
+            <th scope="col">
+                
+            </th>
+        </tr>
+        </thead>
+
+        @foreach (var house in (IEnumerable<House>) @ViewData["Houses"])
+        {
+            <tr>
+                <td>@house.HouseNum</td>
+                <td>@house.NumOfFloors</td>
+                <td>@house.StreetName</td>
+                <td>@house.CityName</td>
+                <td>
+                    <form action="/AdministrationPanel/DeleteHouse" method="post">
+                        <input hidden name="idHouse" value="@house.IdHouse"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+<div id="Customer" style="display: none">
+    <div class="bg-info clearfix" >
+        <h1 class="h1 bottom-left">Покупатели</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                        Добавление покупателя
+                    </button>
+                    <div class="collapse" id="collapse7">
+                        <div class="card card-body">
+                            <form class="menu" action="/AdministrationPanel/AddCustomer" method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Фамилия</label>
+                                        <input required type="text" class="form-control" name="surname" placeholder="Введите фамилию">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Имя</label>
+                                        <input required type="text" class="form-control" name="name" placeholder="Введите имя">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Город</label>
+                                        <select class="form-control" name="cityName">
+                                            @foreach (var city in (IEnumerable<City>) @ViewData["Cities"])
+                                            {
+                                                <option selected>@city.CityName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Добавить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+            <th scope="col">
+                Полное имя
+            </th>
+            <th scope="col">
+                
+            </th>
+        </tr>
+        </thead>
+
+        @foreach (var customer in (IEnumerable<Customer>) @ViewData["Customers"])
+        {
+            <tr>
+                <td>@customer.CustomerName</td>
+                <td>
+                    <form action="/AdministrationPanel/DeleteCustomer" method="post">
+                        <input hidden name="idCustomer" value="@customer.IdCustomer"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+<div id="Owner" style="display: none">
+    <div class="bg-info clearfix" >
+        <h1 class="h1 bottom-left">Владельцы</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                        Добавление владельца
+                    </button>
+                    <div class="collapse" id="collapse8">
+                        <div class="card card-body">
+                            <form class="menu" action="/AdministrationPanel/AddCustomer" method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Фамилия</label>
+                                        <input required type="text" class="form-control" name="surname" placeholder="Введите фамилию">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Имя</label>
+                                        <input required type="text" class="form-control" name="name" placeholder="Введите имя">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Добавить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+            <th scope="col">
+                Полное имя
+            </th>
+            <th scope="col">
+                
+            </th>
+        </tr>
+        </thead>
+
+        @foreach (var owner in (IEnumerable<Owner>) @ViewData["Owners"])
+        {
+            <tr>
+                <td>@owner.OwnerName</td>
+                <td>
+                    <form action="/AdministrationPanel/DeleteOwner" method="post">
+                        <input hidden name="idOwner" value="@owner.IdOwner"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+</div>
+<script>
+function Selected(a) {
+    var label = a.value;
+    var listOfBlocks = ["City", "Street", "House", "Cottage", "Flat", "Customer", "Owner", "Realtor"];
+    var ind = listOfBlocks.indexOf(label);
+    if (ind !== -1){
+        listOfBlocks.splice(ind, 1);
+        document.getElementById(label).style.display='block';
+    }
+    listOfBlocks.forEach(function(item) {
+        document.getElementById(item).style.display='none';
+    })
+}
+function visualizeOrHide(selected, prefix) {
+    var Id = 'd' + prefix  + '_';
+    $("select[id^=" + Id +"]").each(function (i, el) {
+             el.name = 'disable';
+     });
+    $("div[id^=" + prefix +"]").each(function (i, el) {
+                 el.style.display = 'none';
+         });
+    if (selected !== ''){
+            document.getElementById(prefix + '_' + selected).style.display = 'block';
+            var id = 'd' + prefix  + '_' + selected;
+            document.getElementById(id).name = prefix
+        }
+}
+</script>

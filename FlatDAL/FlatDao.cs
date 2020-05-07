@@ -71,12 +71,14 @@ namespace FlatDAL
                         {
                             IdFlat = (int) reader["id_flat"],
                             FlatNumber = (int) reader["flat_number"],
-                            FloorNumber = (int) reader["floor_number"],
+                            FloorNumber =(int) reader["floor_number"],
                             SquareOfFlat = (double) reader["square_of_flat"],
                             NumOfRooms = (int) reader["num_of_rooms"],
                             Price = (int) reader["price"],
-                            IdOwner = (int) reader["id_owner"],
-                            IdHouse = (int) reader["id_house"]
+                            Owner = (string) reader["owner_name"],
+                            House = (int) reader["house_num"],
+                            Street = (string) reader["street_name"],
+                            City = (string) reader["city_name"],
                         };
                     }
                     return f;
@@ -129,8 +131,8 @@ namespace FlatDAL
                 cmd.Parameters.AddWithValue("@price_max", priceMax);
                 cmd.Parameters.AddWithValue("@num_of_house_min", numOfHouseMin);
                 cmd.Parameters.AddWithValue("@num_of_house_max", numOfHouseMax);
-                cmd.Parameters.AddWithValue("@city", "%" + city);
-                cmd.Parameters.AddWithValue("@street", "%" + street);
+                cmd.Parameters.AddWithValue("@city", city);
+                cmd.Parameters.AddWithValue("@street", street);
                 connection.Open();
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())

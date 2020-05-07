@@ -1,9 +1,0 @@
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\bin\Debug\IAwardDAL.dll
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\bin\Debug\IAwardDAL.pdb
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\bin\Debug\Entities.dll
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\bin\Debug\Entities.pdb
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\obj\Debug\IAwardDAL.csprojAssemblyReference.cache
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\obj\Debug\IAwardDAL.csproj.CoreCompileInputs.cache
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\obj\Debug\IAwardDAL.csproj.CopyComplete
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\obj\Debug\IAwardDAL.dll
-C:\Users\Koteuko\RiderProjects\Epam_Lapushkin\IAwardDAL\obj\Debug\IAwardDAL.pdb

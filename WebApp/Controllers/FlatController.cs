@@ -5,6 +5,7 @@ using CityBLL;
 using Entities;
 using FlatBLL;
 using HouseBLL;
+using Microsoft.Ajax.Utilities;
 using OwnerBLL;
 using RealtorBLL;
 using StreetBLL;
@@ -66,17 +67,16 @@ namespace WebApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Add(int flatNumber, int floorNumber, double squareOfFlat, int numOfRooms, int price, string owner, int idHouse)
+        public ActionResult Add(int flatNumber, int floorNumber, double squareOfFlat, int numOfRooms, int price, string owner, string addStreetSelection, int addHouseNumSelection)
         {
             ViewBag.Title = "Flats";
-            Owner own = _ownersList.Find(owner1 => owner1.OwnerName == owner);
-            int idOwner = own.IdOwner;
+            int idOwner = _ownersList.Find(x => x.OwnerName == owner).IdOwner;
+            int idHouse = _housesList.Find(x => x.HouseNum == addHouseNumSelection && x.StreetName == addStreetSelection).IdHouse;
             if(ModelState.IsValid)
             {
                 var  flat = new Flat(flatNumber, floorNumber, squareOfFlat, numOfRooms, price, idOwner, idHouse);
                 var flatFromDb = _flatLogic.Create(flat);
                 _flatsList.Add(flatFromDb);
-                return RedirectToAction("Flats");
             }
             return RedirectToAction("Flats");
         }
@@ -91,7 +91,7 @@ namespace WebApp.Controllers
         }
         public ActionResult GetFlatsByFilters(string flNumMin, string flNumMax, string sqMin, string sqMax, 
             string numOfRmsMin, string numOfRmsMax, string priceMin, string priceMax,
-            string city, string street, string houseNum)
+            string citySelection, string streetSelection, string houseNumSelection)
         {
             ViewBag.Title = "Flats";
             if (flNumMin.Equals(""))
@@ -126,26 +126,26 @@ namespace WebApp.Controllers
             {
                 priceMax = "9999000";
             }
-            if (city == null)
+            if (citySelection.IsNullOrWhiteSpace())
             {
-                city = "";
+                citySelection = "";
             }
-            if (street == null)
+            if (streetSelection.IsNullOrWhiteSpace())
             {
-                street = "";
+                streetSelection = "";
             }
             int numOfHouseMin = 0;
             int numOfHouseMax = 100000;
-            if (houseNum != null)
+            if (!houseNumSelection.IsNullOrWhiteSpace())
             {
-                numOfHouseMin = int.Parse(houseNum);
-                numOfHouseMax = int.Parse(houseNum);
+                numOfHouseMin = int.Parse(houseNumSelection);
+                numOfHouseMax = int.Parse(houseNumSelection);
             }
             _flatsList = _flatLogic.GetFlatsByFilters(int.Parse(flNumMin), int.Parse(flNumMax), 
                 double.Parse(sqMin), double.Parse(sqMax), int.Parse(numOfRmsMin),
                 int.Parse(numOfRmsMax), int.Parse(priceMin), int.Parse(priceMax),
                 numOfHouseMin, numOfHouseMax,
-                city, street);
+                citySelection, streetSelection);
             return RedirectToAction("Flats");
         }
         public ActionResult SortByFlatNumber()

@@ -1,7 +1,0 @@
-C:\Users\Koteuko\RiderProjects\Estate_Agency\ICottageBLL\bin\Debug\ICottageBLL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\ICottageBLL\bin\Debug\ICottageBLL.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\ICottageBLL\bin\Debug\Entities.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\ICottageBLL\bin\Debug\Entities.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\ICottageBLL\obj\Debug\ICottageBLL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\ICottageBLL\obj\Debug\ICottageBLL.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\ICottageBLL\obj\Debug\ICottageBLL.csprojResolveAssemblyReference.cache

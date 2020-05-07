@@ -1,9 +1,0 @@
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\bin\Debug\OwnerDAL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\bin\Debug\OwnerDAL.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\bin\Debug\Entities.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\bin\Debug\IOwnerDAL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\bin\Debug\Entities.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\bin\Debug\IOwnerDAL.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\obj\Debug\OwnerDAL.csprojResolveAssemblyReference.cache
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\obj\Debug\OwnerDAL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\OwnerDAL\obj\Debug\OwnerDAL.pdb

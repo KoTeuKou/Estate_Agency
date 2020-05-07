@@ -48,14 +48,33 @@
                                         }
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="owner">Улица</label>
-                                    <select class="form-control" id="street" name="street">
-                                        @foreach (var street in (IEnumerable<Street>) @ViewData["Streets"])
+                                <div class="form-group row width-class">
+                                    <label class="col-2 col-form-label">Город</label>
+                                    <select class="form-control" name="citySelection" onchange = "visualizeOrHide(this.value, 'addStreetSelection')">
+                                        <option selected></option>
+                                        @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
                                         {
-                                            <option selected>@street.StreetName</option>
+                                            <option>@city.CityName</option>
                                         }
+                                                                                           
                                     </select>
+                                    @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
+                                    {
+                                        <div id="addStreetSelection_@city.CityName" style="display:none;padding-top: 5px">
+                                            <label class="col-2 col-form-label">Улица</label>
+                                            <select name="addStreetSelection"  id="daddStreetSelection_@city.CityName">
+                                                <option selected></option>
+                                                                                                                   
+                                                @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
+                                                {
+                                                    if (street.IdCity == city.IdCity)
+                                                    {
+                                                        <option>@street.StreetName</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Добавить</button>
@@ -133,28 +152,48 @@
             <th scope="col">
                 <h3>Адрес</h3>
                 <div class="form-group row width-class">
-                    <label for="citySelection" class="col-2 col-form-label">Город</label>
-                    <select class="form-control" id="citySelection" name="citySelection" onchange = "this.form.streetSelection.style.visibility = this.selectedIndex ? 'visible' : 'hidden'">
+                    <label class="col-2 col-form-label">Город</label>
+                    <select class="form-control" id="citySelection" name="citySelection" onchange = "visualizeOrHide(this.value, 'streetSelection')">
                         <option selected></option>
-                        @foreach (var city in (IEnumerable<City>) @ViewData["Cities"])
+                        @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
                         {
                             <option>@city.CityName</option>
                         }
-                        
+                                        
                     </select>
-                    <div style="padding-top: 5px">
-                        <label for="streetSelection" class="col-2 col-form-label">Улица</label>
-                        <select id="streetSelection" name="streetSelection" style="visibility: hidden">
-                            <option selected></option>
-                            @foreach (var street in (IEnumerable<Street>) @ViewData["Streets"])
-                            {
-                                if (street.IdCity == 1)
+                    @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
+                    {
+                        <div id="streetSelection_@city.CityName" style="display:none;padding-top: 5px">
+                            <label class="col-2 col-form-label">Улица</label>
+                            <select name="streetSelection"  id="dstreetSelection_@city.CityName" onchange = "visualizeOrHide(this.value, 'houseNumSelection')">
+                                <option selected></option>
+                                @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
                                 {
-                                    <option>@street.StreetName</option>
+                                    if (street.IdCity == city.IdCity)
+                                    {
+                                        <option>@street.StreetName</option>
+                                    }
                                 }
-                            }
-                        </select>
-                    </div>
+                            </select>
+                        </div>
+                    }
+                    @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
+                    {
+                        <div id="houseNumSelection_@street.StreetName" style="display:none;padding-top: 5px">
+                            <label class="col-2 col-form-label">№ коттеджа</label>
+                            <select name="houseNumSelection" id="dhouseNumSelection_@street.StreetName">
+                                <option selected></option>
+                                @foreach (var cottage in (IEnumerable<Cottage>) ViewData["Cottages"])
+                                {
+                                    if (cottage.Street == street.StreetName)
+                                    {
+                                        <option>@cottage.CottageNumber</option>
+                                    }
+                                }
+                              
+                            </select>
+                        </div>
+                    }
                 </div>
             </th>
         </tr>
@@ -212,7 +251,7 @@
             Город
         </th>
         <th scope="col">
-            Actions
+            
         </th>
     </tr>
     </thead>
@@ -237,7 +276,7 @@
                             <div class="card card-body">
                                 <form action="/Cottage/MakeContract" method="post">
                                     <input type="hidden" id="id_building" name="id_building" value="@cottage.IdCottage">
-                                    <label for="realtor">Выбор риэлтора</label>
+                                    <label>Выбор риэлтора</label>
                                     <div class="form-row">
                                         <select id="realtorName" name="realtorName">
                                             @foreach (var realtor in (IEnumerable<Realtor>) @ViewData["Realtors"])
@@ -274,3 +313,19 @@
 width: 150px;
 }
 </style>
+<script>
+function visualizeOrHide(selected, prefix) {
+    var Id = 'd' + prefix  + '_';
+    $("select[id^=" + Id +"]").each(function (i, el) {
+             el.name = 'disable';
+     });
+    $("div[id^=" + prefix +"]").each(function (i, el) {
+                 el.style.display = 'none';
+         });
+    if (selected !== ''){
+            document.getElementById(prefix + '_' + selected).style.display = 'block';
+            var id = 'd' + prefix  + '_' + selected;
+            document.getElementById(id).name = prefix
+        }
+}
+</script>

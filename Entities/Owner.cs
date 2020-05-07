@@ -11,6 +11,12 @@ namespace Entities
             IdOwner = idOwner;
             OwnerName = ownerName;
         }
+
+        public Owner(string ownerName)
+        {
+            OwnerName = ownerName;
+        }
+
         public int IdOwner { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Invalid tittle length")]

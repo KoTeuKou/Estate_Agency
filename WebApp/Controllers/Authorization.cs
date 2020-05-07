@@ -6,13 +6,14 @@ using OwnerBLL;
 
 namespace WebApp.Controllers
 {
-    public class HomeController : Controller
+    public class AuthorizationController : Controller
     {
         private static List<Owner> _ownersList;
         private static List<Customer> _customersList;
         private OwnerLogic _ownerLogic;
         private CustomerLogic _customerLogic;
-        public HomeController()
+
+        public AuthorizationController()
         {
             _ownerLogic = new OwnerLogic();
             _customerLogic = new CustomerLogic();
@@ -20,26 +21,20 @@ namespace WebApp.Controllers
             _customersList = _customerLogic.GetAll();
         }
 
+        // GET: Login
         [HttpGet]
-        public ActionResult SignUp()
+        public ActionResult Login()
         {
             return View();
         }
-        public ActionResult Index()
+
+        [Authorize]
+        public ActionResult Logout()
         {
             return View();
         }
-        public ActionResult IndexLogged()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Login(string Login)
-        {
-            bool exist = _customersList.Find(x => x.CustomerName == Login) != null || 
-                         _ownersList.Find(x => x.OwnerName == Login) != null;
-            ViewBag.LogIn = exist;
-            return RedirectToAction("IndexLogged");
-        }
+        
+
+        
     }
 }

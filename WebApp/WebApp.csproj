@@ -162,10 +162,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdministrationPanelController.cs" />
     <Compile Include="Controllers\CottageController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\FlatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Authorization.cs" />
     <Compile Include="Controllers\RealtorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -307,11 +309,16 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Views\AdministratorPanel\AdministratorPanel.cshtml" />
+    <Content Include="Views\AdministrationPanel\AdministrationPanel.cshtml" />
     <Content Include="Views\Cottage\Cottages.cshtml" />
     <Content Include="Views\Flat\Flats.cshtml" />
+    <Content Include="Views\Home\IndexLogged.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Authorization\Login.cshtml" />
+    <Content Include="Views\Authorization\Logout.cshtml" />
     <Content Include="Views\Realtor\Realtors.cshtml" />
     <Content Include="Views\Customer\RegistrationForm.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogged.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

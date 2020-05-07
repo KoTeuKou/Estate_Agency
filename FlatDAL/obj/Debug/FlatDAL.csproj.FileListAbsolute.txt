@@ -1,9 +1,0 @@
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\bin\Debug\FlatDAL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\bin\Debug\FlatDAL.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\bin\Debug\Entities.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\bin\Debug\IFLatDAL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\bin\Debug\Entities.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\bin\Debug\IFLatDAL.pdb
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\obj\Debug\FlatDAL.csprojResolveAssemblyReference.cache
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\obj\Debug\FlatDAL.dll
-C:\Users\Koteuko\RiderProjects\Estate_Agency\FlatDAL\obj\Debug\FlatDAL.pdb

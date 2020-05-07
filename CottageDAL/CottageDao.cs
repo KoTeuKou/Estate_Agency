@@ -125,8 +125,8 @@ namespace CottageDAL
                 cmd.Parameters.AddWithValue("@price_max", priceMax);
                 cmd.Parameters.AddWithValue("@num_of_cottage_min", numOfHouseMin);
                 cmd.Parameters.AddWithValue("@num_of_cottage_max", numOfHouseMax);
-                cmd.Parameters.AddWithValue("@city", "%" + city);
-                cmd.Parameters.AddWithValue("@street", "%" + street);
+                cmd.Parameters.AddWithValue("@city", city);
+                cmd.Parameters.AddWithValue("@street", street);
                 connection.Open();
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
