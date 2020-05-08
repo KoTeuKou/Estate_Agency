@@ -352,7 +352,6 @@
           <e p="AdministrationPanelController.cs" t="Include" />
           <e p="Authorization.cs" t="Include" />
           <e p="CottageController.cs" t="Include" />
-          <e p="CustomerController.cs" t="Include" />
           <e p="FlatController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
           <e p="RealtorController.cs" t="Include" />
@@ -512,15 +511,8 @@
           <e p="AdministrationPanel" t="Include">
             <e p="AdministrationPanel.cshtml" t="Include" />
           </e>
-          <e p="Authorization" t="Include">
-            <e p="Login.cshtml" t="Include" />
-            <e p="Logout.cshtml" t="Include" />
-          </e>
           <e p="Cottage" t="Include">
             <e p="Cottages.cshtml" t="Include" />
-          </e>
-          <e p="Customer" t="Include">
-            <e p="RegistrationForm.cshtml" t="Include" />
           </e>
           <e p="Flat" t="Include">
             <e p="Flats.cshtml" t="Include" />
@@ -528,7 +520,10 @@
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="IndexLogged.cshtml" t="Include" />
-            <e p="SignUp.cshtml" t="Include" />
+            <e p="IndexLoggedAdmin.cshtml" t="Include" />
+          </e>
+          <e p="LogInLogOut" t="Include">
+            <e p="Login.cshtml" t="Include" />
           </e>
           <e p="Realtor" t="Include">
             <e p="Realtors.cshtml" t="Include" />
@@ -536,6 +531,7 @@
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
             <e p="_LayoutLogged.cshtml" t="Include" />
+            <e p="_LayoutLoggedAdmin.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
           </e>
           <e p="Web.config" t="Include" />

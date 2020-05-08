@@ -1,109 +1,13 @@
 ﻿@using Entities
 @using WebApp.Models
 @model FlatModel
-
+@{
+    Layout = "~/Views/Shared/_LayoutLogged.cshtml";
+}
 
 <div class="bg-info clearfix">
     <h1 class="h1 bottom-left">Квартиры</h1>
-    <div class="row">
-        <div class="col-md-4">
-            <div>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                    Добавить квартиру
-                </button>
-                <div class="collapse" id="collapse1">
-                    <div class="card card-body">
-                        <form class="menu" action="/Flat/Add" method="post">
-                            <div class="form-group col-md-12">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="flatNumber">Номер квартиры</label>
-                                        <input required type="number" class="form-control" id="flatNumber" name="flatNumber" placeholder="Введите номер квартиры" min="1" max="10000">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="floorNumber">Номер этажа</label>
-                                        <input required type="number" class="form-control" id="floorNumber" name="floorNumber" placeholder="Введите номер этажа" min="1" max="100">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="squareOfFlat">Площадь</label>
-                                        <input required type="number" class="form-control" id="squareOfFlat" name="squareOfFlat" placeholder="Введите площадь" min="1" max="10000" step="any">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="numOfRooms">Количество комнат</label>
-                                        <input required type="number" class="form-control" id="numOfRooms" name="numOfRooms" placeholder="Введите количество комнат" min="1" max="50">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="price">Цена</label>
-                                        <input required type="number" class="form-control" id="price" name="price" placeholder="Введите цену" min="100000" max="999999999999" step="1000">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="owner">Владелец</label>
-                                        <select class="form-control" id="owner" name="owner">
-                                            @foreach (var owner in (IEnumerable<Owner>) @ViewData["Owners"])
-                                            {
-                                                <option selected>@owner.OwnerName</option>
-                                            }
-                                        </select>
-                                    </div>
-                                   
-                                    <h3>Адрес</h3>
-                                    <div class="form-group row width-class">
-                                        <label class="col-2 col-form-label">Город</label>
-                                        <select class="form-control" name="citySelection" onchange = "visualizeOrHide(this.value, 'addStreetSelection')">
-                                            <option selected></option>
-                                            @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
-                                            {
-                                                <option>@city.CityName</option>
-                                            }
-                                                                                           
-                                        </select>
-                                        @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
-                                        {
-                                            <div id="addStreetSelection_@city.CityName" style="display:none;padding-top: 5px">
-                                                <label class="col-2 col-form-label">Улица</label>
-                                                <select name="addStreetSelection"  id="daddStreetSelection_@city.CityName" onchange = "visualizeOrHide(this.value, 'addHouseNumSelection')">
-                                                    <option selected></option>
-                                                    @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
-                                                    {
-                                                        if (street.IdCity == city.IdCity)
-                                                        {
-                                                            <option>@street.StreetName</option>
-                                                        }
-                                                    }
-                                                </select>
-                                            </div>
-                                        }
-                                        @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
-                                        {
-                                            <div id="addHouseNumSelection_@street.StreetName" style="display:none;padding-top: 5px">
-                                                <label class="col-2 col-form-label">№ дома</label>
-                                                <select name="addHouseNumSelection" id="daddHouseNumSelection_@street.StreetName">
-                                                    <option selected></option>
-                                                    @foreach (var house in (IEnumerable<House>) ViewData["Houses"])
-                                                    {
-                                                        if (house.StreetName == street.StreetName)
-                                                        {
-                                                            <option>@house.HouseNum</option>
-                                                        }
-                                                    }
-                                                                                 
-                                                </select>
-                                            </div>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Добавить</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 <form action="/Flat/GetFlatsByFilters" method="post">
     <table class="table">

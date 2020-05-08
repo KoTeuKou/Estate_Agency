@@ -6,35 +6,24 @@ using OwnerBLL;
 
 namespace WebApp.Controllers
 {
-    public class AuthorizationController : Controller
+    public class LogInLogOutController : Controller
     {
-        private static List<Owner> _ownersList;
-        private static List<Customer> _customersList;
-        private OwnerLogic _ownerLogic;
-        private CustomerLogic _customerLogic;
-
-        public AuthorizationController()
+        public LogInLogOutController()
         {
-            _ownerLogic = new OwnerLogic();
-            _customerLogic = new CustomerLogic();
-            _ownersList = _ownerLogic.GetAll();
-            _customersList = _customerLogic.GetAll();
         }
-
-        // GET: Login
+        
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
+        
 
-        [Authorize]
+        [HttpGet]
         public ActionResult Logout()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
-        
 
-        
     }
 }

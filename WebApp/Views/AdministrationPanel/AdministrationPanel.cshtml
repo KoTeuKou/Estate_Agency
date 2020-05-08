@@ -2,6 +2,9 @@
 @using Entities
 @using WebApp.Models
 @model RealtorModel
+@{
+    Layout = "~/Views/Shared/_LayoutLoggedAdmin.cshtml";
+}
 <h3> Внимание! Удаление какой-либо из записей в одной таблице, приведёт к удалению зависимых записей в других таблицах.</h3>
 <div class="card" style="margin: auto;padding-top: 30px" >
 <label for="tableName">Выберите таблицу, с которой хотите работать</label>

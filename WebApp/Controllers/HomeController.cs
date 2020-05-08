@@ -8,23 +8,10 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private static List<Owner> _ownersList;
-        private static List<Customer> _customersList;
-        private OwnerLogic _ownerLogic;
-        private CustomerLogic _customerLogic;
         public HomeController()
-        {
-            _ownerLogic = new OwnerLogic();
-            _customerLogic = new CustomerLogic();
-            _ownersList = _ownerLogic.GetAll();
-            _customersList = _customerLogic.GetAll();
-        }
+        {}
 
-        [HttpGet]
-        public ActionResult SignUp()
-        {
-            return View();
-        }
+        
         public ActionResult Index()
         {
             return View();
@@ -33,13 +20,20 @@ namespace WebApp.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult Login(string Login)
+        
+        public ActionResult IndexLoggedAdmin()
         {
-            bool exist = _customersList.Find(x => x.CustomerName == Login) != null || 
-                         _ownersList.Find(x => x.OwnerName == Login) != null;
-            ViewBag.LogIn = exist;
-            return RedirectToAction("IndexLogged");
+            return View();
         }
+        [HttpPost]
+        public ActionResult Login(string login)
+        {
+            if (login == "admin")
+                return RedirectToAction("IndexLoggedAdmin");
+            if (login == "user")
+                return RedirectToAction("IndexLogged");
+            return RedirectToAction("Index");
+        }
+        
     }
 }

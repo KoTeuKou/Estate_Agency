@@ -1,27 +1,28 @@
 ﻿@{
     ViewBag.Title = "HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Главная</h1>
 
-<h2>Авторизация</h2>
-<form class="menu" action="/Customer/Login" method="post">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="surname">Ваша фамилия</label>
-            <input required type="text" class="form-control" id="surname" name="surname" placeholder="Введите фамилию">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="name">Ваше имя</label>
-            <input required type="text" class="form-control" id="name" name="name" placeholder="Введите имя">
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Авторизоваться</button>
-</form>
-<div style="padding: 10px">
-    @Html.ActionLink("Не зарегистрированы? Нажмите здесь, чтобы зарегистрироваться.", "RegistrationForm", "Customer")
+<div class="container">
+    <h1 class="display" style="padding-top: 15px;">Добро пожаловать!</h1>
+    <p>Вы находитесь на сайте нашего агенства недвижимости. Для того, чтобы взаимодействовать с данными пожалуйста авторизируйтесь.</p>
+    <p><a class="btn btn-primary btn-lg" href="/LogInLogOut/Login" role="button">Авторизоваться</a></p>
 </div>
+<style>
+    .display {
+        font-size: 4.5rem;
+        font-weight: 300;
+        line-height: 1.5;
+    }
+    .container {
+        font-size: 2.0rem;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+</style>
 <script>
 </script>

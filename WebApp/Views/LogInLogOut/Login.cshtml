@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Авторизация</h2>
+
+<form action="/Home/Login" method="post">
+    <div style="margin: 10px; padding: 10px">
+        Выберите роль
+        <select name="login" required style="height: 30px">
+            <option selected></option>
+            <option>admin</option>
+            <option>user</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Авторизоваться</button>
+</form>

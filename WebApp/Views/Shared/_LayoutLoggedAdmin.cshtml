@@ -19,22 +19,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Главная", "IndexLogged", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Главная", "IndexLoggedAdmin", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <div class="navbar-collapse collapse">
-           
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Квартиры", "Flats", "Flat" , new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Панель управления", "AdministrationPanel", "AdministrationPanel" , new { area = "" }, new { @class = "navbar-brand" })</li>
             </ul>
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Коттеджы", "Cottages", "Cottage" , new { area = "" }, new { @class = "navbar-brand" })</li>
+                @Html.ActionLink("Выйти", "Logout", "LogInLogOut", new { area = "" }, new { @class = "navbar-brand" })
             </ul>
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Риэлторы", "Realtors", "Realtor" , new { area = "" }, new { @class = "navbar-brand" })</li>
-            </ul>
-            <ul class="nav navbar-nav">
-                 @Html.ActionLink("Выйти", "Logout", "LogInLogOut", new { area = "" }, new { @class = "navbar-brand" })
-            </ul>
+       
         </div>
     </div>
 </div>
