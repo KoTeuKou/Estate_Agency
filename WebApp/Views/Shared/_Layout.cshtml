@@ -19,7 +19,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Авторизоваться", "Login", "LogInLogOut", new { area = "" }, new { @class = "navbar-brand"})
+        </div>
+        <div class="navbar-collapse collapse">
+           
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Квартиры", "Flats", "Flat" , new { area = "" }, new { @class = "navbar-brand" })</li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Коттеджы", "Cottages", "Cottage" , new { area = "" }, new { @class = "navbar-brand" })</li>
+            </ul>
         </div>
     </div>
 </div>

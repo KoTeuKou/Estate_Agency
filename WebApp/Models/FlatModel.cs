@@ -1,33 +1,42 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Entities;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models
 {
-    public class FlatModel: Flat
+    public class FlatModel
     {
-        [RegularExpression("[\\d]+")] public int IdFlat { get; set; }
+      [RegularExpression("[\\d]+")] [DefaultValue("")]  public int FlatNumber { get; set; }
         
-        [RegularExpression("[\\d]+")] public int FlatNumber { get; set; }
+        [RegularExpression("[\\d]+")]  [DefaultValue("")] public int FloorNumber { get; set; }
         
-        [RegularExpression("[\\d]+")] public int FloorNumber { get; set; }
+        [RegularExpression("[\\d]+")]  [DefaultValue("")] public int SquareOfFlat { get; set; }
         
-        [RegularExpression("[\\d]+")] public double SquareOfFlat { get; set; }
+        [RegularExpression("[\\d]+")]  [DefaultValue("")] public int NumOfRooms { get; set; }
         
-        [RegularExpression("[\\d]+")] public int NumOfRooms { get; set; }
+        [RegularExpression("[\\d]+")]  [DefaultValue("")] public int Price { get; set; }
         
-        [RegularExpression("[\\d]+")] public int Price { get; set; }
+        [RegularExpression("[\\d]+")] [DefaultValue("")]  public string Owner { get; set; }
         
-        [RegularExpression("[\\d]+")] public string Owner { get; set; }
+        [RegularExpression("[\\d]+")]  [DefaultValue("")] public int House { get; set; }
         
-        [RegularExpression("[\\d]+")] public int House { get; set; }
+        [RegularExpression("[\\d]+")] [DefaultValue("")]  public string Street { get; set; }
         
-        [RegularExpression("[\\d]+")] public string Street { get; set; }
+        [RegularExpression("[\\d]+")]  [DefaultValue("")] public string City { get; set; }
         
-        [RegularExpression("[\\d]+")] public string City { get; set; }
-        
-
-        public FlatModel(int idFlat, int flatNumber, int floorNumber, int squareOfFlat, int numOfRooms, int price, string owner, int house, string street, string city)
-        {}
-
+        public FlatModel()
+        {
+        }
+        public FlatModel(int flatNumber, int floorNumber, int squareOfFlat, int numOfRooms, int price, string owner, int house, string street, string city)
+        {
+            FlatNumber = flatNumber;
+            FloorNumber = floorNumber;
+            SquareOfFlat = squareOfFlat;
+            NumOfRooms = numOfRooms;
+            Price = price;
+            Owner = owner;
+            House = house;
+            Street = street;
+            City = city;
+        }
     }
 }

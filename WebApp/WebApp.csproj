@@ -77,6 +77,22 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.3.3.3\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.0\lib\net45\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.0\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -93,6 +109,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
       <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Numerics" />
@@ -113,6 +133,14 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -149,6 +177,10 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivator, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\WebActivator.1.5\lib\net40\WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -162,20 +194,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdministrationPanelController.cs" />
     <Compile Include="Controllers\CottageController.cs" />
     <Compile Include="Controllers\FlatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Authorization.cs" />
-    <Compile Include="Controllers\RealtorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CottageFilter.cs" />
     <Compile Include="Models\CottageModel.cs" />
-    <Compile Include="Models\CustomerModelcs.cs" />
+    <Compile Include="Models\CottageParentModel.cs" />
+    <Compile Include="Models\FlatFilter.cs" />
     <Compile Include="Models\FlatModel.cs" />
-    <Compile Include="Models\RealtorModel.cs" />
+    <Compile Include="Models\FlatParentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\NinjectRegistrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-1.1.0.css" />
@@ -308,15 +340,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Views\AdministrationPanel\AdministrationPanel.cshtml" />
     <Content Include="Views\Cottage\Cottages.cshtml" />
     <Content Include="Views\Flat\Flats.cshtml" />
-    <Content Include="Views\Home\IndexLogged.cshtml" />
-    <Content Include="Views\Home\IndexLoggedAdmin.cshtml" />
-    <Content Include="Views\LogInLogOut\Login.cshtml" />
-    <Content Include="Views\Realtor\Realtors.cshtml" />
-    <Content Include="Views\Shared\_LayoutLogged.cshtml" />
-    <Content Include="Views\Shared\_LayoutLoggedAdmin.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -329,7 +355,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Scripts\popper-utils.js.map" />
     <None Include="Scripts\popper-utils.min.js.map" />
@@ -350,41 +375,25 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLLImplementations\BLLImplementations.csproj">
+      <Project>{9a622130-f485-4957-8fa8-30b76341b458}</Project>
+      <Name>BLLImplementations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLLInterfaces\BLLInterfaces.csproj">
+      <Project>{921eb688-e02d-49d6-81bd-c35e2342c3a1}</Project>
+      <Name>BLLInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CityBLL\CityBLL.csproj">
       <Project>{9a622130-f485-4957-8fa8-30b76341b458}</Project>
       <Name>CityBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CottageBLL\CottageBLL.csproj">
-      <Project>{8f7ddf81-8949-43e6-8d8d-2d6646b3b7b6}</Project>
-      <Name>CottageBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CustomerBLL\CustomerBLL.csproj">
-      <Project>{3409daa8-dfa4-4e9a-8e95-67e15eba3617}</Project>
-      <Name>CustomerBLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{50049B72-AEB0-413B-9383-D251EB7CD916}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlatBLL\FlatBLL.csproj">
-      <Project>{bada6914-e769-468e-8c44-93445060d0a7}</Project>
-      <Name>FlatBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HouseBLL\HouseBLL.csproj">
-      <Project>{2c805545-aab1-49b2-ae53-71e2556d834e}</Project>
-      <Name>HouseBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OwnerBLL\OwnerBLL.csproj">
-      <Project>{30a5c83a-0f77-46b6-929f-d1fa3f70a6c7}</Project>
-      <Name>OwnerBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RealtorBLL\RealtorBLL.csproj">
-      <Project>{49159399-b5c1-42bd-b994-27294abb4483}</Project>
-      <Name>RealtorBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StreetBLL\StreetBLL.csproj">
-      <Project>{6ed76420-25ec-44e8-9af0-c0b72573b9e7}</Project>
-      <Name>StreetBLL</Name>
+    <ProjectReference Include="..\Util\Utils\Utils.csproj">
+      <Project>{15c93620-b19b-4b83-ba58-1a2d7437c274}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

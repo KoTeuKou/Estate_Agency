@@ -27,6 +27,15 @@
             IdOwner = idOwner;
             IdStreet = idStreet;
         }
+        
+        public Cottage(int cottageNumber, int numOfFloors, double squareOfCottage, int numOfRooms, int price)
+        {
+            CottageNumber = cottageNumber;
+            SquareOfCottage = squareOfCottage;
+            NumOfFloors = numOfFloors;
+            NumOfRooms = numOfRooms;
+            Price = price;
+        }
 
         public Cottage(int idCottage, int numOfFloors, int cottageNumber, double squareOfCottage, int numOfRooms, int price, string owner, string street, string city)
         {

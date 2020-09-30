@@ -1,75 +1,77 @@
 ﻿@using Entities
 @using WebApp.Models
-@model FlatModel
+
+@model FlatParentModel
 @{
-    Layout = "~/Views/Shared/_LayoutLogged.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="bg-info clearfix">
     <h1 class="h1 bottom-left">Квартиры</h1>
-    
+
 </div>
-<form action="/Flat/GetFlatsByFilters" method="post">
+@using (Html.BeginForm())
+{
     <table class="table">
         <thead>
         <tr>
             <th scope="col">
                 <h3>Номер этажа</h3>
-                <div class="form-group row width-class" >
-                    <label for="flNumMin" class="col-2 col-form-label">Минимальный</label>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Минимальный</label>
                     <div class="col-2">
-                        <input class="form-control" type="number" value="" id="flNumMin" name="flNumMin" min="1" max="10000">
+                        @Html.EditorFor(model => model.FlatFilter.MinFloorNumber)
                     </div>
                 </div>
                 <div class="form-group row width-class">
-                    <label for="flNumMax" class="col-2 col-form-label">Максимальный</label>
+                    <label class="col-2 col-form-label">Максимальный</label>
                     <div class="col-2">
-                        <input class="form-control" type="number" value="" id="flNumMax" name="flNumMax" min="1" max="100">
+                        @Html.EditorFor(model => model.FlatFilter.MaxFloorNumber)
                     </div>
                 </div>
             </th>
             <th scope="col">
                 <h3>Площадь</h3>
                 <div class="form-group row width-class">
-                    <label for="sqMin" class="col-2 col-form-label">Минимальная</label>
+                    <label class="col-2 col-form-label">Минимальная</label>
                     <div class="col-2">
-                        <input class="form-control" type="number" value="" id="sqMin" name="sqMin" min="1" max="1000" step="any">
+                        @Html.EditorFor(model => model.FlatFilter.MinSquareOfFlat)
                     </div>
                 </div>
                 <div class="form-group row width-class">
-                    <label for="sqMax" class="col-2 col-form-label">Максимальная</label>
+                    <label class="col-2 col-form-label">Максимальная</label>
                     <div class="col-2">
-                        <input class="form-control" type="number" value="" id="sqMax" name="sqMax" min="1" max="1000" step="any">
+                        @Html.EditorFor(model => model.FlatFilter.MaxSquareOfFlat)
                     </div>
                 </div>
             </th>
             <th scope="col">
                 <h3>Кол-во комнат</h3>
                 <div class="form-group row width-class">
-                    <label for="numOfRmsMin" class="col-2 col-form-label">Минимальное</label>
+                    <label class="col-2 col-form-label">Минимальное</label>
                     <div class="col-2">
-                        <input class="form-control" type="number" value="" id="numOfRmsMin" name="numOfRmsMin" min="1" max="50">
+                        @Html.EditorFor(model => model.FlatFilter.MinNumOfRooms)
                     </div>
                 </div>
                 <div class="form-group row width-class">
-                    <label for="numOfRmsMax" class="col-2 col-form-label">Максимальное</label>
+                    <label class="col-2 col-form-label">Максимальное</label>
                     <div class="col-2">
-                        <input class="form-control" type="number" value="" id="numOfRmsMax" name="numOfRmsMax" min="1" max="50">
+                        @Html.EditorFor(model => model.FlatFilter.MaxNumOfRooms)
                     </div>
                 </div>
             </th>
             <th scope="col">
                 <h3>Цена</h3>
                 <div class="form-group row width-class">
-                    <label for="priceMin" class="col-2 col-form-label">Минимальная</label>
+                    <label class="col-2 col-form-label">Минимальная</label>
                     <div class="col-2">
-                        <input class="form-control" type="number" value="" id="priceMin" name="priceMin" min="100000" max="99999999" step="1000">
+                        @Html.EditorFor(model => model.FlatFilter.MinPrice)
                     </div>
                 </div>
                 <div class="form-group row width-class">
-                    <label for="priceMax" class="col-2 col-form-label">Максимальная</label>
+                    <label class="col-2 col-form-label">Максимальная</label>
                     <div class="col-2">
-                        <input class="form-control" type="number" value="" id="priceMax" name="priceMax" min="100000" max="99999999" step="1000">
+                        @Html.EditorFor(model => model.FlatFilter.MaxPrice)
                     </div>
                 </div>
             </th>
@@ -77,95 +79,127 @@
                 <h3>Адрес</h3>
                 <div class="form-group row width-class">
                     <label class="col-2 col-form-label">Город</label>
-                    <select class="form-control" id="citySelection" name="citySelection" onchange = "visualizeOrHide(this.value, 'streetSelection')">
-                        <option selected></option>
-                        @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
-                        {
-                            <option>@city.CityName</option>
-                        }
-                                                       
-                    </select>
-                    @foreach (var city in (IEnumerable<City>) ViewData["Cities"])
-                    {
-                        <div id="streetSelection_@city.CityName" style="display:none;padding-top: 5px">
-                            <label class="col-2 col-form-label">Улица</label>
-                            <select name="streetSelection"  id="dstreetSelection_@city.CityName" onchange = "visualizeOrHide(this.value, 'houseNumSelection')">
-                                <option selected></option>
-                                @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
-                                {
-                                    if (street.IdCity == city.IdCity)
-                                    {
-                                        <option>@street.StreetName</option>
-                                    }
-                                }
-                            </select>
-                        </div>
-                    }
-                    @foreach (var street in (IEnumerable<Street>) ViewData["Streets"])
-                    {
-                        <div id="houseNumSelection_@street.StreetName" style="display:none;padding-top: 5px">
-                            <label class="col-2 col-form-label">№ дома</label>
-                            <select name="houseNumSelection" id="dhouseNumSelection_@street.StreetName">
-                                <option selected></option>
-                                @foreach (var house in (IEnumerable<House>) ViewData["Houses"])
-                                {
-                                    if (house.StreetName == street.StreetName)
-                                    {
-                                        <option>@house.HouseNum</option>
-                                    }
-                                }
-                                             
-                            </select>
-                        </div>
-                    }
+                    @Html.EditorFor(model => model.FlatFilter.City)
+
+                    <label class="col-2 col-form-label">Улица</label>
+                    @Html.EditorFor(model => model.FlatFilter.Street)
+
+                    <label class="col-2 col-form-label">№ дома</label>
+                    @Html.EditorFor(model => model.FlatFilter.NumOfHouse)
+
                 </div>
             </th>
         </tr>
-        <tr> <h2>Поиск по фильтрам</h2></tr>
+        <tr>
+            <h2>Поиск по фильтрам</h2>
+        </tr>
         </thead>
     </table>
-    <div align="center" style="margin: 10px;padding: 10px"><button type="submit" class="btn btn-primary btn">Искать🔎</button></div>
-</form>
-<form action="/Flat/Reload" method="post">
-    <div align="center" style="margin: 10px;padding: 10px"><button type="submit" class="btn btn-primary btn">Сбросить фильтры</button></div>
-</form>
+    <div align="center" style="margin: 10px;padding: 10px">
+        <button type="submit" class="btn btn-primary btn">Искать🔎</button>
+    </div>
+}
+
+<div>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+        Добавление квартиры
+    </button>
+    <div class="collapse" id="collapse2">
+        <div class="card card-body">
+            @using (Html.BeginForm("Add", "Cottage", FormMethod.Post))
+            {
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Номер квартиры</label>
+                        @Html.EditorFor(model => model.FlatModel.FlatNumber)
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Номер этажа</label>
+                        @Html.EditorFor(model => model.FlatModel.FloorNumber)
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Площадь</label>
+                        @Html.EditorFor(model => model.FlatModel.SquareOfFlat)
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Количество комнат</label>
+                        @Html.EditorFor(model => model.FlatModel.NumOfRooms)
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Цена</label>
+                        @Html.EditorFor(model => model.FlatModel.Price)
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Владелец</label>
+                        @Html.EditorFor(model => model.FlatModel.Owner)
+                    </div>
+                    <div class="form-group row width-class">
+                        <label class="col-2 col-form-label">Город</label>
+                        @Html.EditorFor(model => model.FlatModel.City)
+
+                        <div style="display:none;padding-top: 5px">
+                            <label class="col-2 col-form-label">Улица</label>
+                            @Html.EditorFor(model => model.FlatModel.Street)
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Добавить">
+            }
+        </div>
+    </div>
+</div>
+
 <table class="table">
     <tbody>
     <thead>
     <tr>
         <th scope="col">
             <div>
-                <form action="/Flat/SortByFlatNumber" method="post">
-                    <button type="submit" class="btn btn-primary btn-sm">№ квартиры</button>
-                </form>
+                @using (Html.BeginForm("SortByField", "Flat", FormMethod.Post))
+                {
+                    @Html.Hidden("sortBy", SortBy.NUMBER)
+                    <input type="submit" class="btn btn-primary btn-sm" value="№ кваритры">
+                }
             </div>
         </th>
         <th scope="col">
             <div>
-                <form action="/Flat/SortByFloorNumber" method="post">
-                    <button type="submit" class="btn btn-primary btn-sm">№ этажа</button>
-                </form>
+                @using (Html.BeginForm("SortByField", "Flat", FormMethod.Post))
+                {
+                    @Html.Hidden("sortBy", SortBy.FLOOR)
+                    <input type="submit" class="btn btn-primary btn-sm" value="№ этажа">
+                }
             </div>
         </th>
         <th scope="col">
             <div>
-                <form action="/Flat/SortBySquare" method="post">
-                    <button type="submit" class="btn btn-primary btn-sm">Площадь</button>
-                </form>
+                @using (Html.BeginForm("SortByField", "Flat", FormMethod.Post))
+                {
+                    @Html.Hidden("sortBy", SortBy.SQUARE)
+                    <input type="submit" class="btn btn-primary btn-sm" value="Площадь">
+                }
             </div>
         </th>
         <th scope="col">
             <div>
-                <form action="/Flat/SortByNumOfRooms" method="post">
-                    <button type="submit" class="btn btn-primary btn-sm">Кол-во комнат</button>
-                </form>
+                @using (Html.BeginForm("SortByField", "Flat", FormMethod.Post))
+                {
+                    @Html.Hidden("sortBy", SortBy.ROOMS)
+                    <input type="submit" class="btn btn-primary btn-sm" value="Кол-во комнат">
+                }
             </div>
         </th>
         <th scope="col">
             <div>
-                <form action="/Flat/SortByPrice" method="post">
-                    <button type="submit" class="btn btn-primary btn-sm">Цена</button>
-                </form>
+                @using (Html.BeginForm("SortByField", "Flat", FormMethod.Post))
+                {
+                    @Html.Hidden("sortBy", SortBy.PRICE)
+                    <input type="submit" class="btn btn-primary btn-sm" value="Цена">
+                }
             </div>
         </th>
         <th scope="col">
@@ -177,11 +211,9 @@
         <th scope="col">
             Город
         </th>
-        <th scope="col">
-        </th>
     </tr>
     </thead>
-   
+
     @foreach (var flat in (IEnumerable<Flat>) @ViewData["Flats"])
     {
         <tr>
@@ -193,43 +225,6 @@
             <td>@flat.House</td>
             <td>@flat.Street</td>
             <td>@flat.City</td>
-            <td>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_@flat.IdFlat" aria-expanded="false" aria-controls="collapse_@flat.IdFlat">
-                            Рассмотреть договор
-                        </button>
-                        <div class="collapse" id="collapse_@flat.IdFlat">
-                            <div class="card card-body">
-                                <form action="/Flat/MakeContract" method="post">
-                                    <input type="hidden" id="id_building" name="id_building" value="@flat.IdFlat">
-                                    <label for="realtor">Выбор риэлтора</label>
-                                    <div class="form-row">
-                                        <select id="realtorName" name="realtorName">
-                                            @foreach (var realtor in (IEnumerable<Realtor>) @ViewData["Realtors"])
-                                            {
-                                                <option selected>@realtor.RealtorName</option>
-                                            }
-                                        </select>
-                                    </div>
-                                    <div class="form-row">
-                                        <label for="saleOrRent">Тип договора</label>
-                                        <select id="saleOrRent" name="saleOrRent">
-                                            <option>Покупка</option>
-                                            <option>Аренда</option>
-                                        </select>
-                                    </div>
-                                    <input type="hidden" id="id_customer" name="id_customer" value="1">
-                                    <div style="padding-top: 5px">
-                                        <button class="btn btn-danger" type="submit">Заключить</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </td>
         </tr>
     }
     </tbody>
@@ -240,19 +235,3 @@
 width: 150px;
 }
 </style>
-<script>
-function visualizeOrHide(selected, prefix) {
-    var Id = 'd' + prefix  + '_';
-    $("select[id^=" + Id +"]").each(function (i, el) {
-             el.name = 'disable';
-     });
-    $("div[id^=" + prefix +"]").each(function (i, el) {
-                 el.style.display = 'none';
-         });
-    if (selected !== ''){
-            document.getElementById(prefix + '_' + selected).style.display = 'block';
-            var id = 'd' + prefix  + '_' + selected;
-            document.getElementById(id).name = prefix
-        }
-}
-</script>

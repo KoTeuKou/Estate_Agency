@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-using CustomerBLL;
-using Entities;
-using OwnerBLL;
+﻿using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
@@ -10,30 +6,10 @@ namespace WebApp.Controllers
     {
         public HomeController()
         {}
-
         
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult IndexLogged()
-        {
-            return View();
-        }
-        
-        public ActionResult IndexLoggedAdmin()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Login(string login)
-        {
-            if (login == "admin")
-                return RedirectToAction("IndexLoggedAdmin");
-            if (login == "user")
-                return RedirectToAction("IndexLogged");
-            return RedirectToAction("Index");
-        }
-        
     }
 }

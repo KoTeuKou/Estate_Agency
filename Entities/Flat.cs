@@ -42,6 +42,15 @@ namespace Entities
             IdOwner = idOwner;
             IdHouse = idHouse;
         }
+        
+        public Flat(int flatNumber, int floorNumber, double squareOfFlat, int numOfRooms, int price)
+        {
+            FlatNumber = flatNumber;
+            FloorNumber = floorNumber;
+            SquareOfFlat = squareOfFlat;
+            NumOfRooms = numOfRooms;
+            Price = price;
+        }
 
         public int IdFlat { get; set; }
 

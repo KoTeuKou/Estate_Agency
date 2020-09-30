@@ -5,61 +5,52 @@
     <e p="C:\Users\Koteuko\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Estate_Agency.373056725.00" t="ExcludeRecursive" />
     <e p="C:\Users\Koteuko\RiderProjects\Estate_Agency" t="IncludeFlat">
       <e p="BLL" t="Include" />
-      <e p="CityBLL" t="IncludeRecursive">
+      <e p="BLLImplementations" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="CityBLL.csproj" t="IncludeRecursive" />
-        <e p="CityLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="CityDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="CityDAL.csproj" t="IncludeRecursive" />
-        <e p="CityDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="CottageBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="CottageBLL.csproj" t="IncludeRecursive" />
+        <e p="BLLImplementations.csproj" t="IncludeRecursive" />
         <e p="CottageLogic.cs" t="Include" />
+        <e p="FlatLogic.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
       </e>
-      <e p="CottageDAL" t="IncludeRecursive">
+      <e p="BLLInterfaces" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="CottageDAL.csproj" t="IncludeRecursive" />
-        <e p="CottageDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="CustomerBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="CustomerBLL.csproj" t="IncludeRecursive" />
-        <e p="CustomerLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="CustomerDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="CustomerDAL.csproj" t="IncludeRecursive" />
-        <e p="CustomerDao.cs" t="Include" />
+        <e p="BLLInterfaces.csproj" t="IncludeRecursive" />
+        <e p="ICottageLogic.cs" t="Include" />
+        <e p="IFlatLogic.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
       </e>
       <e p="DAL" t="Include" />
+      <e p="DALImplementations" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CottageDao.cs" t="Include" />
+        <e p="DALImplementations.csproj" t="IncludeRecursive" />
+        <e p="FlatDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="resources" t="Include">
+          <e p="create_db.sql" t="Include" />
+          <e p="create_tables.sql" t="Include" />
+          <e p="DataGeneration_20200316-0130.sql" t="Include" />
+        </e>
+      </e>
+      <e p="DALInterfaces" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DALInterfaces.csproj" t="IncludeRecursive" />
+        <e p="ICottageDao.cs" t="Include" />
+        <e p="IFlatDao.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
       <e p="Entities" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="City.cs" t="Include" />
@@ -76,246 +67,12 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="Realtor.cs" t="Include" />
+        <e p="SortBy.cs" t="Include" />
         <e p="Street.cs" t="Include" />
       </e>
       <e p="Estate_Agency.sln" t="IncludeFlat" />
-      <e p="FlatBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="FlatBLL.csproj" t="IncludeRecursive" />
-        <e p="FlatLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="FlatDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="FlatDAL.csproj" t="IncludeRecursive" />
-        <e p="FlatDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="HouseBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="HouseBLL.csproj" t="IncludeRecursive" />
-        <e p="HouseLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="HouseDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="HouseDAL.csproj" t="IncludeRecursive" />
-        <e p="HouseDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="ICityBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="ICityBLL.csproj" t="IncludeRecursive" />
-        <e p="ICityLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="ICityDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="ICityDAL.csproj" t="IncludeRecursive" />
-        <e p="ICityDAO.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="ICottageBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="ICottageBLL.csproj" t="IncludeRecursive" />
-        <e p="ICottageLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="ICottageDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="ICottageDAL.csproj" t="IncludeRecursive" />
-        <e p="ICottageDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="ICustomerBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="ICustomerBLL.csproj" t="IncludeRecursive" />
-        <e p="ICustomerLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="ICustomerDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="ICustomerDAL.csproj" t="IncludeRecursive" />
-        <e p="ICustomerDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IFlat.BLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IFlat.BLL.csproj" t="IncludeRecursive" />
-        <e p="IFlatLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IFlatDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IFlatDAL.csproj" t="IncludeRecursive" />
-        <e p="IFlatDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IHouseBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IHouseBLL.csproj" t="IncludeRecursive" />
-        <e p="IHouseLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IHouseDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IHouseDAL.csproj" t="IncludeRecursive" />
-        <e p="IHouseDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IOwnerBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IOwnerBLL.csproj" t="IncludeRecursive" />
-        <e p="IOwnerLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IOwnerDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IOwnerDAL.csproj" t="IncludeRecursive" />
-        <e p="IOwnerDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IRealtorBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IRealtorBLL.csproj" t="IncludeRecursive" />
-        <e p="IRealtorLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IRealtorDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IRealtorDAL.csproj" t="IncludeRecursive" />
-        <e p="IRealtorDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IStreetBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IStreetBLL.csproj" t="IncludeRecursive" />
-        <e p="IStreetLogic.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="IStreetDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IStreetDAL.csproj" t="IncludeRecursive" />
-        <e p="IStreetDao.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="OwnerBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="OwnerBLL.csproj" t="IncludeRecursive" />
-        <e p="OwnerLogic.cs" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
-      <e p="OwnerDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="OwnerDAL.csproj" t="IncludeRecursive" />
-        <e p="OwnerDao.cs" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-      </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="PL" t="Include" />
-      <e p="RealtorBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-        <e p="RealtorBLL.csproj" t="IncludeRecursive" />
-        <e p="RealtorLogic.cs" t="Include" />
-      </e>
-      <e p="RealtorDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-        <e p="RealtorDAL.csproj" t="IncludeRecursive" />
-        <e p="RealtorDao.cs" t="Include" />
-      </e>
-      <e p="StreetBLL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-        <e p="StreetBLL.csproj" t="IncludeRecursive" />
-        <e p="StreetLogic.cs" t="Include" />
-      </e>
-      <e p="StreetDAL" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-        <e p="StreetDAL.csproj" t="IncludeRecursive" />
-        <e p="StreetDao.cs" t="Include" />
-      </e>
       <e p="WebApp" t="IncludeRecursive">
         <e p="App_Data" t="Include" />
         <e p="App_Start" t="Include">
@@ -349,12 +106,9 @@
           <e p="Site.css" t="Include" />
         </e>
         <e p="Controllers" t="Include">
-          <e p="AdministrationPanelController.cs" t="Include" />
-          <e p="Authorization.cs" t="Include" />
           <e p="CottageController.cs" t="Include" />
           <e p="FlatController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
-          <e p="RealtorController.cs" t="Include" />
         </e>
         <e p="css" t="Include">
           <e p="bootstrap-slider.min.css" t="Include" />
@@ -363,10 +117,12 @@
         <e p="Global.asax" t="Include" />
         <e p="Global.asax.cs" t="Include" />
         <e p="Models" t="Include">
+          <e p="CottageFilter.cs" t="Include" />
           <e p="CottageModel.cs" t="Include" />
-          <e p="CustomerModelcs.cs" t="Include" />
+          <e p="CottageParentModel.cs" t="Include" />
+          <e p="FlatFilter.cs" t="Include" />
           <e p="FlatModel.cs" t="Include" />
-          <e p="RealtorModel.cs" t="Include" />
+          <e p="FlatParentModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
@@ -506,11 +262,11 @@
             <e p="popper.min.js.map" t="Include" />
           </e>
         </e>
+        <e p="utils" t="Include">
+          <e p="NinjectRegistrations.cs" t="Include" />
+        </e>
         <e p="Views" t="Include">
           <e p="_ViewStart.cshtml" t="Include" />
-          <e p="AdministrationPanel" t="Include">
-            <e p="AdministrationPanel.cshtml" t="Include" />
-          </e>
           <e p="Cottage" t="Include">
             <e p="Cottages.cshtml" t="Include" />
           </e>
@@ -519,19 +275,9 @@
           </e>
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
-            <e p="IndexLogged.cshtml" t="Include" />
-            <e p="IndexLoggedAdmin.cshtml" t="Include" />
-          </e>
-          <e p="LogInLogOut" t="Include">
-            <e p="Login.cshtml" t="Include" />
-          </e>
-          <e p="Realtor" t="Include">
-            <e p="Realtors.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
-            <e p="_LayoutLogged.cshtml" t="Include" />
-            <e p="_LayoutLoggedAdmin.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
           </e>
           <e p="Web.config" t="Include" />
