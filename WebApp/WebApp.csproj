@@ -200,12 +200,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CottageFilter.cs" />
-    <Compile Include="Models\CottageModel.cs" />
-    <Compile Include="Models\CottageParentModel.cs" />
-    <Compile Include="Models\FlatFilter.cs" />
-    <Compile Include="Models\FlatModel.cs" />
-    <Compile Include="Models\FlatParentModel.cs" />
+    <Compile Include="Models\CottageFilterVM.cs" />
+    <Compile Include="Models\CottageModelVM.cs" />
+    <Compile Include="Models\CottageParentModelVM.cs" />
+    <Compile Include="Models\FlatFilterVM.cs" />
+    <Compile Include="Models\FlatModelVM.cs" />
+    <Compile Include="Models\FlatParentModelVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\NinjectRegistrations.cs" />
   </ItemGroup>
@@ -386,6 +386,14 @@
     <ProjectReference Include="..\CityBLL\CityBLL.csproj">
       <Project>{9a622130-f485-4957-8fa8-30b76341b458}</Project>
       <Name>CityBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DALImplementations\DALImplementations.csproj">
+      <Project>{69a24952-589c-47c3-b9c1-c1df7049d61b}</Project>
+      <Name>DALImplementations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DALInterfaces\DALInterfaces.csproj">
+      <Project>{d322f52f-59f3-4c58-9d8e-cce171e42f19}</Project>
+      <Name>DALInterfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{50049B72-AEB0-413B-9383-D251EB7CD916}</Project>

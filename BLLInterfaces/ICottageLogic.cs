@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Entities;
 
 namespace BLLInterfaces
@@ -6,8 +7,8 @@ namespace BLLInterfaces
     public interface ICottageLogic
     {
         List<Cottage> GetAll();
-        void Create(Cottage cottage);
-        void Delete(int idCottage);
+        Cottage Create(Cottage cottage);
+        Boolean Delete(int idCottage);
         List<Cottage> GetCottagesByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax,
             int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax,
             string city, string street);

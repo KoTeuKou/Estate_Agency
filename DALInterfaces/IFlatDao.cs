@@ -11,8 +11,7 @@ namespace DALInterfaces
             string city, string street);
         
         Flat Create(Flat flat);
-        string Delete(int idFlat);
-        string MakeContract(int idBuilding, int idRealtor, int idCustomer, string saleOrRent);
+        bool Delete(int idFlat);
     }
     
 }

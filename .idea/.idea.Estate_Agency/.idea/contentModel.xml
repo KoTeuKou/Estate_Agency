@@ -25,6 +25,19 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
       </e>
+      <e p="Cache" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Cache.csproj" t="IncludeRecursive" />
+        <e p="CacheUtil" t="Include">
+          <e p="CottageCache.cs" t="Include" />
+          <e p="FlatCache.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
       <e p="DAL" t="Include" />
       <e p="DALImplementations" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -117,12 +130,12 @@
         <e p="Global.asax" t="Include" />
         <e p="Global.asax.cs" t="Include" />
         <e p="Models" t="Include">
-          <e p="CottageFilter.cs" t="Include" />
-          <e p="CottageModel.cs" t="Include" />
-          <e p="CottageParentModel.cs" t="Include" />
-          <e p="FlatFilter.cs" t="Include" />
-          <e p="FlatModel.cs" t="Include" />
-          <e p="FlatParentModel.cs" t="Include" />
+          <e p="CottageFilterVM.cs" t="Include" />
+          <e p="CottageModelVM.cs" t="Include" />
+          <e p="CottageParentModelVM.cs" t="Include" />
+          <e p="FlatFilterVM.cs" t="Include" />
+          <e p="FlatModelVM.cs" t="Include" />
+          <e p="FlatParentModelVM.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />

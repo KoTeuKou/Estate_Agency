@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Entities;
 
 namespace BLLInterfaces
@@ -9,8 +10,8 @@ namespace BLLInterfaces
             int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax, int numOfHouseMin, int numOfHouseMax,
             string city, string street);
         List<Flat> GetAll();
-        void Create(Flat flat);
-        void Delete(int idFlat);
+        Flat Create(Flat flat);
+        Boolean Delete(int idFlat);
         List<Flat> GetSortedBy(SortBy sortBy);
     }
 }

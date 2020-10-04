@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BLLInterfaces;
-using DALImplementations;
+using Cache.CacheUtil;
 using DALInterfaces;
 using Entities;
 
@@ -10,47 +11,63 @@ namespace BLLImplementations
     public class CottageLogic : ICottageLogic
     {
         private ICottageDao _cottageDao;
-        private List<Cottage> _cottages;
-        public CottageLogic()
+        private CottageCache _cottageCache;
+        public CottageLogic(ICottageDao cottageDao)
         {
-            _cottageDao = new CottageDao();
-            _cottages = new List<Cottage>();
+            _cottageDao = cottageDao;
+            _cottageCache = new CottageCache();
         }
         
         public List<Cottage> GetAll()
         {
-            if (_cottages != null && _cottages.Count != 0) 
-                return _cottages;
-
-            var cottages = _cottageDao.GetAll().ToList();
-            _cottages = cottages;
-            return cottages;
+            var cottagesFromCache = _cottageCache.GetAll();
+            List<Cottage> cottagesFromDb;
+            if (cottagesFromCache.Count == 0)
+            {
+                cottagesFromDb = _cottageDao.GetAll().ToList();
+                _cottageCache.AddListOfCottages(cottagesFromDb);
+                return cottagesFromDb;
+            }
+            return cottagesFromCache;
         }
         
-        public void Create(Cottage obj)
+        public Cottage Create(Cottage cottage)
         {
-            _cottages.Add(_cottageDao.Create(obj));
+            var cottageFromDb = _cottageDao.Create(cottage);
+            _cottageCache.AddCottage(cottageFromDb);
+            return cottageFromDb;
         }
         
-        public void Delete(int id)
+        public Boolean Delete(int id)
         {
-            _cottages.Remove(_cottages.First(cottage => cottage.IdCottage == id));
-            _cottageDao.Delete(id);
+            var isDeleted = _cottageDao.Delete(id);
+            if (isDeleted)
+            {
+                _cottageCache.Delete(id);
+            }
+            return isDeleted;
         }
         
         public List<Cottage> GetCottagesByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax, 
             int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax,
             string city, string street)
         {
-            var cottagesByFilters = _cottageDao.GetCottagesByFilters(flNumMin, flNumMax, sqMin, sqMax, 
+            return _cottageDao.GetCottagesByFilters(flNumMin, flNumMax, sqMin, sqMax, 
                 numOfRmsMin, numOfRmsMax, priceMin, priceMax,
                 city, street).ToList();
-            _cottages = cottagesByFilters;
-            return cottagesByFilters;
         }
         public List<Cottage> GetSortedBy(SortBy sortBy)
         {
-            List<Cottage> tempCottages = _cottages;
+            var cottagesFromCache = _cottageCache.GetAll();
+            List<Cottage> cottagesFromDb = new List<Cottage>();
+            List<Cottage> tempCottages;
+            if (cottagesFromCache.Count == 0)
+            {
+                cottagesFromDb = _cottageDao.GetAll().ToList();
+                _cottageCache.AddListOfCottages(cottagesFromDb);
+                tempCottages = cottagesFromDb;
+            }
+            tempCottages = cottagesFromDb ?? cottagesFromCache;
             switch (sortBy)
             {
                 case SortBy.FLOOR:
@@ -69,8 +86,6 @@ namespace BLLImplementations
                     tempCottages = tempCottages.OrderBy(x => x.Price).ToList();
                     break;
             }
-
-            _cottages = tempCottages;
             return tempCottages;
         }
     }

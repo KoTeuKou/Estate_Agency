@@ -7,8 +7,7 @@ namespace DALInterfaces
     {
         IEnumerable<Cottage> GetAll();
         Cottage Create(Cottage cottage);
-        string Delete(int idCottage);
+        bool Delete(int idCottage);
         IEnumerable<Cottage> GetCottagesByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax, int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax, string city, string street);
-        string MakeContract(int idBuilding, int idRealtor, int idCustomer, string saleOrRent);
     }
 }

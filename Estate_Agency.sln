@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLInterfaces", "BLLInterfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLImplementations", "BLLImplementations\BLLImplementations.csproj", "{9A622130-F485-4957-8FA8-30B76341B458}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache", "Cache\Cache.csproj", "{AC8A1F98-0FDE-4152-9C86-10D697A45940}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{9A622130-F485-4957-8FA8-30B76341B458}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A622130-F485-4957-8FA8-30B76341B458}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A622130-F485-4957-8FA8-30B76341B458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC8A1F98-0FDE-4152-9C86-10D697A45940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC8A1F98-0FDE-4152-9C86-10D697A45940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC8A1F98-0FDE-4152-9C86-10D697A45940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC8A1F98-0FDE-4152-9C86-10D697A45940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

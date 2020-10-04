@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace DALImplementations
 {
     public class FlatDao : IFlatDao
     {
-        private string _connectionString = "Data Source=KoTeuka;Initial Catalog=Estate_Agency;Integrated Security=True";
+        private string _connectionString = ConfigurationManager.ConnectionStrings["EstateAgency"].ConnectionString;
 
         public FlatDao()
         {
@@ -27,7 +28,7 @@ namespace DALImplementations
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    var f = new Flat()
+                    var flatFromDb = new Flat()
                     {
                         IdFlat = (int) reader["id_flat"],
                         FlatNumber = (int) reader["flat_number"],
@@ -40,7 +41,7 @@ namespace DALImplementations
                         Street = (string) reader["street_name"],
                         City = (string) reader["city_name"],
                     };
-                    result.Add(f);
+                    result.Add(flatFromDb);
                 }
             }
 
@@ -64,10 +65,10 @@ namespace DALImplementations
                     cmd.Parameters.AddWithValue("@id_house", flat.IdHouse);
                     
                     var reader = cmd.ExecuteReader();
-                    Flat f = null;
+                    Flat flatFromDb = null;
                     if (reader.Read())
                     {
-                        f = new Flat()
+                        flatFromDb = new Flat()
                         {
                             IdFlat = (int) reader["id_flat"],
                             FlatNumber = (int) reader["flat_number"],
@@ -81,17 +82,16 @@ namespace DALImplementations
                             City = (string) reader["city_name"],
                         };
                     }
-                    return f;
+                    return flatFromDb;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.StackTrace);
-                    return new Flat();
+                    return null;
                 }
             }
         }
 
-        public string Delete(int idFlat)
+        public bool Delete(int idFlat)
         {
             try
             {
@@ -102,13 +102,12 @@ namespace DALImplementations
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@id", idFlat);
                     cmd.ExecuteNonQuery();
-                    return $"Квартира успешно удалена.";
+                    return true;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
-                return $"Ошибка:  {e}";
+                return false;
             }
         }
 
@@ -137,7 +136,7 @@ namespace DALImplementations
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    var f = new Flat()
+                    var flatFromDb = new Flat()
                     {
                         IdFlat = (int) reader["id_flat"],
                         FlatNumber = (int) reader["flat_number"],
@@ -150,44 +149,11 @@ namespace DALImplementations
                         Street = (string) reader["street_name"],
                         City = (string) reader["city_name"],
                     };
-                    result.Add(f);
+                    result.Add(flatFromDb);
                 }
             }
 
             return result.AsEnumerable();
-        }
-
-        public string MakeContract(int idBuilding, int idRealtor, int idCustomer, string saleOrRent)
-        {
-            try
-            {
-                using (var connection = new SqlConnection(_connectionString))
-                {
-                    connection.Open();
-                    SqlCommand cmd;
-                    if (saleOrRent == "Аренда")
-                    {
-                        cmd = new SqlCommand("RENT_BUILDING", connection);
-                    }
-                    else
-                    {
-                        cmd = new SqlCommand("SELL_BUILDING", connection);
-                    }
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_building", idBuilding);
-                    cmd.Parameters.AddWithValue("@id_realtor", idRealtor);
-                    cmd.Parameters.AddWithValue("@cottage_or_flat", "FLAT");
-                    cmd.Parameters.AddWithValue("@id_customer", idCustomer);
-
-                    cmd.ExecuteNonQuery();
-                    return $"Контракт успешно заключен.";
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-                return $"Ошибка:  {e}";
-            }
         }
     }
 }

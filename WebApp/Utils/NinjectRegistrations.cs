@@ -1,5 +1,7 @@
 ﻿using BLLImplementations;
 using BLLInterfaces;
+using DALImplementations;
+using DALInterfaces;
 using Ninject.Modules;
 
 namespace WebApp.Utils
@@ -10,6 +12,8 @@ namespace WebApp.Utils
         {
             Bind<ICottageLogic>().To<CottageLogic>();
             Bind<IFlatLogic>().To<FlatLogic>();
+            Bind<IFlatDao>().To<FlatDao>();
+            Bind<ICottageDao>().To<CottageDao>();
         }
     }
 }

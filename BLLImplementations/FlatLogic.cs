@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BLLInterfaces;
-using DALImplementations;
+using Cache.CacheUtil;
 using DALInterfaces;
 using Entities;
 
@@ -9,64 +10,80 @@ namespace BLLImplementations
 {
     public class FlatLogic : IFlatLogic
     {
+        private FlatCache _flatCache;
         private IFlatDao _flatDao;
-        private List<Flat> _flats;
-
-        public FlatLogic()
+      
+        public FlatLogic(IFlatDao flatDao)
         {
-            _flatDao = new FlatDao();
-            _flats = new List<Flat>();
+            _flatDao = flatDao;
+            _flatCache = new FlatCache();
         }
         
         public List<Flat> GetAll()
         {
-            if (_flats != null && _flats.Count != 0) 
-                return _flats;
-
-            var cottages = _flatDao.GetAll().ToList();
-            _flats = cottages;
-            return cottages;
+            var flatsFromCache = _flatCache.GetAll();
+            List<Flat> flatsFromDb;
+            if (flatsFromCache.Count == 0)
+            {
+                flatsFromDb = _flatDao.GetAll().ToList();
+                _flatCache.AddListOfFLats(flatsFromDb);
+                return flatsFromDb;
+            }
+            return flatsFromCache;
         }
         
-        public void Create(Flat flat)
+        public Flat Create(Flat flat)
         {
-            _flats.Add(_flatDao.Create(flat));
+            var flatFromDb = _flatDao.Create(flat);
+            _flatCache.AddFlat(flatFromDb);
+            return flatFromDb;
         }
         
-        public void Delete(int id)
+        public Boolean Delete(int id)
         {
-            _flats.Remove(_flats.First(cottage => cottage.IdFlat == id));
-            _flatDao.Delete(id);
+            var isDeleted = _flatDao.Delete(id);
+            if (isDeleted)
+            {
+                _flatCache.Delete(id);
+            }
+            return isDeleted;
         }
         public List<Flat> GetFlatsByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax, 
             int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax, int numOfHouseMin, int numOfHouseMax,
             string city, string street)
         {
-            var flatsByFilters = _flatDao.GetFlatsByFilters(flNumMin, flNumMax, sqMin, sqMax,
+            return _flatDao.GetFlatsByFilters(flNumMin, flNumMax, sqMin, sqMax,
                 numOfRmsMin, numOfRmsMax, priceMin, priceMax, numOfHouseMin, numOfHouseMax,
                 city, street).ToList();
-            _flats = flatsByFilters;
-            return flatsByFilters;
         }
         public List<Flat> GetSortedBy(SortBy sortBy)
         {
-            List<Flat> tempFlats = _flats;
+            var flatsFromCache = _flatCache.GetAll();
+            List<Flat> flatsFromDb = new List<Flat>();
+            List<Flat> tempFlats;
+            if (flatsFromCache.Count == 0)
+            {
+                flatsFromDb = _flatDao.GetAll().ToList();
+                _flatCache.AddListOfFLats(flatsFromDb);
+                tempFlats = flatsFromDb;
+            }
+            tempFlats = flatsFromDb ?? flatsFromCache;
             switch (sortBy)
             {
                 case SortBy.FLOOR:
-                    tempFlats = _flats.OrderBy(x => x.FloorNumber).ToList();
+                    tempFlats = tempFlats.OrderBy(x => x.FloorNumber).ToList();
                     break;
                 case SortBy.NUMBER:
-                    tempFlats = _flats.OrderBy(x => x.FlatNumber).ToList();
+                    tempFlats = tempFlats.OrderBy(x => x.FlatNumber).ToList();
                     break;
                 case SortBy.ROOMS:
-                    tempFlats = _flats.OrderBy(x => x.NumOfRooms).ToList();
+                    tempFlats = tempFlats.OrderBy(x => x.NumOfRooms).ToList();
                     break;
                 case SortBy.SQUARE:
-                    tempFlats = _flats.OrderBy(x => x.SquareOfFlat).ToList();
+                    tempFlats = tempFlats.OrderBy(x => x.SquareOfFlat).ToList();
                     break;
                 case SortBy.PRICE:
-                    tempFlats = _flats.OrderBy(x => x.Price).ToList();
+                    tempFlats = tempFlats.OrderBy(x => x.Price).ToList();
                     break;
             }
             return tempFlats;

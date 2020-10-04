@@ -5,12 +5,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using DALInterfaces;
 using Entities;
+using System.Configuration;
 
 namespace DALImplementations
 {
     public class CottageDao : ICottageDao
     {
-        private string _connectionString = "Data Source=KoTeuka;Initial Catalog=Estate_Agency;Integrated Security=True";
+        private string _connectionString = ConfigurationManager.ConnectionStrings["EstateAgency"].ConnectionString;
 
         public IEnumerable<Cottage> GetAll()
         {
@@ -24,7 +25,7 @@ namespace DALImplementations
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    var c = new Cottage()
+                    var cottageFromDb = new Cottage()
                     {
                         IdCottage = (int) reader["id_cottage"],
                         CottageNumber = (int) reader["cottage_number"],
@@ -36,7 +37,7 @@ namespace DALImplementations
                         Street = (string) reader["street_name"],
                         City = (string) reader["city_name"],
                     };
-                    result.Add(c);
+                    result.Add(cottageFromDb);
                 }
             }
             return result.AsEnumerable();
@@ -60,10 +61,10 @@ namespace DALImplementations
                     cmd.Parameters.AddWithValue("@id_street", cottage.IdStreet);
                     
                     var reader = cmd.ExecuteReader();
-                    Cottage c = null;
+                    Cottage cottageFromDb = null;
                     if (reader.Read())
                     {
-                        c = new Cottage()
+                        cottageFromDb = new Cottage()
                         {
                             IdCottage = (int) reader["id_cottage"],
                             CottageNumber = (int) reader["cottage_number"],
@@ -76,17 +77,16 @@ namespace DALImplementations
                             City = (string) reader["city_name"],
                         };
                     }
-                    return c;
+                    return cottageFromDb;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.StackTrace);
-                    return new Cottage();
+                    return null;
                 }
             }
         }
 
-        public string Delete(int idCottage)
+        public bool Delete(int idCottage)
         {
             try
             {
@@ -97,13 +97,12 @@ namespace DALImplementations
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@id", idCottage);
                     cmd.ExecuteNonQuery();
-                    return $"Коттедж успешно удален.";
+                    return true;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
-                return $"Ошибка:  {e}";
+                return false;
             }
         }
          public IEnumerable<Cottage> GetCottagesByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax, 
@@ -129,7 +128,7 @@ namespace DALImplementations
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    var c = new Cottage()
+                    var cottageFromDb = new Cottage()
                     {
                         IdCottage = (int) reader["id_cottage"],
                         CottageNumber = (int) reader["cottage_number"],
@@ -141,44 +140,12 @@ namespace DALImplementations
                         Street = (string) reader["street_name"],
                         City = (string) reader["city_name"],
                     };
-                    result.Add(c);
+                    result.Add(cottageFromDb);
                 }
             }
 
             return result.AsEnumerable();
         }
-
-        public string MakeContract(int idBuilding, int idRealtor, int idCustomer, string saleOrRent)
-        {
-            try
-            {
-                using (var connection = new SqlConnection(_connectionString))
-                {
-                    connection.Open();
-                    SqlCommand cmd;
-                    if (saleOrRent == "Аренда")
-                    {
-                        cmd = new SqlCommand("RENT_BUILDING", connection);
-                    }
-                    else
-                    {
-                        cmd = new SqlCommand("SELL_BUILDING", connection);
-                    }
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id_building", idBuilding);
-                    cmd.Parameters.AddWithValue("@id_realtor", idRealtor);
-                    cmd.Parameters.AddWithValue("@cottage_or_flat", "COTTAGE");
-                    cmd.Parameters.AddWithValue("@id_customer", idCustomer);
-
-                    cmd.ExecuteNonQuery();
-                    return $"Контракт успешно заключен.";
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-                return $"Ошибка:  {e}";
-            }
-        }
+         
     }
 }
