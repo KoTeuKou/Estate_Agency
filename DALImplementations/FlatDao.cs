@@ -98,8 +98,8 @@ namespace DALImplementations
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    const string sql = "DELETE * FROM Flat WHERE id_flat = @id";
-                    var cmd = new SqlCommand(sql, connection);
+                    var cmd = new SqlCommand("DELETE_FLAT", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id", idFlat);
                     cmd.ExecuteNonQuery();
                     return true;
@@ -111,27 +111,25 @@ namespace DALImplementations
             }
         }
 
-        public IEnumerable<Flat> GetFlatsByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax, 
-            int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax, int numOfHouseMin, int numOfHouseMax,
-            string city, string street)
+        public IEnumerable<Flat> GetFlatsByFilters(FlatFilter filter)
         {
             var result = new List<Flat>();
             using (var connection = new SqlConnection(_connectionString))
             {
                 var cmd = new SqlCommand("FIND_FLAT_BY_FILTERS", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@fl_num_min", flNumMin);
-                cmd.Parameters.AddWithValue("@fl_num_max", flNumMax);
-                cmd.Parameters.AddWithValue("@sq_min", sqMin);
-                cmd.Parameters.AddWithValue("@sq_max", sqMax);
-                cmd.Parameters.AddWithValue("@num_of_rms_min", numOfRmsMin);
-                cmd.Parameters.AddWithValue("@num_of_rms_max", numOfRmsMax);
-                cmd.Parameters.AddWithValue("@price_min", priceMin);
-                cmd.Parameters.AddWithValue("@price_max", priceMax);
-                cmd.Parameters.AddWithValue("@num_of_house_min", numOfHouseMin);
-                cmd.Parameters.AddWithValue("@num_of_house_max", numOfHouseMax);
-                cmd.Parameters.AddWithValue("@city", city);
-                cmd.Parameters.AddWithValue("@street", street);
+                cmd.Parameters.AddWithValue("@fl_num_min", filter.MinFloorNumber);
+                cmd.Parameters.AddWithValue("@fl_num_max", filter.MaxFloorNumber);
+                cmd.Parameters.AddWithValue("@sq_min", filter.MinSquareOfFlat);
+                cmd.Parameters.AddWithValue("@sq_max", filter.MaxSquareOfFlat);
+                cmd.Parameters.AddWithValue("@num_of_rms_min", filter.MinNumOfRooms);
+                cmd.Parameters.AddWithValue("@num_of_rms_max", filter.MaxNumOfRooms);
+                cmd.Parameters.AddWithValue("@price_min", filter.MinPrice);
+                cmd.Parameters.AddWithValue("@price_max", filter.MaxPrice);
+                cmd.Parameters.AddWithValue("@num_of_house_min", filter.NumOfHouse);
+                cmd.Parameters.AddWithValue("@num_of_house_max", filter.NumOfHouse);
+                cmd.Parameters.AddWithValue("@city", filter.City);
+                cmd.Parameters.AddWithValue("@street", filter.Street);
                 connection.Open();
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())

@@ -1,0 +1,96 @@
+﻿@model WebApp.Models.CottageFilterVm
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("GetCottagesByFilters", "Cottage", FormMethod.Post))
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">
+                <h3>Количество этажей</h3>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Минимальный</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.MinFloorNumber)
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Максимальный</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.MaxFloorNumber)
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <h3>Площадь</h3>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Минимальная</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.MinSquareOfCottage)
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Максимальная</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.MaxSquareOfCottage)
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <h3>Кол-во комнат</h3>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Минимальное</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.MinNumOfRooms)
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Максимальное</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.MaxNumOfRooms)
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <h3>Цена</h3>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Минимальная</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.MinPrice)
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Максимальная</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.MaxPrice)
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <h3>Адрес</h3>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Город</label>
+                    @Html.EditorFor(model => model.City)
+
+                    <label class="col-2 col-form-label">Улица</label>
+                    @Html.EditorFor(model => model.Street)
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <h2>Поиск по фильтрам</h2>
+        </tr>
+        </thead>
+    </table>
+    <div align="center" style="margin: 10px;padding: 10px">
+        <input type="submit" value="Искать🔎" class="btn btn-primary" />
+    </div>
+}
+
+<style>
+.width-class{
+width: 150px;
+}
+</style>

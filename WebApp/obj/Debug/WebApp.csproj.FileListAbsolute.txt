@@ -246,3 +246,7 @@ C:\Users\Koteuko\RiderProjects\Estate_Agency\WebApp\bin\Ninject.Web.Common.WebHo
 C:\Users\Koteuko\RiderProjects\Estate_Agency\WebApp\bin\System.Net.Http.Formatting.xml
 C:\Users\Koteuko\RiderProjects\Estate_Agency\WebApp\bin\System.Web.Http.xml
 C:\Users\Koteuko\RiderProjects\Estate_Agency\WebApp\bin\System.Web.Http.WebHost.xml
+C:\Users\Koteuko\RiderProjects\Estate_Agency\WebApp\bin\AutoMapper.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\WebApp\bin\Cache.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\WebApp\bin\AutoMapper.xml
+C:\Users\Koteuko\RiderProjects\Estate_Agency\WebApp\bin\Cache.pdb

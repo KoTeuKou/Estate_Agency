@@ -9,9 +9,7 @@ namespace BLLInterfaces
         List<Cottage> GetAll();
         Cottage Create(Cottage cottage);
         Boolean Delete(int idCottage);
-        List<Cottage> GetCottagesByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax,
-            int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax,
-            string city, string street);
+        List<Cottage> GetCottagesByFilters(CottageFilter filter);
         List<Cottage> GetSortedBy(SortBy sortBy);
     }
 }

@@ -38,8 +38,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICityLogic.cs" />
     <Compile Include="ICottageLogic.cs" />
     <Compile Include="IFlatLogic.cs" />
+    <Compile Include="IHouseLogic.cs" />
+    <Compile Include="IOwnerLogic.cs" />
+    <Compile Include="IStreetLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

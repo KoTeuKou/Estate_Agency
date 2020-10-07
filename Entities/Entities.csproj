@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cottage.cs" />
+    <Compile Include="CottageFilter.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="FlatFilter.cs" />
     <Compile Include="House.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Realtor.cs" />

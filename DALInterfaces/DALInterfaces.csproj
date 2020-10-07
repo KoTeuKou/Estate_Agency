@@ -38,8 +38,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICityDao.cs" />
     <Compile Include="ICottageDao.cs" />
     <Compile Include="IFlatDao.cs" />
+    <Compile Include="IHouseDao.cs" />
+    <Compile Include="IOwnerDao.cs" />
+    <Compile Include="IStreetDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

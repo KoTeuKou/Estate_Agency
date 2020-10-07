@@ -1,0 +1,103 @@
+﻿@using WebApp.Models
+@model WebApp.Models.CottageModelVm
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card card-body" style="padding-top: 10%">
+    @using (Html.BeginForm("Add", "Cottage", FormMethod.Post))
+    {
+        <table class="table">
+            <thead>
+            <tr>
+            <th scope="col">
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Номер коттеджа</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.CottageNumber)
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Количество этажей</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.NumOfFloors)
+                    </div>
+                </div>
+            </th>
+            <th>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Площадь</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.SquareOfCottage)
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Количество комнат</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.NumOfRooms)
+                    </div>
+                </div>
+            </th>
+            <th>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Цена</label>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.Price)
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Владелец</label>
+                    <div class="col-2">
+                        <select onchange="@Model.Owner = this.value;">
+                            <option selected></option>
+                            @foreach (var owner in (IEnumerable<OwnerVm>) ViewData["Owners"])
+                            {
+                                <option>@owner.OwnerName</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+            </th>
+            <th>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Город</label>
+                    <div class="col-2">
+                        <select onchange="model.City = this.value;">
+                            <option selected></option>
+                            @foreach (var city in (IEnumerable<CityVm>) ViewData["Cities"])
+                            {
+                                <option>@city.CityName</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row width-class">
+                    <label class="col-2 col-form-label">Улица</label>
+                    <div class="col-2">
+                        <select onchange="model.Street = this.value;">
+                            <option selected></option>
+                            @foreach (var street in (IEnumerable<StreetVm>) ViewData["Streets"])
+                            {
+                                <option>@street.StreetName</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+            </th>
+        </table>
+        <div align="center" style="margin: 10px;padding: 10px">
+            <input type="submit" value="Добавить" class="btn btn-primary"/>
+        </div>
+    }
+</div>
+
+
+<style>
+.width-class{
+width: 150px;
+}
+</style>

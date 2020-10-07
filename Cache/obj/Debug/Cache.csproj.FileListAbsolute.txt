@@ -1,0 +1,7 @@
+C:\Users\Koteuko\RiderProjects\Estate_Agency\Cache\bin\Debug\Cache.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\Cache\bin\Debug\Cache.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\Cache\bin\Debug\Entities.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\Cache\bin\Debug\Entities.pdb
+C:\Users\Koteuko\RiderProjects\Estate_Agency\Cache\obj\Debug\Cache.csprojResolveAssemblyReference.cache
+C:\Users\Koteuko\RiderProjects\Estate_Agency\Cache\obj\Debug\Cache.dll
+C:\Users\Koteuko\RiderProjects\Estate_Agency\Cache\obj\Debug\Cache.pdb

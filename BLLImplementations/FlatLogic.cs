@@ -8,11 +8,10 @@ using Entities;
 
 namespace BLLImplementations
 {
-    public class FlatLogic : IFlatLogic
+      public class FlatLogic : IFlatLogic
     {
-        private FlatCache _flatCache;
         private IFlatDao _flatDao;
-      
+        private FlatCache _flatCache;
         public FlatLogic(IFlatDao flatDao)
         {
             _flatDao = flatDao;
@@ -23,7 +22,7 @@ namespace BLLImplementations
         {
             var flatsFromCache = _flatCache.GetAll();
             List<Flat> flatsFromDb;
-            if (flatsFromCache.Count == 0)
+            if (flatsFromCache == null || flatsFromCache.Count == 0)
             {
                 flatsFromDb = _flatDao.GetAll().ToList();
                 _flatCache.AddListOfFLats(flatsFromDb);
@@ -35,7 +34,11 @@ namespace BLLImplementations
         public Flat Create(Flat flat)
         {
             var flatFromDb = _flatDao.Create(flat);
-            _flatCache.AddFlat(flatFromDb);
+            if (flatFromDb != null)
+            {
+                _flatCache.AddFlat(flatFromDb);
+            }
+
             return flatFromDb;
         }
         
@@ -48,26 +51,25 @@ namespace BLLImplementations
             }
             return isDeleted;
         }
-        public List<Flat> GetFlatsByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax, 
-            int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax, int numOfHouseMin, int numOfHouseMax,
-            string city, string street)
+        
+        public List<Flat> GetFlatsByFilters(FlatFilter filter)
         {
-            return _flatDao.GetFlatsByFilters(flNumMin, flNumMax, sqMin, sqMax,
-                numOfRmsMin, numOfRmsMax, priceMin, priceMax, numOfHouseMin, numOfHouseMax,
-                city, street).ToList();
+            var flatsByFilters = _flatDao.GetFlatsByFilters(filter).ToList();
+            _flatCache.AddListOfFLats(flatsByFilters);
+            return flatsByFilters;
         }
         public List<Flat> GetSortedBy(SortBy sortBy)
         {
             var flatsFromCache = _flatCache.GetAll();
-            List<Flat> flatsFromDb = new List<Flat>();
             List<Flat> tempFlats;
-            if (flatsFromCache.Count == 0)
+            if (flatsFromCache == null || flatsFromCache.Count == 0)
             {
-                flatsFromDb = _flatDao.GetAll().ToList();
-                _flatCache.AddListOfFLats(flatsFromDb);
-                tempFlats = flatsFromDb;
+                tempFlats = _flatDao.GetAll().ToList();
             }
-            tempFlats = flatsFromDb ?? flatsFromCache;
+            else
+            {
+                tempFlats = flatsFromCache;
+            }
             switch (sortBy)
             {
                 case SortBy.FLOOR:
@@ -86,8 +88,8 @@ namespace BLLImplementations
                     tempFlats = tempFlats.OrderBy(x => x.Price).ToList();
                     break;
             }
+            _flatCache.AddListOfFLats(tempFlats);
             return tempFlats;
         }
-        
     }
 }

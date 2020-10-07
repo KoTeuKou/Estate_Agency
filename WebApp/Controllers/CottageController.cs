@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using AutoMapper;
 using BLLInterfaces;
 using Entities;
 using WebApp.Models;
@@ -9,10 +10,16 @@ namespace WebApp.Controllers
     public class CottageController : Controller
     {
         private ICottageLogic _cottageLogic;
+        private readonly IMapper _mapper;
 
-        public CottageController(ICottageLogic cottageLogic)
+        public CottageController(ICottageLogic cottageLogic, IStreetLogic streetLogic,ICityLogic cityLogic, IOwnerLogic ownerLogic, IMapper mapper)
         {
             _cottageLogic = cottageLogic;
+            _mapper = mapper;
+
+            ViewData["Streets"] = _mapper.Map<IEnumerable<StreetVm>>(streetLogic.GetAll());
+            ViewData["Cities"] = _mapper.Map<IEnumerable<CityVm>>(cityLogic.GetAll());
+            ViewData["Owners"] = _mapper.Map<IEnumerable<OwnerVm>>(ownerLogic.GetAll());
         }
 
         public CottageController()
@@ -22,37 +29,41 @@ namespace WebApp.Controllers
         public ViewResult Cottages()
         {
             ViewBag.Title = "Cottages";
-            ViewData["Cottages"] = _cottageLogic.GetAll();
-            return View();
+            var cottages = _cottageLogic.GetAll();
+            var cottagesVm = _mapper.Map<IEnumerable<CottageModelVm>>(cottages);
+            return View(cottagesVm);
         }
-        [HttpPost]
-        public ActionResult Add(CottageModel model)
+        
+        public ViewResult AddCottage()
         {
-            ViewBag.Title = "Cottages";
-            if(ModelState.IsValid)
-            {
-                _cottageLogic.Create(new Cottage(model.CottageNumber, model.NumOfFloors, model.SquareOfCottage, model.NumOfRooms, model.Price));
-            }
+            return View(new CottageModelVm());
+        }
+        
+        public ViewResult CottageFilter()
+        {
+            return View(new CottageFilterVm());
+        }
+        
+        [HttpPost]
+        public ActionResult Add(CottageModelVm cottageModel)
+        {
+            _cottageLogic.Create(_mapper.Map<CottageModelVm, Cottage>(cottageModel));
             return RedirectToAction("Cottages");
         }
         
         [HttpPost]
-        public ActionResult Delete(int idCottage)
+        public ActionResult Delete(int id)
         {
             ViewBag.Title = "Cottages";
-            _cottageLogic.Delete(idCottage);
+            _cottageLogic.Delete(id);
             return RedirectToAction("Cottages");
         }
         
         [HttpPost]
-        public ActionResult GetCottagesByFilters(CottageFilter filter)
+        public ActionResult GetCottagesByFilters(CottageFilterVm filterVm)
         {
             ViewBag.Title = "Cottages";
-          
-            _cottageLogic.GetCottagesByFilters(int.Parse(filter.MaxFloorNumber), int.Parse(filter.MaxFloorNumber), 
-                double.Parse(filter.MinSquareOfFlat), double.Parse(filter.MaxSquareOfFlat), int.Parse(filter.MinNumOfRooms),
-                int.Parse(filter.MaxNumOfRooms), int.Parse(filter.MinPrice), int.Parse(filter.MaxPrice),
-                filter.City, filter.Street);
+            _cottageLogic.GetCottagesByFilters(_mapper.Map<CottageFilterVm, CottageFilter>(filterVm));
             return RedirectToAction("Cottages");
         }
         public ActionResult SortByField(SortBy sortBy)
@@ -61,12 +72,6 @@ namespace WebApp.Controllers
             _cottageLogic.GetSortedBy(sortBy);
             return RedirectToAction("Cottages");
         }
-      
-        public ActionResult Reload()
-        {
-            ViewBag.Title = "Cottages";
-            _cottageLogic.GetAll();
-            return RedirectToAction("Cottages");
-        }
+        
     }
 }

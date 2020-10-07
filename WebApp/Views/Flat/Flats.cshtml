@@ -1,7 +1,7 @@
 ﻿@using Entities
 @using WebApp.Models
 
-@model FlatParentModel
+@model IEnumerable<FlatModelVm>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -10,149 +10,8 @@
     <h1 class="h1 bottom-left">Квартиры</h1>
 
 </div>
-@using (Html.BeginForm())
-{
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">
-                <h3>Номер этажа</h3>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Минимальный</label>
-                    <div class="col-2">
-                        @Html.EditorFor(model => model.FlatFilter.MinFloorNumber)
-                    </div>
-                </div>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Максимальный</label>
-                    <div class="col-2">
-                        @Html.EditorFor(model => model.FlatFilter.MaxFloorNumber)
-                    </div>
-                </div>
-            </th>
-            <th scope="col">
-                <h3>Площадь</h3>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Минимальная</label>
-                    <div class="col-2">
-                        @Html.EditorFor(model => model.FlatFilter.MinSquareOfFlat)
-                    </div>
-                </div>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Максимальная</label>
-                    <div class="col-2">
-                        @Html.EditorFor(model => model.FlatFilter.MaxSquareOfFlat)
-                    </div>
-                </div>
-            </th>
-            <th scope="col">
-                <h3>Кол-во комнат</h3>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Минимальное</label>
-                    <div class="col-2">
-                        @Html.EditorFor(model => model.FlatFilter.MinNumOfRooms)
-                    </div>
-                </div>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Максимальное</label>
-                    <div class="col-2">
-                        @Html.EditorFor(model => model.FlatFilter.MaxNumOfRooms)
-                    </div>
-                </div>
-            </th>
-            <th scope="col">
-                <h3>Цена</h3>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Минимальная</label>
-                    <div class="col-2">
-                        @Html.EditorFor(model => model.FlatFilter.MinPrice)
-                    </div>
-                </div>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Максимальная</label>
-                    <div class="col-2">
-                        @Html.EditorFor(model => model.FlatFilter.MaxPrice)
-                    </div>
-                </div>
-            </th>
-            <th scope="col">
-                <h3>Адрес</h3>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Город</label>
-                    @Html.EditorFor(model => model.FlatFilter.City)
-
-                    <label class="col-2 col-form-label">Улица</label>
-                    @Html.EditorFor(model => model.FlatFilter.Street)
-
-                    <label class="col-2 col-form-label">№ дома</label>
-                    @Html.EditorFor(model => model.FlatFilter.NumOfHouse)
-
-                </div>
-            </th>
-        </tr>
-        <tr>
-            <h2>Поиск по фильтрам</h2>
-        </tr>
-        </thead>
-    </table>
-    <div align="center" style="margin: 10px;padding: 10px">
-        <button type="submit" class="btn btn-primary btn">Искать🔎</button>
-    </div>
-}
-
-<div>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-        Добавление квартиры
-    </button>
-    <div class="collapse" id="collapse2">
-        <div class="card card-body">
-            @using (Html.BeginForm("Add", "Cottage", FormMethod.Post))
-            {
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>Номер квартиры</label>
-                        @Html.EditorFor(model => model.FlatModel.FlatNumber)
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Номер этажа</label>
-                        @Html.EditorFor(model => model.FlatModel.FloorNumber)
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>Площадь</label>
-                        @Html.EditorFor(model => model.FlatModel.SquareOfFlat)
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Количество комнат</label>
-                        @Html.EditorFor(model => model.FlatModel.NumOfRooms)
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>Цена</label>
-                        @Html.EditorFor(model => model.FlatModel.Price)
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Владелец</label>
-                        @Html.EditorFor(model => model.FlatModel.Owner)
-                    </div>
-                    <div class="form-group row width-class">
-                        <label class="col-2 col-form-label">Город</label>
-                        @Html.EditorFor(model => model.FlatModel.City)
-
-                        <div style="display:none;padding-top: 5px">
-                            <label class="col-2 col-form-label">Улица</label>
-                            @Html.EditorFor(model => model.FlatModel.Street)
-                        </div>
-                    </div>
-                </div>
-                <input type="submit" value="Добавить">
-            }
-        </div>
-    </div>
-</div>
-
+@Html.ActionLink("Добавить квартиру", "AddFlat", "Flat" , new { area = "" }, new { @class = "navbar-brand" })
+@Html.ActionLink("Фильтровать", "FlatFilter", "Flat" , new { area = "" }, new { @class = "navbar-brand" })
 <table class="table">
     <tbody>
     <thead>
@@ -211,10 +70,11 @@
         <th scope="col">
             Город
         </th>
+        <th></th>
     </tr>
     </thead>
 
-    @foreach (var flat in (IEnumerable<Flat>) @ViewData["Flats"])
+    @foreach (var flat in Model)
     {
         <tr>
             <td>@flat.FlatNumber</td>
@@ -225,6 +85,15 @@
             <td>@flat.House</td>
             <td>@flat.Street</td>
             <td>@flat.City</td>
+            <td>
+                <td>
+                    @using (Html.BeginForm("Delete", "Flat", FormMethod.Post))
+                    {
+                        @Html.Hidden("id", flat.Id)
+                        <input type="submit" class="btn btn-danger btn-sm" value="Удалить">
+                    }
+                </td>
+            </td>
         </tr>
     }
     </tbody>

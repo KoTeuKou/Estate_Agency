@@ -22,7 +22,7 @@ namespace BLLImplementations
         {
             var cottagesFromCache = _cottageCache.GetAll();
             List<Cottage> cottagesFromDb;
-            if (cottagesFromCache.Count == 0)
+            if (cottagesFromCache == null || cottagesFromCache.Count == 0)
             {
                 cottagesFromDb = _cottageDao.GetAll().ToList();
                 _cottageCache.AddListOfCottages(cottagesFromDb);
@@ -34,7 +34,11 @@ namespace BLLImplementations
         public Cottage Create(Cottage cottage)
         {
             var cottageFromDb = _cottageDao.Create(cottage);
-            _cottageCache.AddCottage(cottageFromDb);
+            if (cottageFromDb != null)
+            {
+                _cottageCache.AddCottage(cottageFromDb);
+            }
+
             return cottageFromDb;
         }
         
@@ -48,26 +52,24 @@ namespace BLLImplementations
             return isDeleted;
         }
         
-        public List<Cottage> GetCottagesByFilters(int flNumMin, int flNumMax, double sqMin, double sqMax, 
-            int numOfRmsMin, int numOfRmsMax, int priceMin, int priceMax,
-            string city, string street)
+        public List<Cottage> GetCottagesByFilters(CottageFilter filter)
         {
-            return _cottageDao.GetCottagesByFilters(flNumMin, flNumMax, sqMin, sqMax, 
-                numOfRmsMin, numOfRmsMax, priceMin, priceMax,
-                city, street).ToList();
+            var cottagesByFilters = _cottageDao.GetCottagesByFilters(filter).ToList();
+            _cottageCache.AddListOfCottages(cottagesByFilters);
+            return cottagesByFilters;
         }
         public List<Cottage> GetSortedBy(SortBy sortBy)
         {
             var cottagesFromCache = _cottageCache.GetAll();
-            List<Cottage> cottagesFromDb = new List<Cottage>();
             List<Cottage> tempCottages;
-            if (cottagesFromCache.Count == 0)
+            if (cottagesFromCache == null || cottagesFromCache.Count == 0)
             {
-                cottagesFromDb = _cottageDao.GetAll().ToList();
-                _cottageCache.AddListOfCottages(cottagesFromDb);
-                tempCottages = cottagesFromDb;
+                tempCottages = _cottageDao.GetAll().ToList();
             }
-            tempCottages = cottagesFromDb ?? cottagesFromCache;
+            else
+            {
+                tempCottages = cottagesFromCache;
+            }
             switch (sortBy)
             {
                 case SortBy.FLOOR:
@@ -86,6 +88,7 @@ namespace BLLImplementations
                     tempCottages = tempCottages.OrderBy(x => x.Price).ToList();
                     break;
             }
+            _cottageCache.AddListOfCottages(tempCottages);
             return tempCottages;
         }
     }
