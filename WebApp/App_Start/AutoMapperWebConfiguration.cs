@@ -17,7 +17,8 @@ namespace WebApp
                     .ForMember(flat => flat.SquareOfFlat, map => map.MapFrom(p => p.SquareOfFlat))
                     .ForMember(flat => flat.NumOfRooms, map => map.MapFrom(p => p.NumOfRooms))
                     .ForMember(flat => flat.Price, map => map.MapFrom(p => p.Price))
-                    .ForMember(flat => flat.Owner, map => map.MapFrom(p => p.Owner))
+                    .ForMember(flat => flat.IdOwner, map => map.MapFrom(p => p.IdOwner))
+                    .ForMember(flat => flat.House, map => map.MapFrom(p => p.House))
                     .ForMember(flat => flat.House, map => map.MapFrom(p => p.House))
                     .ForMember(flat => flat.Street, map => map.MapFrom(p => p.Street))
                     .ForMember(flat => flat.City, map => map.MapFrom(p => p.City))
@@ -35,7 +36,7 @@ namespace WebApp
                     .ForMember(flat => flat.SquareOfFlat, map => map.MapFrom(p => p.SquareOfFlat))
                     .ForMember(flat => flat.NumOfRooms, map => map.MapFrom(p => p.NumOfRooms))
                     .ForMember(flat => flat.Price, map => map.MapFrom(p => p.Price))
-                    .ForMember(flat => flat.Owner, map => map.MapFrom(p => p.Owner))
+                    .ForMember(flat => flat.IdOwner, map => map.MapFrom(p => p.IdOwner))
                     .ForMember(flat => flat.House, map => map.MapFrom(p => p.House))
                     .ForMember(flat => flat.Street, map => map.MapFrom(p => p.Street))
                     .ForMember(flat => flat.City, map => map.MapFrom(p => p.City))
@@ -53,7 +54,7 @@ namespace WebApp
                     .ForMember(cottage => cottage.SquareOfCottage, map => map.MapFrom(p => p.SquareOfCottage))
                     .ForMember(cottage => cottage.NumOfRooms, map => map.MapFrom(p => p.NumOfRooms))
                     .ForMember(cottage => cottage.Price, map => map.MapFrom(p => p.Price))
-                    .ForMember(cottage => cottage.Owner, map => map.MapFrom(p => p.Owner))
+                    .ForMember(cottage => cottage.IdOwner, map => map.MapFrom(p => p.IdOwner))
                     .ForMember(cottage => cottage.Street, map => map.MapFrom(p => p.Street))
                     .ForMember(cottage => cottage.City, map => map.MapFrom(p => p.City))
                     ;
@@ -70,8 +71,8 @@ namespace WebApp
                     .ForMember(cottage => cottage.SquareOfCottage, map => map.MapFrom(p => p.SquareOfCottage))
                     .ForMember(cottage => cottage.NumOfRooms, map => map.MapFrom(p => p.NumOfRooms))
                     .ForMember(cottage => cottage.Price, map => map.MapFrom(p => p.Price))
-                    .ForMember(cottage => cottage.Owner, map => map.MapFrom(p => p.Owner))
-                    .ForMember(cottage => cottage.Street, map => map.MapFrom(p => p.Street))
+                    .ForMember(cottage => cottage.IdOwner, map => map.MapFrom(p => p.IdOwner))
+                    .ForMember(cottage => cottage.IdStreet, map => map.MapFrom(p => p.IdStreet))
                     .ForMember(cottage => cottage.City, map => map.MapFrom(p => p.City))
                     ;
             }

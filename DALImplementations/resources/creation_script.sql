@@ -5,7 +5,7 @@ CREATE DATABASE [Estate_Agency]
     
 USE [Estate_Agency]
 GO
-/****** Object:  Table [dbo].[City]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[City]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[City](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
     ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Contract_]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Contract_]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -37,7 +37,7 @@ CREATE TABLE [dbo].[Contract_](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
     ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Cottage]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Cottage]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -57,7 +57,7 @@ CREATE TABLE [dbo].[Cottage](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
     ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Cottage_contract]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Cottage_contract]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -67,7 +67,7 @@ CREATE TABLE [dbo].[Cottage_contract](
     [id_cottage] [int] NOT NULL
 ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Customer]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Customer]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -82,7 +82,7 @@ CREATE TABLE [dbo].[Customer](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
     ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Flat]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Flat]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -102,7 +102,7 @@ CREATE TABLE [dbo].[Flat](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
     ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Flat_contract]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Flat_contract]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +112,7 @@ CREATE TABLE [dbo].[Flat_contract](
     [id_flat] [int] NOT NULL
 ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[House]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[House]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -128,7 +128,7 @@ CREATE TABLE [dbo].[House](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
     ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Owner_]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Owner_]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +142,7 @@ CREATE TABLE [dbo].[Owner_](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
     ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Realtor]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Realtor]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -156,7 +156,7 @@ CREATE TABLE [dbo].[Realtor](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
     ) ON [PRIMARY]
     GO
-/****** Object:  Table [dbo].[Street]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  Table [dbo].[Street]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -241,7 +241,7 @@ ALTER TABLE [dbo].[Street]  WITH NOCHECK ADD  CONSTRAINT [FK_Street_City] FOREIG
     GO
 ALTER TABLE [dbo].[Street] CHECK CONSTRAINT [FK_Street_City]
     GO
-/****** Object:  StoredProcedure [dbo].[ADD_COTTAGE]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  StoredProcedure [dbo].[ADD_COTTAGE]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -258,7 +258,7 @@ FROM Cottage ctg INNER JOIN Owner_ o ON ctg.id_owner = o.id_owner
                  INNER JOIN City c ON st.id_city = c.id_city
 WHERE ctg.id_cottage = SCOPE_IDENTITY()
     GO
-/****** Object:  StoredProcedure [dbo].[ADD_FLAT]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  StoredProcedure [dbo].[ADD_FLAT]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -276,7 +276,7 @@ FROM Flat f INNER JOIN Owner_ o ON f.id_owner = o.id_owner
             INNER JOIN City c ON st.id_city = c.id_city
 WHERE f.id_flat = SCOPE_IDENTITY()
     GO
-/****** Object:  StoredProcedure [dbo].[DELETE_COTTAGE]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  StoredProcedure [dbo].[DELETE_COTTAGE]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -293,7 +293,7 @@ BEGIN
     DELETE FROM Cottage WHERE id_cottage = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DELETE_FLAT]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  StoredProcedure [dbo].[DELETE_FLAT]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -310,7 +310,7 @@ BEGIN
     DELETE FROM Flat WHERE id_flat = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FIND_COTTAGE_BY_FILTERS]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  StoredProcedure [dbo].[FIND_COTTAGE_BY_FILTERS]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -323,7 +323,6 @@ CREATE PROC [dbo].[FIND_COTTAGE_BY_FILTERS]
 	@sq_min float, @sq_max float,
 	@num_of_rms_min int, @num_of_rms_max int,
 	@price_min int, @price_max int,
-	@num_of_cottage_min int, @num_of_cottage_max int,
 	@city nvarchar, @street nvarchar
 AS
 SELECT id_cottage, cottage_number, num_of_floors, square_of_cottage, num_of_rooms, price, owner_name, street_name, city_name
@@ -336,17 +335,16 @@ WHERE ctg.id_street = ANY(
   AND num_of_floors >= @num_of_floors_min AND num_of_floors <= @num_of_floors_max AND
         square_of_cottage >= @sq_min AND square_of_cottage <= @sq_max AND
         num_of_rooms >= @num_of_rms_min AND num_of_rooms <= @num_of_rms_max AND
-        cottage_number >= @num_of_cottage_min AND cottage_number <= @num_of_cottage_max AND
         price >= @price_min AND price <= @price_max
     GO
-/****** Object:  StoredProcedure [dbo].[FIND_FLAT_BY_FILTERS]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  StoredProcedure [dbo].[FIND_FLAT_BY_FILTERS]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
     GO
 
 CREATE PROC [dbo].[FIND_FLAT_BY_FILTERS]
-	@fl_num_min int, @fl_num_max int,
+@fl_num_min int, @fl_num_max int,
 	@sq_min float, @sq_max float,
 	@num_of_rms_min int, @num_of_rms_max int,
 	@price_min int, @price_max int,
@@ -367,7 +365,24 @@ FROM Flat f INNER JOIN Owner_ o ON f.id_owner = o.id_owner
         num_of_rooms >= @num_of_rms_min AND num_of_rooms <= @num_of_rms_max AND
         price >= @price_min AND price <= @price_max
     GO
-/****** Object:  StoredProcedure [dbo].[GET_ALL_COTTAGES]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  StoredProcedure [dbo].[GET_ALL_CITIES]    Script Date: 09.10.2020 13:50:30 ******/
+SET ANSI_NULLS ON
+    GO
+SET QUOTED_IDENTIFIER ON
+    GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[GET_ALL_CITIES]
+AS
+BEGIN
+
+    SELECT * FROM City;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GET_ALL_COTTAGES]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -380,7 +395,7 @@ FROM Cottage ctg INNER JOIN Owner_ o ON ctg.id_owner = o.id_owner
                  INNER JOIN Street st ON ctg.id_street = st.id_street
                  INNER JOIN City c ON st.id_city = c.id_city
     GO
-/****** Object:  StoredProcedure [dbo].[GET_ALL_FLATS]    Script Date: 06.10.2020 15:59:59 ******/
+/****** Object:  StoredProcedure [dbo].[GET_ALL_FLATS]    Script Date: 09.10.2020 13:50:30 ******/
 SET ANSI_NULLS ON
     GO
 SET QUOTED_IDENTIFIER ON
@@ -393,3 +408,186 @@ FROM Flat f INNER JOIN Owner_ o ON f.id_owner = o.id_owner
             INNER JOIN Street st ON h.id_street = st.id_street
             INNER JOIN City c ON st.id_city = c.id_city
     GO
+/****** Object:  StoredProcedure [dbo].[GET_ALL_HOUSES]    Script Date: 09.10.2020 13:50:30 ******/
+SET ANSI_NULLS ON
+    GO
+SET QUOTED_IDENTIFIER ON
+    GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[GET_ALL_HOUSES]
+AS
+BEGIN
+    SELECT h.id_house, h.house_num , h.num_of_floors , h.id_street , st.street_name,
+           c.city_name FROM House h INNER JOIN Street st ON h.id_street = st.id_street
+                                    INNER JOIN City c ON st.id_city = c.id_city
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GET_ALL_OWNERS]    Script Date: 09.10.2020 13:50:30 ******/
+SET ANSI_NULLS ON
+    GO
+SET QUOTED_IDENTIFIER ON
+    GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[GET_ALL_OWNERS]
+AS
+BEGIN
+    SELECT * FROM Owner_
+                      END
+        GO
+/****** Object:  StoredProcedure [dbo].[GET_ALL_REALTORS]    Script Date: 09.10.2020 13:50:30 ******/
+    SET ANSI_NULLS ON
+GO
+    SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[GET_ALL_REALTORS] 
+AS
+    BEGIN
+        SELECT * FROM Realtor
+                          END
+            GO
+/****** Object:  StoredProcedure [dbo].[GET_ALL_STREETS]    Script Date: 09.10.2020 13:50:30 ******/
+        SET ANSI_NULLS ON
+GO
+        SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[GET_ALL_STREETS] 
+AS
+        BEGIN
+            SELECT st.id_street, st.street_name, c.city_name, st.id_city FROM Street st INNER JOIN City c ON st.id_city = c.id_city
+        END
+        GO
+/****** Object:  StoredProcedure [dbo].[HOW_MANY_CONTRACTS]    Script Date: 09.10.2020 13:50:30 ******/
+        SET ANSI_NULLS ON
+GO
+        SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[HOW_MANY_CONTRACTS]
+@id_realtor int
+AS
+        DECLARE @times int
+        SET @times = 0
+        SELECT times = COUNT(*)  from Contract_ c where c.id_realtor = @id_realtor
+            GO
+/****** Object:  StoredProcedure [dbo].[HOW_MANY_TIMES_RESOLD]    Script Date: 09.10.2020 13:50:30 ******/
+        SET ANSI_NULLS ON
+        GO
+            SET QUOTED_IDENTIFIER ON
+        GO
+
+        CREATE PROC [dbo].[HOW_MANY_TIMES_RESOLD]
+        @id_building int, @cottage_or_flat nvarchar
+        AS
+        DECLARE @times int
+        SET @times = 0
+	IF (@cottage_or_flat = 'COTTAGE')
+		 (SELECT times = COUNT(*) FROM Contract_ c INNER JOIN Cottage_contract ct
+			 ON ct.id_contract = c.id_contract WHERE ct.id_cottage = @id_building)
+	ELSE
+		(SELECT times = COUNT(*) FROM Contract_ c INNER JOIN Flat_contract f
+				 ON f.id_contract = c.id_contract WHERE f.id_flat = @id_building)
+        RETURN @times
+        GO
+/****** Object:  StoredProcedure [dbo].[RENT_BUILDING]    Script Date: 09.10.2020 13:50:30 ******/
+            SET ANSI_NULLS ON
+        GO
+            SET QUOTED_IDENTIFIER ON
+        GO
+
+        CREATE PROC [dbo].[RENT_BUILDING]
+        @id_building int, @id_realtor int, @cottage_or_flat nvarchar, @id_customer int
+        AS
+        SET NOCOUNT ON;
+        DECLARE @id_contr int, @id_owner int;
+        IF (@cottage_or_flat = 'COTTAGE')
+        SELECT @id_owner = id_owner FROM Cottage WHERE id_cottage = @id_building
+            ELSE
+        SELECT @id_owner = id_owner FROM Flat WHERE id_flat = @id_building
+        INSERT INTO Contract_
+        VALUES(@id_realtor, @id_owner, @id_customer, 'Rent', GETDATE())
+
+
+            SET @id_contr = IDENT_CURRENT ('Contract_')
+        IF (@cottage_or_flat = 'COTTAGE')
+        BEGIN
+            INSERT INTO Cottage_contract
+            VALUES(@id_contr, @id_building)
+        END
+        ELSE
+        BEGIN
+            INSERT INTO Flat_contract
+            VALUES(@id_contr, @id_building)
+        END
+        GO
+/****** Object:  StoredProcedure [dbo].[SELL_BUILDING]    Script Date: 09.10.2020 13:50:30 ******/
+        SET ANSI_NULLS ON
+GO
+        SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROC [dbo].[SELL_BUILDING]
+	@id_building int, @id_realtor int, @cottage_or_flat nvarchar, @id_customer int
+AS
+        SET NOCOUNT ON;
+        DECLARE @id_contr int, @id_owner int;
+        IF (@cottage_or_flat = 'COTTAGE')
+        SELECT @id_owner = id_owner FROM Cottage WHERE id_cottage = @id_building
+            ELSE
+        SELECT @id_owner = id_owner FROM Flat WHERE id_flat = @id_building
+        INSERT INTO Contract_
+        VALUES(@id_realtor, @id_owner, @id_customer, 'Sell', GETDATE())
+
+
+            SET @id_contr = IDENT_CURRENT ('Contract_')
+        IF (@cottage_or_flat = 'COTTAGE')
+        BEGIN
+            INSERT INTO Cottage_contract
+            VALUES(@id_contr, @id_building)
+
+            UPDATE Cottage
+            SET id_owner = @id_customer
+            WHERE id_cottage = @id_building
+        END
+        ELSE
+        BEGIN
+            INSERT INTO Flat_contract
+            VALUES(@id_contr, @id_building)
+
+            UPDATE Flat
+            SET id_owner = @id_customer
+            WHERE id_flat = @id_building
+        END
+        GO
+/****** Object:  StoredProcedure [dbo].[SHOW_ALL_EXPERIENCED_REALTORS]    Script Date: 09.10.2020 13:50:30 ******/
+        SET ANSI_NULLS ON
+GO
+        SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE PROC [dbo].[SHOW_ALL_EXPERIENCED_REALTORS]
+AS
+        SELECT *
+        FROM Realtor r
+        WHERE EXISTS (SELECT * from Contract_ c where c.id_realtor = r.id_realtor)
+            GO

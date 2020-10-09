@@ -40,6 +40,7 @@
                 </div>
             </th>
             <th>
+                @Html.EditorFor(model => model.IdOwner, new {htmlAttributes = new {@id = "idOwner", style = "visibility: hidden"}})
                 <div class="form-group row width-class">
                     <label class="col-2 col-form-label">Цена</label>
                     <div class="col-2">
@@ -49,39 +50,26 @@
                 <div class="form-group row width-class">
                     <label class="col-2 col-form-label">Владелец</label>
                     <div class="col-2">
-                        <select onchange="@Model.Owner = this.value;">
+                        <select required onchange="document.getElementById('idOwner').value = this.value;">
                             <option selected></option>
                             @foreach (var owner in (IEnumerable<OwnerVm>) ViewData["Owners"])
                             {
-                                <option>@owner.OwnerName</option>
+                                <option label="@owner.OwnerName" value="@owner.IdOwner"></option>
                             }
-
                         </select>
                     </div>
                 </div>
             </th>
             <th>
-                <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Город</label>
-                    <div class="col-2">
-                        <select onchange="model.City = this.value;">
-                            <option selected></option>
-                            @foreach (var city in (IEnumerable<CityVm>) ViewData["Cities"])
-                            {
-                                <option>@city.CityName</option>
-                            }
-
-                        </select>
-                    </div>
-                </div>
+                @Html.EditorFor(model => model.IdStreet, new {htmlAttributes = new {@id = "idStreet", style = "visibility: hidden"}})
                 <div class="form-group row width-class">
                     <label class="col-2 col-form-label">Улица</label>
                     <div class="col-2">
-                        <select onchange="model.Street = this.value;">
+                        <select required onchange="document.getElementById('idStreet').value = this.value;">
                             <option selected></option>
                             @foreach (var street in (IEnumerable<StreetVm>) ViewData["Streets"])
                             {
-                                <option>@street.StreetName</option>
+                                <option label="@street.StreetName, @street.CityName" value="@street.IdStreet"></option>
                             }
 
                         </select>

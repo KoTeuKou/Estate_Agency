@@ -1,56 +1,33 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace WebApp.Models
+﻿namespace WebApp.Models
 {
     public class CottageFilterVm
     {
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("1")] 
-        public string MinFloorNumber { get; set; }
-        
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("1000")] 
-        public string MaxFloorNumber { get; set; }
-        
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("1")]
-        public string MinSquareOfCottage { get; set; }
-        
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("100")] 
-        public string MaxSquareOfCottage { get; set; }
-        
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("1")]
-        public string MinNumOfRooms { get; set; }
-        
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("10")] 
-        public string MaxNumOfRooms { get; set; }
-        
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("100000")]
-        public string MinPrice { get; set; }
-        
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("1000000000")] 
-        public string MaxPrice { get; set; }
-        
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")] 
-        public string Street { get; set; }
-        
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("")]
-        public string City { get; set; }
+        public int MinFloorNumber { get; set; } = 1;
+
+        public int MaxFloorNumber { get; set; } = 1000;
+
+        public double MinSquareOfCottage { get; set; } = 1;
+
+        public double MaxSquareOfCottage { get; set; } = 1000;
+
+        public int MinNumOfRooms { get; set; } = 1;
+
+        public int MaxNumOfRooms { get; set; } = 100;
+
+        public int MinPrice { get; set; } = 10000;
+
+        public int MaxPrice { get; set; } = 1000000000;
+
+        public string Street { get; set; } = "";
+
+        public string City { get; set; } = "";
 
         public CottageFilterVm()
         {
         }
 
-        public CottageFilterVm(string minFloorNumber, string maxFloorNumber, string minSquareOfCottage, string maxSquareOfCottage,
-            string minNumOfRooms, string maxNumOfRooms, string minPrice, string maxPrice, string street, string city)
+        public CottageFilterVm(int minFloorNumber, int maxFloorNumber, int minSquareOfCottage, int maxSquareOfCottage,
+            int minNumOfRooms, int maxNumOfRooms, int minPrice, int maxPrice, string street, string city)
         {
             MinFloorNumber = minFloorNumber;
             MaxFloorNumber = maxFloorNumber;

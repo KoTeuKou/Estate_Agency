@@ -8,7 +8,7 @@ using Ninject.Modules;
 
 namespace WebApp.Utils
 {
-    public class NinjectRegistrations : NinjectModule
+    public class Registrations : NinjectModule
     {
         public override void Load()
         {

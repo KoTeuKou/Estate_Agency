@@ -12,22 +12,20 @@ namespace Cache.CacheUtil
         public void AddCottage(Cottage cottage)
         {
             var memoryCache = MemoryCache.Default;
-            if (memoryCache.Get(cottage.IdCottage.ToString()) is Cottage)
-            {
-               memoryCache.Set(cottage.IdCottage.ToString(), cottage, DateTime.Now.AddMinutes(_cachingTime));
-            }
-            else
-            {
-                memoryCache.Add(cottage.IdCottage.ToString(), cottage, DateTime.Now.AddMinutes(_cachingTime));
-            }
+            List<Cottage> cached = memoryCache.Get("allCottages") as List<Cottage>;
+            cached?.Add(cottage);
+            memoryCache.Set("allCottages", cached, DateTime.Now.AddMinutes(_cachingTime));
         }
 
         public void Delete(int id)
         {
             var memoryCache = MemoryCache.Default;
-            if (memoryCache.Contains(id.ToString()))
+            List<Cottage> cached = memoryCache.Get("allCottages") as List<Cottage>;
+            var deleted = cached?.Find(cottage => cottage.IdCottage == id);
+            if (deleted != null)
             {
-                memoryCache.Remove(id.ToString());
+                cached.Remove(deleted);
+                memoryCache.Set("allCottages", cached, DateTime.Now.AddMinutes(_cachingTime));
             }
         }
         

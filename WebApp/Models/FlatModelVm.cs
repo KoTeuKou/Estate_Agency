@@ -1,63 +1,24 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace WebApp.Models
+﻿namespace WebApp.Models
 {
     public class FlatModelVm
     {
         public int Id { get; set; }
-        
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
         public int FlatNumber { get; set; }
-
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
         public int FloorNumber { get; set; }
-
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
         public int SquareOfFlat { get; set; }
-
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
         public int NumOfRooms { get; set; }
-
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
         public int Price { get; set; }
-
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
-        public string Owner { get; set; }
-
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
+        public int IdOwner { get; set; }
         public int House { get; set; }
-
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
+        public int IdHouse { get; set; }
         public string Street { get; set; }
-
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")]
         public string City { get; set; }
-
 
         public FlatModelVm()
         {
         }
 
-        public FlatModelVm(int flatNumber, int floorNumber, int squareOfFlat, int numOfRooms, int price, string owner,
+        public FlatModelVm(int flatNumber, int floorNumber, int squareOfFlat, int numOfRooms, int price, int idOwner,
             int house, string street, string city)
         {
             FlatNumber = flatNumber;
@@ -65,7 +26,7 @@ namespace WebApp.Models
             SquareOfFlat = squareOfFlat;
             NumOfRooms = numOfRooms;
             Price = price;
-            Owner = owner;
+            IdOwner = idOwner;
             House = house;
             Street = street;
             City = city;

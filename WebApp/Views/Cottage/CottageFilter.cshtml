@@ -1,4 +1,5 @@
-﻿@model WebApp.Models.CottageFilterVm
+﻿@using WebApp.Models
+@model WebApp.Models.CottageFilterVm
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -71,12 +72,20 @@
             <th scope="col">
                 <h3>Адрес</h3>
                 <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Город</label>
-                    @Html.EditorFor(model => model.City)
+                    <div class="form-group row width-class">
+                        <div class="col-2">
+                            <select onchange="document.getElementById('street').value = this.value">
+                                <option selected value=""></option>
+                                @foreach (var street in (IEnumerable<StreetVm>) ViewData["Streets"])
+                                {
+                                    <option label="@street.StreetName, @street.CityName" value="@street.StreetName"></option>
+                                }
 
-                    <label class="col-2 col-form-label">Улица</label>
-                    @Html.EditorFor(model => model.Street)
+                            </select>
+                        </div>
+                    </div>
                 </div>
+                @Html.EditorFor(model => model.Street, new {htmlAttributes = new {@id = "street", style = "visibility: hidden"}})
             </th>
         </tr>
         <tr>
@@ -85,7 +94,7 @@
         </thead>
     </table>
     <div align="center" style="margin: 10px;padding: 10px">
-        <input type="submit" value="Искать🔎" class="btn btn-primary" />
+        <input type="submit" value="Искать🔎" class="btn btn-primary"/>
     </div>
 }
 

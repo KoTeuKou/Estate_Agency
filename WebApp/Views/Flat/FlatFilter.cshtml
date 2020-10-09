@@ -1,9 +1,10 @@
-﻿@model WebApp.Models.FlatFilterVm
+﻿@using WebApp.Models
+@model WebApp.Models.FlatFilterVm
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("GetFlatsByFilters", "Flat", FormMethod.Post))
 {
     <table class="table">
         <thead>
@@ -71,16 +72,20 @@
             <th scope="col">
                 <h3>Адрес</h3>
                 <div class="form-group row width-class">
-                    <label class="col-2 col-form-label">Город</label>
-                    @Html.EditorFor(model => model.City)
+                    <div class="form-group row width-class">
+                        <div class="col-2">
+                            <select onchange="document.getElementById('house').value = this.value">
+                                <option selected  value=""></option>
+                                @foreach (var house in (IEnumerable<HouseVm>) ViewData["Houses"])
+                                {
+                                    <option label="@house.HouseNum, @house.StreetName, @house.CityName" value="@house.IdHouse"></option>
+                                }
 
-                    <label class="col-2 col-form-label">Улица</label>
-                    @Html.EditorFor(model => model.Street)
-
-                    <label class="col-2 col-form-label">№ дома</label>
-                    @Html.EditorFor(model => model.NumOfHouse)
-
+                            </select>
+                        </div>
+                    </div>
                 </div>
+                @Html.EditorFor(model => model.NumOfHouse, new {htmlAttributes = new {@id = "house", style = "visibility: hidden"}})
             </th>
         </tr>
         <tr>

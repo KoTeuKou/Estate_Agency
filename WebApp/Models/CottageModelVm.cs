@@ -1,67 +1,31 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace WebApp.Models
+﻿namespace WebApp.Models
 {
     public class CottageModelVm
     {
-     
         public int Id { get; set; }
-        
-        [Required]
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("")] 
         public int CottageNumber { get; set; }
-        
-        [Required]
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("")] 
         public int NumOfFloors { get; set; }
-       
-        [Required]
-        [RegularExpression("[\\d]+")]
-        [DefaultValue("")] 
         public double SquareOfCottage { get; set; }
-       
-        [Required]
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("")] 
         public int NumOfRooms { get; set; }
-      
-        [Required]
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("")] 
         public int Price { get; set; }
-     
-        [Required]
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("")] 
-        public string Owner { get; set; }
-     
-        [Required]
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("")] 
+        public int IdOwner { get; set; }
+        public int IdStreet { get; set; }
         public string Street { get; set; }
-      
-        [Required]
-        [RegularExpression("[\\d]+")] 
-        [DefaultValue("")] 
         public string City { get; set; }
-
-
+        
         public CottageModelVm()
         {
         }
 
-        public CottageModelVm(int cottageNumber, int numOfFloors, double squareOfCottage, int numOfRooms, int price, string owner, string street, string city)
+        public CottageModelVm(int cottageNumber, int numOfFloors, double squareOfCottage, int numOfRooms, int price, int idOwner, int idStreet, string city)
         {
           CottageNumber = cottageNumber;
             NumOfFloors = numOfFloors;
             SquareOfCottage = squareOfCottage;
             NumOfRooms = numOfRooms;
             Price = price;
-            Owner = owner;
-            Street = street;
+            IdOwner = idOwner;
+            IdStreet = idStreet;
             City = city;
         }
     }

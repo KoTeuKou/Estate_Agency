@@ -12,22 +12,20 @@
         public void AddFlat(Flat flat)
         {
             var memoryCache = MemoryCache.Default;
-            if (memoryCache.Get(flat.IdFlat.ToString()) is Flat)
-            {
-                memoryCache.Set(flat.IdFlat.ToString(), flat, DateTime.Now.AddMinutes(_cachingTime));
-            }
-            else
-            {
-                memoryCache.Add(flat.IdFlat.ToString(), flat, DateTime.Now.AddMinutes(_cachingTime));
-            }
+            List<Flat> cached = memoryCache.Get("allFlats") as List<Flat>;
+            cached?.Add(flat);
+            memoryCache.Set("allFlats", cached, DateTime.Now.AddMinutes(_cachingTime));
         }
 
         public void Delete(int id)
         {
             var memoryCache = MemoryCache.Default;
-            if (memoryCache.Contains(id.ToString()))
+            List<Flat> cached = memoryCache.Get("allFlats") as List<Flat>;
+            var deleted = cached?.Find(flat => flat.IdFlat == id);
+            if (deleted != null)
             {
-                memoryCache.Remove(id.ToString());
+                cached.Remove(deleted);
+                memoryCache.Set("allFlats", cached, DateTime.Now.AddMinutes(_cachingTime));
             }
         }
         public List<Flat> GetAll()

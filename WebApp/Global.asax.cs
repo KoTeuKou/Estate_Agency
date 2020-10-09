@@ -18,7 +18,7 @@ namespace WebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             
-            NinjectModule registrations = new NinjectRegistrations();
+            NinjectModule registrations = new Registrations();
             var kernel = new StandardKernel(registrations);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
