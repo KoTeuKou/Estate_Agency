@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using DALInterfaces;
 using Entities;
 
 namespace DALImplementations 
 {
-    public class FlatDao : IFlatDao
+    public class FlatDao : BaseDao, IFlatDao
     {
-        private string _connectionString = ConfigurationManager.ConnectionStrings["EstateAgency"].ConnectionString;
-
         public FlatDao()
         {
         }
@@ -45,14 +40,13 @@ namespace DALImplementations
                 }
             }
 
-            return result.AsEnumerable();
+            return result;
         }
         public Flat Create(Flat flat)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                try
-                {
+               
                     connection.Open();
                     var cmd = new SqlCommand("ADD_FLAT", connection);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -83,18 +77,12 @@ namespace DALImplementations
                         };
                     }
                     return flatFromDb;
-                }
-                catch (Exception e)
-                {
-                    return null;
-                }
             }
         }
 
         public bool Delete(int idFlat)
         {
-            try
-            {
+            
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
@@ -104,11 +92,7 @@ namespace DALImplementations
                     cmd.ExecuteNonQuery();
                     return true;
                 }
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+          
         }
 
         public IEnumerable<Flat> GetFlatsByFilters(FlatFilter filter)
@@ -151,7 +135,7 @@ namespace DALImplementations
                 }
             }
 
-            return result.AsEnumerable();
+            return result;
         }
     }
 }

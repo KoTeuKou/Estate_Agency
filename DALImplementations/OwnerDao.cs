@@ -1,23 +1,18 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using DALInterfaces;
 using Entities;
 
 namespace DALImplementations
 {
-    public class OwnerDao : IOwnerDao
+    public class OwnerDao : BaseDao, IOwnerDao
     {
-        private string _connectionString = ConfigurationManager.ConnectionStrings["EstateAgency"].ConnectionString;
-
         public IEnumerable<Owner> GetAll()
         {
             var result = new List<Owner>();
             using (var connection = new SqlConnection(_connectionString))
             {
-               
                 var cmd = new SqlCommand("GET_ALL_OWNERS", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 connection.Open();
@@ -33,7 +28,7 @@ namespace DALImplementations
                 }
             }
 
-            return result.AsEnumerable();
+            return result;
         }
     }
 }

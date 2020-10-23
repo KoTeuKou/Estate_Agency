@@ -1,23 +1,18 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using DALInterfaces;
 using Entities;
 
 namespace DALImplementations
 {
-    public class StreetDao : IStreetDao
+    public class StreetDao : BaseDao, IStreetDao
     {
-        private string _connectionString = ConfigurationManager.ConnectionStrings["EstateAgency"].ConnectionString;
-
         public IEnumerable<Street> GetAll()
         {
             var result = new List<Street>();
             using (var connection = new SqlConnection(_connectionString))
             {
-
                 var cmd = new SqlCommand("GET_ALL_STREETS", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 connection.Open();
@@ -35,7 +30,7 @@ namespace DALImplementations
                 }
             }
 
-            return result.AsEnumerable();
+            return result;
         }
     }
 }

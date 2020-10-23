@@ -10,86 +10,58 @@ namespace BLLImplementations
 {
       public class FlatLogic : IFlatLogic
     {
-        private IFlatDao _flatDao;
-        private FlatCache _flatCache;
+        private readonly IFlatDao _flatDao;
+        private readonly CacheLogic _cache;
+        private readonly string _cacheKey = "flats";
         public FlatLogic(IFlatDao flatDao)
         {
             _flatDao = flatDao;
-            _flatCache = new FlatCache();
+            _cache = new CacheLogic();
         }
         
         public List<Flat> GetAll()
         {
-            var flatsFromCache = _flatCache.GetAll();
-            List<Flat> flatsFromDb;
-            if (flatsFromCache == null || flatsFromCache.Count == 0)
-            {
-                flatsFromDb = _flatDao.GetAll().ToList();
-                _flatCache.AddListOfFLats(flatsFromDb);
-                return flatsFromDb;
-            }
-            return flatsFromCache;
+            return _cache.GetAll( () =>_flatDao.GetAll().ToList(), _cacheKey);
         }
         
         public Flat Create(Flat flat)
         {
-            var flatFromDb = _flatDao.Create(flat);
-            if (flatFromDb != null)
-            {
-                _flatCache.AddFlat(flatFromDb);
-            }
-
-            return flatFromDb;
+            return _cache.Add(() => _flatDao.Create(flat), _cacheKey);
         }
         
-        public Boolean Delete(int id)
+        public bool Delete(int id)
         {
-            var isDeleted = _flatDao.Delete(id);
-            if (isDeleted)
-            {
-                _flatCache.Delete(id);
-            }
-            return isDeleted;
+            return  _cache.Delete(id, () => _flatDao.Delete(id), _cacheKey);;
         }
         
         public List<Flat> GetFlatsByFilters(FlatFilter filter)
         {
-            var flatsByFilters = _flatDao.GetFlatsByFilters(filter).ToList();
-            _flatCache.AddListOfFLats(flatsByFilters);
-            return flatsByFilters;
+            return _cache.SetAll(() => _flatDao.GetFlatsByFilters(filter).ToList(), _cacheKey);
         }
         public List<Flat> GetSortedBy(SortBy sortBy)
         {
-            var flatsFromCache = _flatCache.GetAll();
-            List<Flat> tempFlats;
-            if (flatsFromCache == null || flatsFromCache.Count == 0)
-            {
-                tempFlats = _flatDao.GetAll().ToList();
-            }
-            else
-            {
-                tempFlats = flatsFromCache;
-            }
+            var flatsFromCache = _cache.GetAll(_cacheKey, () => _flatDao.GetAll().ToList());
+            flatsFromCache = GetSortedCollectionBy(sortBy, flatsFromCache);
+            return flatsFromCache;
+        }
+
+        private static List<Flat> GetSortedCollectionBy(SortBy sortBy, IEnumerable<Flat> tempFlats)
+        {
             switch (sortBy)
             {
                 case SortBy.FLOOR:
-                    tempFlats = tempFlats.OrderBy(x => x.FloorNumber).ToList();
-                    break;
+                    return tempFlats.OrderBy(x => x.FloorNumber).ToList();
                 case SortBy.NUMBER:
-                    tempFlats = tempFlats.OrderBy(x => x.FlatNumber).ToList();
-                    break;
+                    return tempFlats.OrderBy(x => x.FlatNumber).ToList();
                 case SortBy.ROOMS:
-                    tempFlats = tempFlats.OrderBy(x => x.NumOfRooms).ToList();
-                    break;
+                    return tempFlats.OrderBy(x => x.NumOfRooms).ToList();
                 case SortBy.SQUARE:
-                    tempFlats = tempFlats.OrderBy(x => x.SquareOfFlat).ToList();
-                    break;
+                    return tempFlats.OrderBy(x => x.SquareOfFlat).ToList();
                 case SortBy.PRICE:
-                    tempFlats = tempFlats.OrderBy(x => x.Price).ToList();
-                    break;
+                    return tempFlats.OrderBy(x => x.Price).ToList();
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(sortBy), sortBy, null);
             }
-            _flatCache.AddListOfFLats(tempFlats);
-            return tempFlats;
         }
     }
 }

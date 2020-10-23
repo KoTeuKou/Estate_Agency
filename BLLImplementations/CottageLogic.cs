@@ -11,85 +11,57 @@ namespace BLLImplementations
     public class CottageLogic : ICottageLogic
     {
         private ICottageDao _cottageDao;
-        private CottageCache _cottageCache;
+        private CacheLogic _cache;
+        private readonly string _cacheKey = "cottages";
+        
         public CottageLogic(ICottageDao cottageDao)
         {
             _cottageDao = cottageDao;
-            _cottageCache = new CottageCache();
+            _cache = new CacheLogic();
         }
         
         public List<Cottage> GetAll()
         {
-            var cottagesFromCache = _cottageCache.GetAll();
-            List<Cottage> cottagesFromDb;
-            if (cottagesFromCache == null || cottagesFromCache.Count == 0)
-            {
-                cottagesFromDb = _cottageDao.GetAll().ToList();
-                _cottageCache.AddListOfCottages(cottagesFromDb);
-                return cottagesFromDb;
-            }
-            return cottagesFromCache;
+            return _cache.GetAll( () =>_cottageDao.GetAll().ToList(), _cacheKey);
         }
         
         public Cottage Create(Cottage cottage)
         {
-            var cottageFromDb = _cottageDao.Create(cottage);
-            if (cottageFromDb != null)
-            {
-                _cottageCache.AddCottage(cottageFromDb);
-            }
-
-            return cottageFromDb;
+            return _cache.Add(() => _cottageDao.Create(cottage), _cacheKey);
         }
         
-        public Boolean Delete(int id)
+        public bool Delete(int id)
         {
-            var isDeleted = _cottageDao.Delete(id);
-            if (isDeleted)
-            {
-                _cottageCache.Delete(id);
-            }
-            return isDeleted;
+            return  _cache.Delete(id, () => _cottageDao.Delete(id), _cacheKey);;
         }
         
         public List<Cottage> GetCottagesByFilters(CottageFilter filter)
         {
-            var cottagesByFilters = _cottageDao.GetCottagesByFilters(filter).ToList();
-            _cottageCache.AddListOfCottages(cottagesByFilters);
-            return cottagesByFilters;
+            return _cache.SetAll(() => _cottageDao.GetCottagesByFilters(filter).ToList(), _cacheKey);
         }
         public List<Cottage> GetSortedBy(SortBy sortBy)
         {
-            var cottagesFromCache = _cottageCache.GetAll();
-            List<Cottage> tempCottages;
-            if (cottagesFromCache == null || cottagesFromCache.Count == 0)
-            {
-                tempCottages = _cottageDao.GetAll().ToList();
-            }
-            else
-            {
-                tempCottages = cottagesFromCache;
-            }
+            var cottagesFromCache = _cache.GetAll(_cacheKey, () => _cottageDao.GetAll().ToList());
+            cottagesFromCache = GetSortedCollectionBy(sortBy, cottagesFromCache);
+            return cottagesFromCache;
+        }
+        private List<Cottage> GetSortedCollectionBy(SortBy sortBy, IEnumerable<Cottage> tempCottages)
+        {
             switch (sortBy)
-            {
-                case SortBy.FLOOR:
-                    tempCottages = tempCottages.OrderBy(x => x.NumOfFloors).ToList();
-                    break;
-                case SortBy.NUMBER:
-                    tempCottages = tempCottages.OrderBy(x => x.CottageNumber).ToList();
-                    break;
-                case SortBy.ROOMS:
-                    tempCottages = tempCottages.OrderBy(x => x.NumOfRooms).ToList();
-                    break;
-                case SortBy.SQUARE:
-                    tempCottages = tempCottages.OrderBy(x => x.SquareOfCottage).ToList();
-                    break;
-                case SortBy.PRICE:
-                    tempCottages = tempCottages.OrderBy(x => x.Price).ToList();
-                    break;
-            }
-            _cottageCache.AddListOfCottages(tempCottages);
-            return tempCottages;
+                {
+                    case SortBy.FLOOR:
+                        return tempCottages.OrderBy(x => x.NumOfFloors).ToList();
+                    case SortBy.NUMBER:
+                        return tempCottages.OrderBy(x => x.CottageNumber).ToList();
+                    case SortBy.ROOMS:
+                        return tempCottages.OrderBy(x => x.NumOfRooms).ToList();
+                    case SortBy.SQUARE:
+                        return tempCottages.OrderBy(x => x.SquareOfCottage).ToList();
+                    case SortBy.PRICE:
+                        return tempCottages.OrderBy(x => x.Price).ToList();
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(sortBy), sortBy, null);
+                }
         }
     }
 }

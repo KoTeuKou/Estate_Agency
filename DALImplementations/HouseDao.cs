@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using DALInterfaces;
 using Entities;
 
 namespace DALImplementations
 {
-    public class HouseDao : IHouseDao
+    public class HouseDao : BaseDao, IHouseDao
     {
-        private string _connectionString = ConfigurationManager.ConnectionStrings["EstateAgency"].ConnectionString;
-
         public IEnumerable<House> GetAll()
         {
             var result = new List<House>();
@@ -36,7 +32,7 @@ namespace DALImplementations
                 }
             }
 
-            return result.AsEnumerable();
+            return result;
         }
     }
 }

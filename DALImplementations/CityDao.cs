@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using DALInterfaces;
 using Entities;
 
 namespace DALImplementations
 {
-    public class CityDao : ICityDao
+    public class CityDao : BaseDao, ICityDao
     {
-        private string _connectionString = ConfigurationManager.ConnectionStrings["EstateAgency"].ConnectionString;
-
         public IEnumerable<City> GetAll()
         {
             var result = new List<City>();
@@ -33,7 +29,7 @@ namespace DALImplementations
                 }
             }
 
-            return result.AsEnumerable();
+            return result;
         }
     }
 }

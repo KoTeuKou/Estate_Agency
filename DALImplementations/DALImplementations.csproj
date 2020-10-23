@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDao.cs" />
     <Compile Include="CityDao.cs" />
     <Compile Include="CottageDao.cs" />
     <Compile Include="FlatDao.cs" />
@@ -62,6 +63,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="resources\DataGeneration_20200316-0130.sql" />
     <Content Include="resources\creation_script.sql" />
   </ItemGroup>

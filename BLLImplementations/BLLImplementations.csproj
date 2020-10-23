@@ -51,9 +51,9 @@
       <Project>{921eb688-e02d-49d6-81bd-c35e2342c3a1}</Project>
       <Name>BLLInterfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cache\Cache.csproj">
+    <ProjectReference Include="..\CacheLogic\CacheLogic.csproj">
       <Project>{ac8a1f98-0fde-4152-9c86-10d697a45940}</Project>
-      <Name>Cache</Name>
+      <Name>CacheLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\DALImplementations\DALImplementations.csproj">
       <Project>{69a24952-589c-47c3-b9c1-c1df7049d61b}</Project>
@@ -67,6 +67,9 @@
       <Project>{50049b72-aeb0-413b-9383-d251eb7cd916}</Project>
       <Name>Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

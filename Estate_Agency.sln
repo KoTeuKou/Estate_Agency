@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLInterfaces", "BLLInterfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLImplementations", "BLLImplementations\BLLImplementations.csproj", "{9A622130-F485-4957-8FA8-30B76341B458}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache", "Cache\Cache.csproj", "{AC8A1F98-0FDE-4152-9C86-10D697A45940}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheLogic", "CacheLogic\CacheLogic.csproj", "{AC8A1F98-0FDE-4152-9C86-10D697A45940}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
